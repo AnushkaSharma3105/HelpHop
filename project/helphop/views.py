@@ -96,3 +96,10 @@ def verify_email(request):
             messages.error(request, 'OTP not found')
 
     return render(request, 'helphop/verify.html')
+
+def landing(request):
+    return render(request, "helphop/landing.html")
+def register_user(request):
+    return render(request, "helphop/register_user.html")
+def login_view(request):
+    return render(request, "helphop/login.html")

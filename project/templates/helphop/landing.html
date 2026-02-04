@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELPHOP</title>
+
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/index.css' %}">
+</head>
+
+<body class="home-page">
+
+    <div class="home-bg">
+        <div class="home-bg-gradient"></div>
+        <div class="home-bg-orb home-bg-orb-1"></div>
+        <div class="home-bg-orb home-bg-orb-2"></div>
+        <div class="home-bg-orb home-bg-orb-3"></div>
+        <div class="home-bg-grid"></div>
+    </div>
+
+    <header class="home-header">
+        <a href="{% url 'landing' %}" class="site-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+        </a>
+        <p class="tagline">Connect customers with skilled workers</p>
+    </header>
+
+    <main class="home-main">
+
+        <section class="hero">
+            <p class="hero-badge">Welcome</p>
+            <h2 class="hero-title">
+                Your bridge between
+                <span class="text-gradient">talent</span>
+                and
+                <span class="text-gradient">opportunity</span>
+            </h2>
+            <p class="hero-desc">
+                Hire workers by the hour or per service. Workers manage their schedule, dates, and timings in one place.
+            </p>
+        </section>
+
+        <section class="user-types">
+            <div class="user-card user-card-customer">
+                <div class="user-card-icon">👤</div>
+                <h3>For Customers</h3>
+                <p>
+                    Hire skilled workers when you need them.
+                    Choose <strong>per hour</strong> or <strong>per service</strong>.
+                </p>
+            </div>
+
+            <div class="user-card user-card-worker">
+                <div class="user-card-icon">⚡</div>
+                <h3>For Workers</h3>
+                <p>
+                    View your scheduled dates, timings, and bookings.
+                    Manage availability and get hired.
+                </p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h3 class="cta-title">Get Started</h3>
+            <div class="cta-buttons">
+                <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+                <a href="{% url 'register_user' %}" class="btn btn-secondary">Sign Up</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="home-footer">
+        <p>
+            Already have an account?
+            <a href="{% url 'login' %}">Login</a>
+            <span class="footer-dot">·</span>
+            New here?
+            <a href="{% url 'register_user' %}">Sign Up</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>

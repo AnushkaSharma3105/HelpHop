@@ -1,13 +1,75 @@
-<h2>HelpHop Login</h2>
+{% load static %}
 
-{% for message in messages %}
-  <p>{{ message }}</p>
-{% endfor %}
+<!DOCTYPE html>
+<html lang="en">
 
-<form method="post">
-    {% csrf_token %}
-    <input type="text" name="username" placeholder="Username" required><br><br>
-    <input type="password" name="password" placeholder="Password" required><br><br>
-    <button type="submit">Login</button>
-</form>
-<p>New user? <a href="{% url 'register' %}">Register</a></p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | HELPHOP</title>
+
+  <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'helphop/css/login.css' %}">
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <a href="{% url 'landing' %}" class="site-logo">
+      <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+    </a>
+
+
+    <form method="post" id="form">
+      {% csrf_token %}
+
+      <h1>Login</h1>
+
+      <div class="user-type-group">
+        <span>I am signing in as</span>
+        <div class="user-type-options">
+          <input type="radio" name="user_type" id="login-customer" value="customer" required>
+          <label for="login-customer" class="radio-customer">Customer</label>
+
+          <input type="radio" name="user_type" id="login-worker" value="worker">
+          <label for="login-worker" class="radio-worker">Worker</label>
+        </div>
+      </div>
+
+
+      <div class="input-group">
+        <label for="email-input">
+          <span>@</span>
+        </label>
+        <input type="email" name="email" id="email-input" placeholder="example@gmail.com" required>
+      </div>
+
+
+      <div class="input-group">
+        <label for="password-input">
+          <img src="{% static 'helphop/images/lock.png' %}" alt="lock">
+        </label>
+        <input type="password" name="password" id="password-input" placeholder="Password" required>
+      </div>
+
+
+      <button type="submit">Login</button>
+      <p class="form-actions">
+        Don't have an account?
+        <a href="{% url 'register_user' %}">Sign Up</a>
+      </p>
+
+    </form>
+
+    <a href="{% url 'landing' %}" class="back-home">
+      ← Back to Home
+    </a>
+
+  </div>
+
+  <script src="{% static 'js/validation.js' %}" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Outfit:wght@400;500;600;700;800&display=swap');
+:root{
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-light: #3b82f6;
+    --accent-soft: rgba(37, 99, 235, 0.15);
+    --text-dark: #0f172a;
+    --text-muted: #475569;
+    --surface: #ffffff;
+    --surface-glass: rgba(255, 255, 255, 0.92);
+    --input-bg: #f1f5f9;
+    --border: rgba(15, 23, 42, 0.08);
+    --shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.12);
+    --ascent-color: var(--accent);
+    --base-color: #fff;
+    --text-color: var(--text-dark);
+    --input-color: var(--input-bg);
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: 'Outfit', Poppins, Segoe UI, sans-serif;
+    font-size: 12pt;
+    color: var(--text-dark);
+    text-align: center;
+}
+body{
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.wrapper{
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    height: 100vh;
+    width: max(40%, 100px);
+    padding: 10px;
+    border-radius: 0 24px 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+form{
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: var(--surface-glass);
+}
+form{
+    width: min(400px, 100%);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 2rem;
+    background: var(--surface-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.9);
+    transform: perspective(800px) rotateX(2deg) rotateY(-1deg);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+form:hover{
+    transform: perspective(800px) rotateX(1deg) rotateY(0deg) translateZ(8px);
+    box-shadow: 0 20px 48px rgba(37, 99, 235, 0.12), inset 0 1px 0 rgba(255,255,255,0.95);
+}
+form > div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form label{
+    flex-shrink: 0;
+    height: 50px;
+    width: 50px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    fill: var(--base-color);
+    color: var(--base-color);
+    border-radius: 12px 0 0 12px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+form input{
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 1em;
+    font: inherit;
+    border-radius: 0 12px 12px 0;
+    border: 2px solid var(--input-bg);
+    border-left: none;
+    background-color: var(--input-bg);
+    color: var(--text-dark);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+form input:hover{
+    border-color: var(--accent-light);
+}
+
+form input:focus{
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+div:has(input:focus) > label{
+    background: linear-gradient(135deg, var(--text-dark), #1e293b);
+}
+
+form input::placeholder{
+    color: var(--text-muted);
+    opacity: 1;
+}
+
+form button{
+    margin-top: 10px;
+    border: none;
+    border-radius: 1000px;
+    padding: 0.9em 4em;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: var(--base-color);
+    font: inherit;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+form button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+}
+
+form button:focus{
+    outline: none;
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.wrapper p{
+    color: var(--text-dark);
+    font-weight: 500;
+}
+.wrapper p a{
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+.wrapper p a:hover{
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+a{
+    text-decoration: none;
+    color: var(--accent);
+}
+a:hover{
+    text-decoration: underline;
+}
+
+.site-logo{
+    display: inline-block;
+    text-decoration: none;
+}
+.site-logo img{
+    vertical-align: middle;
+}
+
+.user-type-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+.user-type-group > span{
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+.user-type-options{
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    justify-content: center;
+}
+.user-type-options label{
+    flex: 1;
+    max-width: 140px;
+    height: auto;
+    min-height: 44px;
+    padding: 0.6rem 0.75rem;
+    border-radius: 12px;
+    background-color: var(--input-bg);
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: snow;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.user-type-options input{
+    display: none;
+}
+.user-type-options input:checked + label{
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: var(--base-color);
+    border-color: var(--accent);
+}
+.user-type-options label:hover{
+    border-color: var(--accent-light);
+}
+.form-actions{
+    margin-top: 0.5rem;
+}
+.form-actions a{
+    color: var(--ascent-color);
+    font-weight: 600;
+}
+.form-actions a:hover{
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+.back-home{
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.back-home:hover{
+    color: var(--accent);
+    text-decoration: underline;
+}
+.user-type-options input:checked + label {
+    background: none;
+    border-color: transparent;
+    color: var(--text-dark);
+}
+
+.user-type-options input:checked + label.radio-customer {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-color: #16a34a;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35);
+}
+
+.user-type-options input:checked + label.radio-worker {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    border-color: #ea580c;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35);
+}

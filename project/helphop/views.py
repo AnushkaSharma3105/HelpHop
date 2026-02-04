@@ -103,3 +103,5 @@ def register_user(request):
     return render(request, "helphop/register_user.html")
 def login_view(request):
     return render(request, "helphop/login.html")
+def contact(request):
+    return render(request, "helphop/contact.html")

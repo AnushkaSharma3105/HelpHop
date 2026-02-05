@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | HELPHOP Customer</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/customer_pages.css' %}">
+</head>
+<body class="customer-pages-page customer-dashboard-page">
+    <div class="page-bg">
+        <div class="page-bg-gradient"></div>
+        <div class="page-bg-dots"></div>
+    </div>
+
+    <nav class="customer-nav">
+        <a href="{% url 'customer_home' %}" class="nav-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'customer_home' %}" class="nav-link">Home</a></li>
+            <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+            <li><a href="{% url 'customer_services' %}" class="nav-link">Services</a></li>
+            <li><a href="{% url 'customer_profile' %}" class="nav-link">Profile</a></li>
+            <li><a href="{% url 'customer_settings' %}" class="nav-link">Settings</a></li>
+            <li><a href="{% url 'customer_dashboard' %}" class="nav-link active">Dashboard</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <div class="nav-user">
+            <span class="nav-user-name">Hi, {{ request.user.first_name|default:request.user.username }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <main class="customer-main">
+        <header class="page-header">
+            <span class="page-badge">Dashboard</span>
+            <h1 class="page-title">My <span class="page-title-accent">bookings</span></h1>
+            <p class="page-desc">View and manage your past and upcoming bookings.</p>
+        </header>
+
+        <section class="content-card">
+            <div class="bookings-toolbar">
+                <div class="bookings-tabs">
+                    <button type="button" class="bookings-tab active" data-filter="all">All</button>
+                    <button type="button" class="bookings-tab" data-filter="upcoming">Upcoming</button>
+                    <button type="button" class="bookings-tab" data-filter="completed">Completed</button>
+                </div>
+            </div>
+
+            <div class="bookings-list">
+                <div class="booking-card" data-booking-status="completed">
+                    <div class="booking-main">
+                        <span class="booking-badge booking-badge-completed">Completed</span>
+                        <h3 class="booking-service">Home cleaning</h3>
+                        <p class="booking-date">15 Jan 2025, 10:00 AM</p>
+                        <p class="booking-address">123, Main Street, City</p>
+                    </div>
+                    <div class="booking-meta">
+                        <span class="booking-id">#BH001</span>
+                        <span class="booking-amount">₹ 800</span>
+                    </div>
+                </div>
+                <div class="booking-card" data-booking-status="completed">
+                    <div class="booking-main">
+                        <span class="booking-badge booking-badge-completed">Completed</span>
+                        <h3 class="booking-service">Plumbing – tap repair</h3>
+                        <p class="booking-date">10 Jan 2025, 2:30 PM</p>
+                        <p class="booking-address">123, Main Street, City</p>
+                    </div>
+                    <div class="booking-meta">
+                        <span class="booking-id">#BH002</span>
+                        <span class="booking-amount">₹ 450</span>
+                    </div>
+                </div>
+                <div class="booking-card" data-booking-status="upcoming">
+                    <div class="booking-main">
+                        <span class="booking-badge booking-badge-upcoming">Upcoming</span>
+                        <h3 class="booking-service">Electrical – wiring check</h3>
+                        <p class="booking-date">25 Jan 2025, 11:00 AM</p>
+                        <p class="booking-address">123, Main Street, City</p>
+                    </div>
+                    <div class="booking-meta">
+                        <span class="booking-id">#BH003</span>
+                        <span class="booking-amount">₹ 600</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="bookings-empty-msg bookings-empty-filter" id="bookings-empty-filter" style="display: none;">No bookings in this category.</p>
+            <p class="bookings-empty-msg" id="bookings-empty-end">No more bookings to show.</p>
+        </section>
+    </main>
+
+    <script src="{% static 'helphop/js/customer_dashboard.js' %}" defer></script>
+</body>
+</html>

@@ -25,19 +25,6 @@
       {% csrf_token %}
 
       <h1>Login</h1>
-
-      <div class="user-type-group">
-        <span>I am signing in as</span>
-        <div class="user-type-options">
-          <input type="radio" name="user_type" id="login-customer" value="customer" required>
-          <label for="login-customer" class="radio-customer">Customer</label>
-
-          <input type="radio" name="user_type" id="login-worker" value="worker">
-          <label for="login-worker" class="radio-worker">Worker</label>
-        </div>
-      </div>
-
-
       <div class="input-group">
         <label for="email-input">
           <span>@</span>

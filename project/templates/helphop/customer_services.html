@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | HELPHOP Customer</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/customer_pages.css' %}">
+</head>
+<body class="customer-pages-page customer-services-page">
+    <div class="page-bg">
+        <div class="page-bg-gradient"></div>
+        <div class="page-bg-dots"></div>
+    </div>
+
+    <nav class="customer-nav">
+        <a href="{% url 'customer_home' %}" class="nav-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'customer_home' %}" class="nav-link">Home</a></li>
+            <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+            <li><a href="{% url 'customer_services' %}" class="nav-link active">Services</a></li>
+            <li><a href="{% url 'customer_profile' %}" class="nav-link">Profile</a></li>
+            <li><a href="{% url 'customer_settings' %}" class="nav-link">Settings</a></li>
+            <li><a href="{% url 'customer_dashboard' %}" class="nav-link">Dashboard</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <div class="nav-user">
+            <span class="nav-user-name">Hi, {{ request.user.first_name|default:request.user.username }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <main class="customer-main">
+        <header class="page-header">
+            <span class="page-badge">Explore</span>
+            <h1 class="page-title">Household <span class="page-title-accent">services</span></h1>
+            <p class="page-desc">Explore household services. Book instant (30 min) or schedule for later.</p>
+        </header>
+
+        <div class="services-grid">
+            <a href="#" class="service-tile">
+                <span class="service-tile-icon-wrap"><span class="service-tile-icon">🧹</span></span>
+                <h3>Home cleaning</h3>
+                <p>Full home or room-wise cleaning</p>
+            </a>
+            <a href="#" class="service-tile">
+                <span class="service-tile-icon-wrap"><span class="service-tile-icon">🔧</span></span>
+                <h3>Plumbing</h3>
+                <p>Fixes, installations, maintenance</p>
+            </a>
+            <a href="#" class="service-tile">
+                <span class="service-tile-icon-wrap"><span class="service-tile-icon">💡</span></span>
+                <h3>Electrical</h3>
+                <p>Wiring, fittings, safety checks</p>
+            </a>
+            <a href="#" class="service-tile">
+                <span class="service-tile-icon-wrap"><span class="service-tile-icon">🎨</span></span>
+                <h3>Painting</h3>
+                <p>Interior and exterior painting</p>
+            </a>
+            <a href="#" class="service-tile">
+                <span class="service-tile-icon-wrap"><span class="service-tile-icon">🧺</span></span>
+                <h3>Laundry</h3>
+                <p>Wash, iron, and fold</p>
+            </a>
+            <a href="#" class="service-tile">
+                <span class="service-tile-icon-wrap"><span class="service-tile-icon">🛠</span></span>
+                <h3>Repairs</h3>
+                <p>General repairs and handyman</p>
+            </a>
+        </div>
+    </main>
+</body>
+</html>

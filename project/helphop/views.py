@@ -10,8 +10,6 @@ from django.core.mail import send_mail
 from .models import EmailOTP
 
 
-
-
 # Login
 def login_view(request):
     if request.method == 'POST':

@@ -29,7 +29,7 @@
         </ul>
         {% if request.user.is_authenticated %}
         <div class="nav-user">
-            <span class="nav-user-name">Hi, {{ request.user.email }}</span>
+            <span class="nav-user-name">Hi, {{ request.user.first_name }}</span>
             <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
         </div>
         {% endif %}

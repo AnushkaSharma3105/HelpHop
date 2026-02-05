@@ -19,8 +19,14 @@
             <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
         </a>
 
-        <form method="post" id="form">
+        <form method="post" id="form" action="{% url 'register' %}">
             {% csrf_token %}
+
+            {% if form.errors %}
+                <div style="color:red; margin-bottom:10px;">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
 
             <h1>Sign Up</h1>
             <div class="user-type-group">
@@ -86,7 +92,7 @@
 
     </div>
 
-    <script src="{% static 'helphop/js/validation.js' %}" defer></script>
+    <!-- <script src="{% static 'helphop/js/validation.js' %}" defer></script> -->
 </body>
 
 </html>

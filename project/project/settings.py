@@ -28,6 +28,9 @@ INSTALLED_APPS = [
     'helphop',
 ]
 
+# custom user
+AUTH_USER_MODEL = "helphop.User"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

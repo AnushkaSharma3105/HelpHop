@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/signup.css' %}">
 </head>
+
 <body>
     <div class="wrapper">
 
@@ -21,6 +23,16 @@
             {% csrf_token %}
 
             <h1>Sign Up</h1>
+            <div class="user-type-group">
+                <span>I am signing in as</span>
+                <div class="user-type-options">
+                    <input type="radio" name="user_type" id="login-customer" value="customer" required>
+                    <label for="login-customer" class="radio-customer">Customer</label>
+
+                    <input type="radio" name="user_type" id="login-worker" value="worker">
+                    <label for="login-worker" class="radio-worker">Worker</label>
+                </div>
+            </div>
 
             <div>
                 <label>
@@ -76,4 +88,5 @@
 
     <script src="{% static 'helphop/js/validation.js' %}" defer></script>
 </body>
+
 </html>

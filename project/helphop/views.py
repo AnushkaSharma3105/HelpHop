@@ -99,7 +99,56 @@ def verify_email(request):
 
 def landing(request):
     return render(request, "helphop/landing.html")
+
+
 def register_user(request):
     return render(request, "helphop/register_user.html")
-def login_view(request):
-    return render(request, "helphop/login.html")
+
+
+def contact(request):
+    return render(request, "helphop/contact.html")
+
+
+def customer_home(request):
+    return render(request, 'helphop/customer_home.html')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('landing')
+
+
+def customer_profile(request):
+    user = request.user
+    if user.is_authenticated:
+        full_name = (user.get_full_name() or user.username or '').strip() or 'Your name'
+        parts = full_name.split()
+        initials = (parts[0][0] + parts[-1][0]).upper() if len(parts) >= 2 else full_name[:2].upper()
+        try:
+            profile = user.profile
+            phone = profile.phone_number
+        except Profile.DoesNotExist:
+            phone = ''
+    else:
+        full_name = 'Your name'
+        initials = '?'
+        phone = ''
+    context = {
+        'user_full_name': full_name,
+        'user_email': user.email if user.is_authenticated else '',
+        'user_phone': phone,
+        'user_initials': initials,
+    }
+    return render(request, 'helphop/customer_profile.html', context)
+
+
+def customer_settings(request):
+    return render(request, 'helphop/customer_settings.html')
+
+
+def customer_services(request):
+    return render(request, 'helphop/customer_services.html')
+
+
+def customer_dashboard(request):
+    return render(request, 'helphop/customer_dashboard.html')

@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | HELPHOP Customer</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/customer_pages.css' %}">
+</head>
+<body class="customer-pages-page customer-settings-page">
+    <div class="page-bg">
+        <div class="page-bg-gradient"></div>
+        <div class="page-bg-dots"></div>
+    </div>
+
+    <nav class="customer-nav">
+        <a href="{% url 'customer_home' %}" class="nav-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'customer_home' %}" class="nav-link">Home</a></li>
+            <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+            <li><a href="{% url 'customer_services' %}" class="nav-link">Services</a></li>
+            <li><a href="{% url 'customer_profile' %}" class="nav-link">Profile</a></li>
+            <li><a href="{% url 'customer_settings' %}" class="nav-link active">Settings</a></li>
+            <li><a href="{% url 'customer_dashboard' %}" class="nav-link">Dashboard</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <div class="nav-user">
+            <span class="nav-user-name">Hi, {{ request.user.first_name|default:request.user.username }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <main class="customer-main">
+        <header class="page-header">
+            <span class="page-badge">Preferences</span>
+            <h1 class="page-title">Settings & <span class="page-title-accent">preferences</span></h1>
+            <p class="page-desc">Notifications, payment methods, and preferences.</p>
+        </header>
+
+        <section class="content-card">
+            <h2 class="content-card-title">Notifications</h2>
+            <div class="settings-list">
+                <label class="settings-toggle" for="notif-email">
+                    <span class="settings-toggle-label">Email notifications</span>
+                    <span class="settings-switch-wrap">
+                        <input type="checkbox" id="notif-email" class="settings-checkbox" checked>
+                        <span class="settings-switch" aria-hidden="true"></span>
+                    </span>
+                </label>
+                <label class="settings-toggle" for="notif-reminders">
+                    <span class="settings-toggle-label">Booking reminders</span>
+                    <span class="settings-switch-wrap">
+                        <input type="checkbox" id="notif-reminders" class="settings-checkbox" checked>
+                        <span class="settings-switch" aria-hidden="true"></span>
+                    </span>
+                </label>
+                <label class="settings-toggle" for="notif-promo">
+                    <span class="settings-toggle-label">Promotions and offers</span>
+                    <span class="settings-switch-wrap">
+                        <input type="checkbox" id="notif-promo" class="settings-checkbox">
+                        <span class="settings-switch" aria-hidden="true"></span>
+                    </span>
+                </label>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2 class="content-card-title">Payment methods</h2>
+            <p class="content-card-desc">Manage saved cards and default payment.</p>
+            <div class="settings-placeholder">
+                <p>No payment methods added yet.</p>
+                <button type="button" class="btn-secondary">Add payment method</button>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2 class="content-card-title">Preferences</h2>
+            <div class="form-row">
+                <label class="form-label" for="pref-language">Language</label>
+                <select id="pref-language" class="form-input form-select">
+                    <option>English</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label class="form-label" for="pref-timezone">Timezone</label>
+                <select id="pref-timezone" class="form-input form-select">
+                    <option>IST (India)</option>
+                </select>
+            </div>
+        </section>
+    </main>
+
+    <script src="{% static 'helphop/js/customer_settings.js' %}" defer></script>
+</body>
+</html>

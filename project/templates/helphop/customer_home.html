@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | HELPHOP Customer</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/customer_home.css' %}">
+</head>
+<body class="customer-home-page">
+    <div class="page-bg">
+        <div class="page-bg-gradient"></div>
+        <div class="page-bg-dots"></div>
+    </div>
+
+    <nav class="customer-nav">
+        <a href="{% url 'customer_home' %}" class="nav-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'customer_home' %}" class="nav-link active">Home</a></li>
+            <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+            <li><a href="{% url 'customer_services' %}" class="nav-link">Services</a></li>
+            <li><a href="{% url 'customer_profile' %}" class="nav-link">Profile</a></li>
+            <li><a href="{% url 'customer_settings' %}" class="nav-link">Settings</a></li>
+            <li><a href="{% url 'customer_dashboard' %}" class="nav-link">Dashboard</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <div class="nav-user">
+            <span class="nav-user-name">Hi, {{ request.user.first_name|default:request.user.username }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <main class="customer-main">
+        <section class="hero-section">
+            <div class="hero-badge">What we help with</div>
+            <h1 class="hero-title">Household help, <span class="hero-title-accent">when you need it</span></h1>
+            <p class="hero-desc">Book skilled workers for household chores—get help in as fast as 30 minutes or schedule for later. Your home, your schedule.</p>
+        </section>
+
+        <section class="service-types">
+            <h2 class="section-heading">How would you like to book?</h2>
+            <div class="service-cards">
+                <a href="#instant" class="service-card service-instant">
+                    <span class="service-icon-wrap"><span class="service-icon">⚡</span></span>
+                    <h3>Instant (30 min)</h3>
+                    <p>Need help right now? Get a worker at your doorstep in about 30 minutes. Perfect for urgent chores and same-day tasks.</p>
+                    <span class="service-cta">Book now <span class="arrow">→</span></span>
+                </a>
+                <a href="#schedule" class="service-card service-schedule">
+                    <span class="service-icon-wrap"><span class="service-icon">📅</span></span>
+                    <h3>Schedule for later</h3>
+                    <p>Plan ahead. Pick a date and time that works for you. Ideal for regular cleaning, repairs, or one-off tasks.</p>
+                    <span class="service-cta">Schedule <span class="arrow">→</span></span>
+                </a>
+            </div>
+        </section>
+
+        <section class="brief-info" id="brief-info">
+            <h2 class="section-heading">Quick links</h2>
+            <div class="info-cards">
+                <div class="info-card info-card-contact">
+                    <span class="info-card-icon">✉</span>
+                    <h3>Contact</h3>
+                    <p>Reach our support team for questions or issues. We're here Monday–Saturday, 9 AM–7 PM.</p>
+                    <a href="{% url 'contact' %}" class="info-link">Go to Contact →</a>
+                </div>
+                <div class="info-card info-card-services">
+                    <span class="info-card-icon">🔧</span>
+                    <h3>Services</h3>
+                    <p>Explore cleaning, repairs, plumbing, electrical, and more. See what workers near you offer.</p>
+                    <a href="{% url 'customer_services' %}" class="info-link">View Services →</a>
+                </div>
+                <div class="info-card info-card-profile">
+                    <span class="info-card-icon">👤</span>
+                    <h3>Profile</h3>
+                    <p>Manage your account, address, and contact details. Keep your info up to date.</p>
+                    <a href="{% url 'customer_profile' %}" class="info-link">My Profile →</a>
+                </div>
+                <div class="info-card info-card-settings">
+                    <span class="info-card-icon">⚙</span>
+                    <h3>Settings</h3>
+                    <p>Notifications, payment methods, and preferences. Customize your HELPHOP experience.</p>
+                    <a href="{% url 'customer_settings' %}" class="info-link">Settings →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="recommendations">
+            <h2 class="section-heading">Recommended for you</h2>
+            <p class="recommendations-desc">Popular services based on your needs.</p>
+            <div class="rec-cards">
+                <div class="rec-card rec-card-1">
+                    <span class="rec-label">Popular</span>
+                    <h4>Home cleaning</h4>
+                    <p>Full home or room-wise cleaning. Instant or scheduled.</p>
+                </div>
+                <div class="rec-card rec-card-2">
+                    <span class="rec-label">Quick</span>
+                    <h4>Plumbing & repair</h4>
+                    <p>Fixes and installations. Book in 30 min or later.</p>
+                </div>
+                <div class="rec-card rec-card-3">
+                    <span class="rec-label">Regular</span>
+                    <h4>Electrical work</h4>
+                    <p>Wiring, fittings, and safety checks. Schedule in advance.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

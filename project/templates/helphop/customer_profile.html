@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | HELPHOP Customer</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/customer_pages.css' %}">
+</head>
+<body class="customer-pages-page customer-profile-page">
+    <div class="page-bg">
+        <div class="page-bg-gradient"></div>
+        <div class="page-bg-dots"></div>
+    </div>
+
+    <nav class="customer-nav">
+        <a href="{% url 'customer_home' %}" class="nav-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'customer_home' %}" class="nav-link">Home</a></li>
+            <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+            <li><a href="{% url 'customer_services' %}" class="nav-link">Services</a></li>
+            <li><a href="{% url 'customer_profile' %}" class="nav-link active">Profile</a></li>
+            <li><a href="{% url 'customer_settings' %}" class="nav-link">Settings</a></li>
+            <li><a href="{% url 'customer_dashboard' %}" class="nav-link">Dashboard</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <div class="nav-user">
+            <span class="nav-user-name">Hi, {{ request.user.first_name|default:request.user.username }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <main class="customer-main customer-profile-main">
+        <header class="page-header">
+            <span class="page-badge">Your account</span>
+            <h1 class="page-title">Your <span class="page-title-accent">profile</span></h1>
+            <p class="page-desc">Manage your account and contact details.</p>
+        </header>
+
+        <section class="profile-hero">
+            <div class="profile-avatar" id="profile-avatar-preview">{{ user_initials }}</div>
+            <div class="profile-hero-text">
+                <h2 class="profile-hero-name" id="profile-name-preview">{{ user_full_name }}</h2>
+                <p class="profile-hero-email" id="profile-email-preview">{{ user_email|default:"Add your email" }}</p>
+            </div>
+        </section>
+
+        <section class="content-card profile-form-card">
+            <h2 class="content-card-title">Personal information</h2>
+            <p class="content-card-desc">Update your details below. These are used for bookings and account security.</p>
+            <form class="profile-form" id="profile-form">
+                {% csrf_token %}
+                <div class="profile-form-grid">
+                    <div class="profile-field">
+                        <label class="form-label" for="p-name">Full name</label>
+                        <input type="text" id="p-name" name="full_name" class="form-input profile-form-input" placeholder="Enter your full name" value="{{ user_full_name }}" maxlength="100">
+                    </div>
+                    <div class="profile-field">
+                        <label class="form-label" for="p-email">Email</label>
+                        <input type="email" id="p-email" name="email" class="form-input profile-form-input" placeholder="Enter your email" value="{{ user_email }}">
+                    </div>
+                    <div class="profile-field">
+                        <label class="form-label" for="p-phone">Phone</label>
+                        <input type="tel" id="p-phone" name="phone" class="form-input profile-form-input" placeholder="Enter your phone number" value="{{ user_phone }}">
+                    </div>
+                </div>
+                <div class="profile-field profile-field-full">
+                    <label class="form-label" for="p-address">Address</label>
+                    <textarea id="p-address" name="address" class="form-input form-textarea profile-form-input" placeholder="Enter your address for bookings" rows="3"></textarea>
+                </div>
+                <div class="profile-form-actions">
+                    <button type="submit" class="btn-submit">Save changes</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="{% static 'helphop/js/customer_profile.js' %}" defer></script>
+</body>
+</html>

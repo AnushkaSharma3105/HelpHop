@@ -7,6 +7,7 @@
     <title>Services | HELPHOP Customer</title>
     <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/customer_pages.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/card.css' %}">
 </head>
 <body class="customer-pages-page customer-services-page">
     <div class="page-bg">
@@ -41,38 +42,230 @@
             <p class="page-desc">Explore household services. Book instant (30 min) or schedule for later.</p>
         </header>
 
+
+        <!-- service grid -->
         <div class="services-grid">
-            <a href="#" class="service-tile">
+
+            <a href="javascript:void(0)" class="service-tile"
+                onclick="openModal('homeCleaningModal')">
                 <span class="service-tile-icon-wrap"><span class="service-tile-icon">🧹</span></span>
                 <h3>Home cleaning</h3>
                 <p>Full home or room-wise cleaning</p>
             </a>
-            <a href="#" class="service-tile">
+
+            <a href="javascript:void(0)" class="service-tile"
+                onclick="openModal('plumbingModal')">
                 <span class="service-tile-icon-wrap"><span class="service-tile-icon">🔧</span></span>
                 <h3>Plumbing</h3>
                 <p>Fixes, installations, maintenance</p>
             </a>
-            <a href="#" class="service-tile">
+
+            <a href="javascript:void(0)" class="service-tile"
+                onclick="openModal('electricalModal')">
                 <span class="service-tile-icon-wrap"><span class="service-tile-icon">💡</span></span>
                 <h3>Electrical</h3>
                 <p>Wiring, fittings, safety checks</p>
             </a>
-            <a href="#" class="service-tile">
+
+            <a href="javascript:void(0)" class="service-tile"
+                onclick="openModal('paintingModal')">
                 <span class="service-tile-icon-wrap"><span class="service-tile-icon">🎨</span></span>
                 <h3>Painting</h3>
                 <p>Interior and exterior painting</p>
             </a>
-            <a href="#" class="service-tile">
+
+            <a href="javascript:void(0)" class="service-tile"
+                onclick="openModal('laundryModal')">
                 <span class="service-tile-icon-wrap"><span class="service-tile-icon">🧺</span></span>
                 <h3>Laundry</h3>
                 <p>Wash, iron, and fold</p>
             </a>
-            <a href="#" class="service-tile">
+
+            <a href="javascript:void(0)" class="service-tile"
+                onclick="openModal('repairsModal')">
                 <span class="service-tile-icon-wrap"><span class="service-tile-icon">🛠</span></span>
                 <h3>Repairs</h3>
                 <p>General repairs and handyman</p>
             </a>
-        </div>
+
+            </div>
+
     </main>
+
+    <!-- card -->
+
+<!-- Home Cleaning Modal -->
+<div id="homeCleaningModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h2>Home Cleaning</h2>
+      <button class="close-btn" onclick="closeModal('homeCleaningModal')">×</button>
+
+    </div>
+
+    <div class="modal-body">
+      <div class="section">
+        <h4>Included</h4>
+        <ul>
+          <li>Floor sweeping & mopping</li>
+          <li>Bathroom cleaning</li>
+          <li>Kitchen surface cleaning</li>
+          <li>Dusting of furniture</li>
+        </ul>
+      </div>
+
+      <div class="section not-included">
+        <h4>Not Included</h4>
+        <ul>
+          <li>Wall painting</li>
+          <li>Furniture moving</li>
+          <li>Deep appliance cleaning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- plumbing -->
+<div id="plumbingModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h2>Plumbing</h2>
+      <button class="close-btn" onclick="closeModal('plumbingModal')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="section">
+        <h4>Included</h4>
+        <ul>
+          <li>Leak fixing</li>
+          <li>Tap & pipe installation</li>
+          <li>Drain unclogging</li>
+        </ul>
+      </div>
+      <div class="section not-included">
+        <h4>Not Included</h4>
+        <ul>
+          <li>Complete pipeline replacement</li>
+          <li>Bathroom renovation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Electric -->
+<div id="electricalModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h2>Electrical</h2>
+      <button class="close-btn" onclick="closeModal('electricalModal')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="section">
+        <h4>Included</h4>
+        <ul>
+          <li>Switch & socket repair</li>
+          <li>Fan and light installation</li>
+          <li>Safety inspection</li>
+        </ul>
+      </div>
+      <div class="section not-included">
+        <h4>Not Included</h4>
+        <ul>
+          <li>Complete house rewiring</li>
+          <li>Industrial electrical work</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Painting -->
+<div id="paintingModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h2>Painting</h2>
+      <button class="close-btn" onclick="closeModal('paintingModal')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="section">
+        <h4>Included</h4>
+        <ul>
+          <li>Interior wall painting</li>
+          <li>Primer application</li>
+          <li>Color consultation</li>
+        </ul>
+      </div>
+      <div class="section not-included">
+        <h4>Not Included</h4>
+        <ul>
+          <li>Wallpaper installation</li>
+          <li>Furniture painting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Laundry -->
+<div id="laundryModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h2>Laundry</h2>
+      <button class="close-btn" onclick="closeModal('laundryModal')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="section">
+        <h4>Included</h4>
+        <ul>
+          <li>Washing</li>
+          <li>Ironing</li>
+          <li>Folding</li>
+        </ul>
+      </div>
+      <div class="section not-included">
+        <h4>Not Included</h4>
+        <ul>
+          <li>Dry cleaning</li>
+          <li>Shoe & bag cleaning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Repairs -->
+<div id="repairsModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h2>Repairs</h2>
+      <button class="close-btn" onclick="closeModal('repairsModal')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="section">
+        <h4>Included</h4>
+        <ul>
+          <li>Minor furniture repair</li>
+          <li>Door & hinge fixing</li>
+          <li>Curtain rod installation</li>
+        </ul>
+      </div>
+      <div class="section not-included">
+        <h4>Not Included</h4>
+        <ul>
+          <li>Structural repairs</li>
+          <li>Custom carpentry</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="{% static 'helphop/js/card.js' %}"></script>
 </body>
 </html>

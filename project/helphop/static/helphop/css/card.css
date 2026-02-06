@@ -63,3 +63,35 @@
     opacity: 1;
   }
 }
+
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.action-btn {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.book-btn {
+  background-color: #16a34a; /* green */
+  color: #fff;
+}
+
+.schedule-btn {
+  background-color: #22c55e; /* lighter green */
+  color: #fff;
+}
+
+.action-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.95);
+}

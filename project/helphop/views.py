@@ -161,3 +161,13 @@ def customer_services(request):
 # dashboard
 def customer_dashboard(request):
     return render(request, 'helphop/customer_dashboard.html')
+
+
+# book now
+def book_now(request):
+    return render(request, 'helphop/book_now.html')
+
+
+# schedule
+def schedule(request):
+    return render(request, 'helphop/schedule.html')

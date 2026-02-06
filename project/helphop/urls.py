@@ -14,4 +14,7 @@ urlpatterns = [
     path("verify/", verify_view, name="verify"),
     path("login/", login_view, name="login"),
     path("logout/", logout_view, name="logout"),
+    path("book-now/", views.book_now, name="book_now"),
+    path("schedule/", views.schedule, name="schedule"),
+
 ]

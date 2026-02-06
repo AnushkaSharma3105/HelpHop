@@ -15,17 +15,23 @@ body.customer-pages-page {
 .page-bg {
     position: fixed;
     inset: 0;
-    z-index: 0;
+    z-index: -1;
     overflow: hidden;
-    background: url("../images/landing.png") center center / cover no-repeat;
-    background-color: #1e3a5f;
 }
 
 .page-bg-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(165deg, rgba(255, 255, 255, 0.7) 0%, rgba(241,245,249,0.75) 25%, rgba(238,242,255,0.8) 50%, rgba(241,245,249,0.75) 75%, rgba(248,250,252,0.7) 100%);
+
+    background: linear-gradient(
+        120deg,
+        #d8e0ff 0%,
+        #bad7fb 40%,
+        #95c8fb 70%,
+        #7ab9f8 100%
+    );
 }
+
 
 .page-bg-dots {
     position: absolute;

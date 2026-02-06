@@ -10,6 +10,29 @@
 
     <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/index.css' %}">
+
+    <style>
+.footer {
+    text-align: center;
+    z-index: 1;
+    color: rgb(236, 235, 235);
+    font-size: 15px;
+    background-color: rgb(46, 46, 46);
+    height: 20px;
+    width: 100%;
+}
+
+img{
+    margin-right: 1220px;
+    margin-top: -40px; 
+    
+}
+
+.hero{
+    margin-top: -45px;
+}
+</style>
+
 </head>
 
 <body class="home-page">
@@ -26,13 +49,13 @@
         <a href="{% url 'landing' %}" class="site-logo">
             <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
         </a>
-        <p class="tagline">Connect customers with skilled workers</p>
     </header>
 
     <main class="home-main">
 
         <section class="hero">
-            <p class="hero-badge">Welcome</p>
+            <p class="hero-badge" style="font-size: 30px;">Welcome</p> 
+            <p class="tagline">Connect customers with skilled workers</p>
             <h2 class="hero-title">
                 Your bridge between
                 <span class="text-gradient">talent</span>
@@ -74,15 +97,10 @@
 
     </main>
 
-    <footer class="home-footer">
-        <p>
-            Already have an account?
-            <a href="{% url 'login' %}">Login</a>
-            <span class="footer-dot">·</span>
-            New here?
-            <a href="{% url 'register' %}">Sign Up</a>
-        </p>
-    </footer>
+    <footer class="footer">
+    <p>© 2026 HELPHOP. All rights reserved.</p>
+</footer>
+
 
 </body>
 

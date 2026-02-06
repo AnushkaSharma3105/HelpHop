@@ -1,0 +1,41 @@
+/* ===== Aesthetic Neutral Background (Landing / Login / Signup) ===== */
+.aesthetic-bg {
+    /* min-height: 100vh; */
+    position: relative;
+    background:
+        linear-gradient(
+            120deg,
+            #e7ecfb 0%,
+            #d2e4fa 40%,
+            #a4d0fc 70%,
+            #74b9fe 100%
+        );
+    /* overflow-x: hidden; 
+    z-index: 9999; */
+}
+
+/* subtle depth layer */
+.aesthetic-bg::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(37, 99, 235, 0.08),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(99, 102, 241, 0.06),
+            transparent 50%
+        );
+    z-index: -1;
+    /* pointer-events: none; */
+}
+
+/* keep content above */
+.aesthetic-bg > * {
+    position: relative;
+    z-index: 1;
+}

@@ -61,9 +61,10 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    /* padding: 2rem; */
     position: relative;
     z-index: 1;
+    padding-top: 120px; /* pushes card below navbar */
 }
 
 .contact-page .contact-wrapper {
@@ -463,5 +464,107 @@ a:focus-visible,
     }
 }
 
-/* nav */
+.customer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1.5rem;
+    margin: 0 -1rem 0 -1rem; /* full-width bar despite page padding */
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 0;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-logo img {
+    height: 42px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.nav-link.active {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-user-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.nav-btn {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 1.1rem;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.nav-btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.35);
+}
+
+.nav-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+    color: #fff;
+}
+
+.nav-btn-outline {
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border);
+}
+
+.nav-btn-outline:hover {
+    color: var(--accent);
+    border-color: rgba(37, 99, 235, 0.3);
+    background: var(--accent-soft);
+}

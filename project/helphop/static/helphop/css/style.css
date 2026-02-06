@@ -29,7 +29,8 @@ html{
 }
 body{
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -53,11 +54,6 @@ h1{
     text-transform: uppercase;
 }
 form{
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: var(--surface-glass);
-}
-form{
     width: min(400px, 100%);
     margin: 0;
     display: flex;
@@ -75,6 +71,7 @@ form{
     transform-style: preserve-3d;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 form:hover{
     transform: perspective(800px) rotateX(1deg) rotateY(0deg) translateZ(8px);
     box-shadow: 0 20px 48px rgba(37, 99, 235, 0.12), inset 0 1px 0 rgba(255,255,255,0.95);
@@ -125,9 +122,10 @@ form input:focus{
     box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
-div:has(input:focus) > label{
+form div:focus-within > label {
     background: linear-gradient(135deg, var(--text-dark), #1e293b);
 }
+
 
 form input::placeholder{
     color: var(--text-muted);
@@ -279,3 +277,7 @@ a:hover{
     color: #fff;
     box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35);
 }
+
+
+
+

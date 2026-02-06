@@ -45,13 +45,13 @@
         <section class="service-types">
             <h2 class="section-heading">How would you like to book?</h2>
             <div class="service-cards">
-                <a href="#instant" class="service-card service-instant">
+                <a href="{% url 'customer_services' %}" class="service-card service-instant">
                     <span class="service-icon-wrap"><span class="service-icon">⚡</span></span>
                     <h3>Instant (30 min)</h3>
                     <p>Need help right now? Get a worker at your doorstep in about 30 minutes. Perfect for urgent chores and same-day tasks.</p>
                     <span class="service-cta">Book now <span class="arrow">→</span></span>
                 </a>
-                <a href="#schedule" class="service-card service-schedule">
+                <a href="{% url 'customer_services' %}" class="service-card service-schedule">
                     <span class="service-icon-wrap"><span class="service-icon">📅</span></span>
                     <h3>Schedule for later</h3>
                     <p>Plan ahead. Pick a date and time that works for you. Ideal for regular cleaning, repairs, or one-off tasks.</p>

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render, redirect
 from .models import Profile
 
@@ -55,10 +56,27 @@ def verify_view(request):
                 user.is_active = True
                 user.save()
                 otp_obj.delete()
+
+                # confirmation mail
+                send_mail(
+                    subject="Your Account Has Been Verified 🎉",
+                    message=f"Hello {user.email},\n\n"
+                            "Your HelpHop account has been successfully verified.\n"
+                            "You can now log in and start using our platform.\n\n"
+                            "Thank you for joining us!",
+                    from_email=settings.EMAIL_HOST_USER,
+                    recipient_list=[user.email],
+                    fail_silently=False,
+                )
+
                 messages.success(request, "Account verified successfully")
                 return redirect("login")
             else:
                 messages.error(request, "Invalid OTP")
+
+                messages.success(request, "Account verified successfully")
+                return redirect("login")
+            
     else:
         form = OTPForm()
 

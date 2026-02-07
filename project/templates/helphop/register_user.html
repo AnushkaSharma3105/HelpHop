@@ -10,13 +10,45 @@
 
     <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/signup.css' %}">
+
+    <style>
+        .back-home{
+            border: 1px solid rgba(240, 248, 255, 0.284);
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 35px;
+            padding-right: 40px;
+            background-color: rgba(240, 248, 255, 0.284);
+            border-radius: 18px;
+            font-size: 18px;
+            color: inherit;
+            text-decoration: none;
+        }
+        .back-home:hover{
+            background-color: rgba(240, 248, 255, 0.574);
+        }
+        .back-home:hover,
+        .back-home:focus,
+        .back-home:active {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .site-logo{
+            margin-top: 100px;
+            display: inline-block;
+        }
+
+
+    </style>
+
 </head>
 
 <body>
     <div class="wrapper">
 
         <a href="{% url 'landing' %}" class="site-logo">
-            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP" style="height: 60px; margin-left: -1232px; position: relative; top: -13px;">
         </a>
 
         <form method="post" id="form" action="{% url 'register' %}">
@@ -88,11 +120,10 @@
             </p>
         </form>
 
-        <a href="{% url 'landing' %}" class="back-home">← Back to Home</a>
+        <a href="{% url 'landing' %}" class="back-home" style="color: white;">← Back</a>
 
     </div>
 
-    <!-- <script src="{% static 'helphop/js/validation.js' %}" defer></script> -->
 </body>
 
 </html>

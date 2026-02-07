@@ -20,6 +20,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 html{
     font-family: 'Outfit', Poppins, Segoe UI, sans-serif;
@@ -28,9 +29,9 @@ html{
     text-align: center;
 }
 body{
-    min-height: 100vh;
+
+    width: 100%;
     overflow-x: hidden;
-    overflow-y: auto;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -180,13 +181,6 @@ a:hover{
     text-decoration: underline;
 }
 
-.site-logo{
-    display: inline-block;
-    text-decoration: none;
-}
-.site-logo img{
-    vertical-align: middle;
-}
 
 .user-type-group{
     width: 100%;

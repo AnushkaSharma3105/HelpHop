@@ -51,13 +51,15 @@ def verify_view(request):
 
     if request.method == "POST":
         form = OTPForm(request.POST)
+
         if form.is_valid():
-            if form.cleaned_data["otp"] == otp_obj.otp:
+            entered_otp = form.cleaned_data["otp"]
+
+            if entered_otp == otp_obj.otp:
                 user.is_active = True
                 user.save()
                 otp_obj.delete()
 
-                # confirmation mail
                 send_mail(
                     subject="Your Account Has Been Verified 🎉",
                     message=f"Hello {user.email},\n\n"
@@ -71,16 +73,15 @@ def verify_view(request):
 
                 messages.success(request, "Account verified successfully")
                 return redirect("login")
-            else:
-                messages.error(request, "Invalid OTP")
 
-                messages.success(request, "Account verified successfully")
-                return redirect("login")
-            
+            else:
+                messages.error(request, "Invalid OTP. Please try again.")
+
     else:
         form = OTPForm()
 
     return render(request, "helphop/verify.html", {"form": form})
+
 
 
 def login_view(request):

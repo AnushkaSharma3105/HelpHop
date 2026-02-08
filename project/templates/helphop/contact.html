@@ -86,6 +86,32 @@
 </main>
 
 
+<script>
+    document.querySelectorAll(".contact-card").forEach((card, index) => {
+        card.style.cursor = "pointer";
+
+        card.addEventListener("click", () => {
+            switch (index) {
+                case 0:
+                    // Existing customers → support email
+                    window.location.href = "mailto:support@helphop.com?subject=Existing Customer Support";
+                    break;
+
+                case 1:
+                    // New customers → services page
+                    window.location.href = "{% url 'customer_services' %}";
+                    break;
+
+                case 2:
+                    // Business enquiries → business email
+                    window.location.href = "mailto:partners@helphop.com?subject=Business Enquiry";
+                    break;
+            }
+        });
+    });
+</script>
+
+
     
 </body>
 

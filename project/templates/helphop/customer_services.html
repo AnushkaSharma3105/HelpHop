@@ -12,6 +12,7 @@
 </head>
 
 <body class="customer-pages-page customer-services-page">
+
     <div class="page-bg">
         <div class="page-bg-gradient"></div>
         <div class="page-bg-dots"></div>
@@ -28,8 +29,8 @@
             <li><a href="{% url 'customer_profile' %}" class="nav-link">Profile</a></li>
             <li><a href="{% url 'customer_settings' %}" class="nav-link">Settings</a></li>
             <li><a href="{% url 'customer_dashboard' %}" class="nav-link">Dashboard</a></li>
-            <li><a href="{}"></a></li>
         </ul>
+
         {% if request.user.is_authenticated %}
         <div class="nav-user">
             <span class="nav-user-name">Hi, {{ request.user.first_name }}</span>
@@ -39,14 +40,13 @@
     </nav>
 
     <main class="customer-main">
+
         <header class="page-header">
             <span class="page-badge">Explore</span>
             <h1 class="page-title">Household <span class="page-title-accent">services</span></h1>
             <p class="page-desc">Explore household services. Book instant (30 min) or schedule for later.</p>
         </header>
 
-
-        <!-- service grid -->
         <div class="services-grid">
 
             <a href="javascript:void(0)" class="service-tile" onclick="openModal('homeCleaningModal')">
@@ -89,15 +89,12 @@
 
     </main>
 
-    <!-- card -->
-
     <!-- Home Cleaning Modal -->
-    <div id="homeCleaningModal" class="modal-overlay">
+    <div id="homeCleaningModal" class="modal-overlay" data-service="home-cleaning">
         <div class="modal-card">
             <div class="modal-header">
                 <h2>Home Cleaning</h2>
                 <button class="close-btn" onclick="closeModal('homeCleaningModal')">×</button>
-
             </div>
 
             <div class="modal-body">
@@ -121,22 +118,30 @@
                 </div>
 
                 <div class="modal-actions">
-                    <a href="{% url 'book_now' %}" class="action-btn book-btn">Book Now</a>
-                    <a href="{% url 'schedule' %}" class="action-btn schedule-btn">Schedule</a>
+                    <button type="button"
+        class="action-btn book-btn"
+        onclick="goToBookNow(this)">
+    Book Now
+</button>
+                    <button type="button"
+        class="action-btn schedule-btn"
+        onclick="goToSchedule(this)">
+    Schedule
+</button>
+
                 </div>
-
-
             </div>
         </div>
     </div>
 
-    <!-- plumbing -->
-    <div id="plumbingModal" class="modal-overlay">
+    <!-- Plumbing Modal -->
+    <div id="plumbingModal" class="modal-overlay" data-service="plumbing">
         <div class="modal-card">
             <div class="modal-header">
                 <h2>Plumbing</h2>
                 <button class="close-btn" onclick="closeModal('plumbingModal')">×</button>
             </div>
+
             <div class="modal-body">
                 <div class="section">
                     <h4>Included</h4>
@@ -146,6 +151,7 @@
                         <li>Drain unclogging</li>
                     </ul>
                 </div>
+
                 <div class="section not-included">
                     <h4>Not Included</h4>
                     <ul>
@@ -155,22 +161,30 @@
                 </div>
 
                 <div class="modal-actions">
-                    <a href="{% url 'book_now' %}" class="action-btn book-btn">Book Now</a>
-                    <a href="{% url 'schedule' %}" class="action-btn schedule-btn">Schedule</a>
+                    <button type="button"
+        class="action-btn book-btn"
+        onclick="goToBookNow(this)">
+    Book Now
+</button>
+                    <button type="button"
+        class="action-btn schedule-btn"
+        onclick="goToSchedule(this)">
+    Schedule
+</button>
+
                 </div>
-
-
             </div>
         </div>
     </div>
 
-    <!-- Electric -->
-    <div id="electricalModal" class="modal-overlay">
+    <!-- Electrical Modal -->
+    <div id="electricalModal" class="modal-overlay" data-service="electrical">
         <div class="modal-card">
             <div class="modal-header">
                 <h2>Electrical</h2>
                 <button class="close-btn" onclick="closeModal('electricalModal')">×</button>
             </div>
+
             <div class="modal-body">
                 <div class="section">
                     <h4>Included</h4>
@@ -180,6 +194,7 @@
                         <li>Safety inspection</li>
                     </ul>
                 </div>
+
                 <div class="section not-included">
                     <h4>Not Included</h4>
                     <ul>
@@ -189,23 +204,30 @@
                 </div>
 
                 <div class="modal-actions">
-                    <a href="{% url 'book_now' %}" class="action-btn book-btn">Book Now</a>
-                    <a href="{% url 'schedule' %}" class="action-btn schedule-btn">Schedule</a>
+                    <button type="button"
+        class="action-btn book-btn"
+        onclick="goToBookNow(this)">
+    Book Now
+</button>
+                    <button type="button"
+        class="action-btn schedule-btn"
+        onclick="goToSchedule(this)">
+    Schedule
+</button>
+
                 </div>
-
-
             </div>
         </div>
     </div>
 
-
-    <!-- Painting -->
-    <div id="paintingModal" class="modal-overlay">
+    <!-- Painting Modal -->
+    <div id="paintingModal" class="modal-overlay" data-service="painting">
         <div class="modal-card">
             <div class="modal-header">
                 <h2>Painting</h2>
                 <button class="close-btn" onclick="closeModal('paintingModal')">×</button>
             </div>
+
             <div class="modal-body">
                 <div class="section">
                     <h4>Included</h4>
@@ -215,6 +237,7 @@
                         <li>Color consultation</li>
                     </ul>
                 </div>
+
                 <div class="section not-included">
                     <h4>Not Included</h4>
                     <ul>
@@ -224,23 +247,30 @@
                 </div>
 
                 <div class="modal-actions">
-                    <a href="{% url 'book_now' %}" class="action-btn book-btn">Book Now</a>
-                    <a href="{% url 'schedule' %}" class="action-btn schedule-btn">Schedule</a>
+                    <button type="button"
+        class="action-btn book-btn"
+        onclick="goToBookNow(this)">
+    Book Now
+</button>
+                    <button type="button"
+        class="action-btn schedule-btn"
+        onclick="goToSchedule(this)">
+    Schedule
+</button>
+
                 </div>
-
-
             </div>
         </div>
     </div>
 
-
-    <!-- Laundry -->
-    <div id="laundryModal" class="modal-overlay">
+    <!-- Laundry Modal -->
+    <div id="laundryModal" class="modal-overlay" data-service="laundry">
         <div class="modal-card">
             <div class="modal-header">
                 <h2>Laundry</h2>
                 <button class="close-btn" onclick="closeModal('laundryModal')">×</button>
             </div>
+
             <div class="modal-body">
                 <div class="section">
                     <h4>Included</h4>
@@ -250,6 +280,7 @@
                         <li>Folding</li>
                     </ul>
                 </div>
+
                 <div class="section not-included">
                     <h4>Not Included</h4>
                     <ul>
@@ -259,23 +290,30 @@
                 </div>
 
                 <div class="modal-actions">
-                    <a href="{% url 'book_now' %}" class="action-btn book-btn">Book Now</a>
-                    <a href="{% url 'schedule' %}" class="action-btn schedule-btn">Schedule</a>
+                    <button type="button"
+        class="action-btn book-btn"
+        onclick="goToBookNow(this)">
+    Book Now
+</button>
+                    <button type="button"
+        class="action-btn schedule-btn"
+        onclick="goToSchedule(this)">
+    Schedule
+</button>
+
                 </div>
-
-
             </div>
         </div>
     </div>
 
-
-    <!-- Repairs -->
-    <div id="repairsModal" class="modal-overlay">
+    <!-- Repairs Modal -->
+    <div id="repairsModal" class="modal-overlay" data-service="repairs">
         <div class="modal-card">
             <div class="modal-header">
                 <h2>Repairs</h2>
                 <button class="close-btn" onclick="closeModal('repairsModal')">×</button>
             </div>
+
             <div class="modal-body">
                 <div class="section">
                     <h4>Included</h4>
@@ -285,6 +323,7 @@
                         <li>Curtain rod installation</li>
                     </ul>
                 </div>
+
                 <div class="section not-included">
                     <h4>Not Included</h4>
                     <ul>
@@ -294,18 +333,22 @@
                 </div>
 
                 <div class="modal-actions">
-                    <a href="{% url 'book_now' %}" class="action-btn book-btn">Book Now</a>
-                    <a href="{% url 'schedule' %}" class="action-btn schedule-btn">Schedule</a>
+                    <button type="button"
+        class="action-btn book-btn"
+        onclick="goToBookNow(this)">
+    Book Now
+</button>
+                    <button type="button"
+        class="action-btn schedule-btn"
+        onclick="goToSchedule(this)">
+    Schedule
+</button>
                 </div>
-
-
             </div>
         </div>
     </div>
 
-
-
     <script src="{% static 'helphop/js/card.js' %}"></script>
-</body>
 
+</body>
 </html>

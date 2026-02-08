@@ -1,15 +1,214 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Schedule Service | HELPHOP</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/schedule.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/card.css' %}">
 </head>
 <body class="aesthetic-bg">
-    
+    <a href="{% url 'customer_services' %}" class="back-home" style="color: white; ">
+      ← 
+    </a>
+
+
+    <!-- Main Content -->
+    <div class="schedule-container">
+        <!-- Header Section -->
+        <div class="schedule-header">
+            <span class="header-badge">SCHEDULE</span>
+            <h1>PLAN <span class="highlight">AHEAD</span></h1>
+            <p class="subtitle">Select your services and choose when you need them.</p>
+        </div>
+
+        <!-- Selected Services Section -->
+        <div class="services-section">
+            <div class="section-header">
+                <h2>Selected Services</h2>
+                <div class="header-actions">
+                    <!-- Schedule for Later Dropdown -->
+                    <div class="schedule-dropdown-container">
+                        <button class="schedule-dropdown-btn" onclick="toggleScheduleDropdown()">
+                            <span class="dropdown-icon">📅</span>
+                            <span id="selectedTimeText">Schedule for Later</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <div class="schedule-dropdown-menu" id="scheduleDropdown">
+                            <div class="dropdown-header">When do you need this service?</div>
+                            <button class="dropdown-item" onclick="selectScheduleTime(2)">
+                                <span class="time-icon">🕐</span>
+                                <div class="time-info">
+                                    <div class="time-label">2 Hours from now</div>
+                                    <div class="time-preview" id="time-2"></div>
+                                </div>
+                            </button>
+                            <button class="dropdown-item" onclick="selectScheduleTime(3)">
+                                <span class="time-icon">🕒</span>
+                                <div class="time-info">
+                                    <div class="time-label">3 Hours from now</div>
+                                    <div class="time-preview" id="time-3"></div>
+                                </div>
+                            </button>
+                            <button class="dropdown-item" onclick="selectScheduleTime(4)">
+                                <span class="time-icon">🕓</span>
+                                <div class="time-info">
+                                    <div class="time-label">4 Hours from now</div>
+                                    <div class="time-preview" id="time-4"></div>
+                                </div>
+                            </button>
+                            <button class="dropdown-item" onclick="selectScheduleTime(5)">
+                                <span class="time-icon">🕔</span>
+                                <div class="time-info">
+                                    <div class="time-label">5 Hours from now</div>
+                                    <div class="time-preview" id="time-5"></div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button class="add-more-btn" onclick="openServiceModal()">
+                        <span>+</span> Add More Services
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scheduled Time Display -->
+            <div class="scheduled-time-display" id="scheduledTimeDisplay" style="display: none;">
+                <div class="time-display-icon">⏰</div>
+                <div class="time-display-info">
+                    <div class="time-display-label">Scheduled for:</div>
+                    <div class="time-display-value" id="scheduledTimeValue"></div>
+                </div>
+            </div>
+
+            <div class="selected-services-list" id="selectedServicesList">
+                <!-- Services will be dynamically added here -->
+                <!-- Example service card structure -->
+                <!-- <div class="service-card-compact" data-service-id="home-cleaning">
+                    <div class="service-icon">
+                        <span style="font-size: 1.5rem;">🧹</span>
+                    </div>
+                    <div class="service-info">
+                        <h3>Home Cleaning</h3>
+                        <p>Full home or room-wise cleaning</p>
+                    </div>
+                    <div class="service-price">₹499</div>
+                    <button class="remove-btn" onclick="removeService('home-cleaning')">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div> -->
+            </div>
+
+            <!-- Empty state -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <p>No services selected yet. Click "Add More Services" to get started.</p>
+            </div>
+        </div>
+
+        <!-- Billing Section -->
+        <div class="billing-section">
+            <div class="billing-header">
+                <h2>Billing Summary</h2>
+            </div>
+            
+            <div class="billing-details">
+                <div class="billing-items" id="billingItems"></div>
+
+                    <span id="subtotal">₹0</span>
+                    <span id="tax">₹0</span>
+                    <span id="total">₹0</span>
+
+
+                <div class="billing-divider"></div>
+
+                <div class="billing-subtotal">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹499</span>
+                </div>
+
+                <div class="billing-tax">
+                    <span>Tax (18% GST)</span>
+                    <span id="tax">₹90</span>
+                </div>
+
+                <div class="billing-divider"></div>
+
+                <div class="billing-total">
+                    <span>Total Amount</span>
+                    <span id="total">₹589</span>
+                </div>
+            </div>
+
+            <div class="billing-actions">
+                <button class="payment-btn" onclick="proceedToPayment()">
+                    Proceed to Payment →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Selection Modal -->
+    <div class="modal-overlay" id="serviceModal" onclick="closeServiceModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>Add Services</h2>
+                <button class="modal-close" onclick="closeServiceModal()">×</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="service-grid" id="availableServices">
+                    <!-- Available services will be shown here -->
+                    <div class="service-modal-card" onclick="addServiceFromModal('plumbing')">
+                        <div class="service-modal-icon">🔧</div>
+                        <h3>Plumbing</h3>
+                        <p>Fixes, installations, maintenance</p>
+                        <div class="service-modal-price">₹599</div>
+                        <button class="service-add-btn">Add Service</button>
+                    </div>
+
+                    <div class="service-modal-card" onclick="addServiceFromModal('electrical')">
+                        <div class="service-modal-icon">💡</div>
+                        <h3>Electrical</h3>
+                        <p>Wiring, fittings, safety checks</p>
+                        <div class="service-modal-price">₹699</div>
+                        <button class="service-add-btn">Add Service</button>
+                    </div>
+
+                    <div class="service-modal-card" onclick="addServiceFromModal('painting')">
+                        <div class="service-modal-icon">🎨</div>
+                        <h3>Painting</h3>
+                        <p>Interior and exterior painting</p>
+                        <div class="service-modal-price">₹899</div>
+                        <button class="service-add-btn">Add Service</button>
+                    </div>
+
+                    <div class="service-modal-card" onclick="addServiceFromModal('laundry')">
+                        <div class="service-modal-icon">🧺</div>
+                        <h3>Laundry</h3>
+                        <p>Wash, iron, and fold</p>
+                        <div class="service-modal-price">₹399</div>
+                        <button class="service-add-btn">Add Service</button>
+                    </div>
+
+                    <div class="service-modal-card" onclick="addServiceFromModal('repairs')">
+                        <div class="service-modal-icon">🔨</div>
+                        <h3>Repairs</h3>
+                        <p>General repairs and handyman</p>
+                        <div class="service-modal-price">₹549</div>
+                        <button class="service-add-btn">Add Service</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'helphop/js/schedule.js' %}"></script>
+
 </body>
 </html>

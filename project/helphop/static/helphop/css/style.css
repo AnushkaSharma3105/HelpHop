@@ -32,7 +32,7 @@ body{
 
     width: 100%;
     overflow-x: hidden;
-    display: flex;
+    /* display: flex; */
     text-align: center;
     justify-content: center;
 }

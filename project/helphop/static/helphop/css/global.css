@@ -39,3 +39,171 @@
     position: relative;
     z-index: 1;
 }
+
+
+/* global */
+
+/* NAVBAR */
+
+
+/* ===============================
+   GLOBAL NAVBAR – HELPHOP
+================================ */
+
+
+/* =============================================
+   Customer Navbar Styling
+   Matches the dark blue modern look from screenshot
+============================================= */
+
+.customer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0a2540;          /* deep navy / dark blue from screenshot */
+  color: white;
+  padding: 0 32px;
+  height: 67px;                       /* typical modern nav height */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  height: 36px;                      /* adjust based on your actual logo */
+  width: auto;
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;                         /* spacing between links */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link {
+  color: #e2e8f0;                    /* light gray-white for good contrast */
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 4px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link.active {
+  color: white;
+  font-weight: 600;
+}
+
+/* Underline effect for active & hover (common in modern designs) */
+.nav-link.active::after,
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #3b82f6;         /* blue accent - or change to your brand color */
+  border-radius: 2px;
+}
+
+/* Right side - user info + logout */
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-user-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.nav-btn {
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn-outline {
+  background-color: transparent;
+  border: 1.5px solid #60a5fa;      /* light blue border */
+  color: #60a5fa;
+}
+
+.nav-btn-outline:hover {
+  background-color: #60a5fa;
+  color: white;
+  border-color: #60a5fa;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 992px) {
+  .customer-nav {
+    padding: 0 20px;
+  }
+  
+  .nav-links {
+    gap: 20px;
+  }
+  
+  .nav-link {
+    font-size: 14.5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .customer-nav {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 16px 20px;
+  }
+  
+  .nav-links {
+    order: 3;
+    width: 100%;
+    margin-top: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+  
+  .nav-user {
+    order: 2;
+    margin-left: auto;
+  }
+  
+  .nav-logo {
+    order: 1;
+  }
+}
+
+.customer-nav {
+  margin: 0 !important;
+  top: 0 !important;
+}

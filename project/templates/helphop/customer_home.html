@@ -18,7 +18,7 @@
 
     <nav class="customer-nav">
         <a href="{% url 'customer_home' %}" class="nav-logo">
-            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP" style="margin-left: 16px;">
         </a>
         <ul class="nav-links">
             <li><a href="{% url 'customer_home' %}" class="nav-link active">Home</a></li>
@@ -37,81 +37,156 @@
     </nav>
 
     <main class="customer-main">
-        <section class="hero-section">
-            <div class="hero-badge">What we help with</div>
-            <h1 class="hero-title">Household help, <span class="hero-title-accent">when you need it</span></h1>
-            <p class="hero-desc">Book skilled workers for household chores—get help in as fast as 30 minutes or schedule for later. Your home, your schedule.</p>
-        </section>
 
-        <section class="service-types">
-            <h2 class="section-heading">How would you like to book?</h2>
-            <div class="service-cards">
-                <a href="{% url 'customer_services' %}" class="service-card service-instant">
-                    <span class="service-icon-wrap"><span class="service-icon">⚡</span></span>
-                    <h3>Instant (30 min)</h3>
-                    <p>Need help right now? Get a worker at your doorstep in about 30 minutes. Perfect for urgent chores and same-day tasks.</p>
-                    <span class="service-cta">Book now <span class="arrow">→</span></span>
-                </a>
-                <a href="{% url 'customer_services' %}" class="service-card service-schedule">
-                    <span class="service-icon-wrap"><span class="service-icon">📅</span></span>
-                    <h3>Schedule for later</h3>
-                    <p>Plan ahead. Pick a date and time that works for you. Ideal for regular cleaning, repairs, or one-off tasks.</p>
-                    <span class="service-cta">Schedule <span class="arrow">→</span></span>
-                </a>
-            </div>
-        </section>
+    <!-- HERO -->
+    <section class="hero-layout">
+        <div class="hero-text">
+            <h1>
+                Book trusted<br>
+                <span>home services</span><br>
+                in minutes
+            </h1>
+            <p>
+                Cleaning, plumbing, electrical work and more — 
+                verified professionals at your doorstep.
+            </p>
+        </div>
 
-        <section class="brief-info" id="brief-info">
-            <h2 class="section-heading">Quick links</h2>
-            <div class="info-cards">
-                <div class="info-card info-card-contact">
-                    <span class="info-card-icon">✉</span>
-                    <h3>Contact</h3>
-                    <p>Reach our support team for questions or issues. We're here Monday–Saturday, 9 AM–7 PM.</p>
-                    <a href="{% url 'contact' %}" class="info-link">Go to Contact →</a>
-                </div>
-                <div class="info-card info-card-services">
-                    <span class="info-card-icon">🔧</span>
-                    <h3>Services</h3>
-                    <p>Explore cleaning, repairs, plumbing, electrical, and more. See what workers near you offer.</p>
-                    <a href="{% url 'customer_services' %}" class="info-link">View Services →</a>
-                </div>
-                <div class="info-card info-card-profile">
-                    <span class="info-card-icon">👤</span>
-                    <h3>Profile</h3>
-                    <p>Manage your account, address, and contact details. Keep your info up to date.</p>
-                    <a href="{% url 'customer_profile' %}" class="info-link">My Profile →</a>
-                </div>
-                <div class="info-card info-card-settings">
-                    <span class="info-card-icon">⚙</span>
-                    <h3>Settings</h3>
-                    <p>Notifications, payment methods, and preferences. Customize your HELPHOP experience.</p>
-                    <a href="{% url 'customer_settings' %}" class="info-link">Settings →</a>
-                </div>
-            </div>
-        </section>
+        <!-- SEARCH BAR -->
+        <div class="hero-search">
 
-        <section class="recommendations">
-            <h2 class="section-heading">Recommended for you</h2>
-            <p class="recommendations-desc">Popular services based on your needs.</p>
-            <div class="rec-cards">
-                <div class="rec-card rec-card-1">
-                    <span class="rec-label">Popular</span>
-                    <h4>Home cleaning</h4>
-                    <p>Full home or room-wise cleaning. Instant or scheduled.</p>
-                </div>
-                <div class="rec-card rec-card-2">
-                    <span class="rec-label">Quick</span>
-                    <h4>Plumbing & repair</h4>
-                    <p>Fixes and installations. Book in 30 min or later.</p>
-                </div>
-                <div class="rec-card rec-card-3">
-                    <span class="rec-label">Regular</span>
-                    <h4>Electrical work</h4>
-                    <p>Wiring, fittings, and safety checks. Schedule in advance.</p>
-                </div>
+    <div class="hero-search">
+    <input
+        type="text"
+        id="serviceSearch"
+        placeholder="Any service"
+    >
+    <button class="search-btn" id="searchBtn">
+        🔍
+    </button>
+</div>
+
+    </section>
+
+    <!-- FEATURE CARDS -->
+    <section class="feature-cards">
+
+        <a href="{% url 'book_now' %}" class="feature-card">
+            <img src="{% static 'helphop/images/instant-service.jpg' %}" alt="Instant service">
+            <div class="feature-overlay">
+                <h3>Instant service</h3>
+                <p>Get help in 30 minutes</p>
+                <span>Book now →</span>
             </div>
-        </section>
-    </main>
+        </a>
+
+        <a href="{% url 'schedule' %}" class="feature-card">
+            <img src="{% static 'helphop/images/scheduled-service.jpg' %}" alt="Scheduled service">
+            <div class="feature-overlay">
+                <h3>Schedule for later</h3>
+                <p>Plan services in advance</p>
+                <span>Schedule →</span>
+            </div>
+        </a>
+
+    </section>
+
+    <!-- WHY HELPHOP -->
+<section class="why-helphop">
+    <h2>Why choose HELPHOP?</h2>
+
+    <div class="why-grid">
+        <div class="why-item">
+            <span>✔</span>
+            <h4>Verified Professionals</h4>
+            <p>All service providers are background-checked and trained.</p>
+        </div>
+
+        <div class="why-item">
+            <span>⚡</span>
+            <h4>Fast Service</h4>
+            <p>Get instant help in as little as 30 minutes.</p>
+        </div>
+
+        <div class="why-item">
+            <span>💰</span>
+            <h4>Transparent Pricing</h4>
+            <p>No hidden charges. Know the price before booking.</p>
+        </div>
+
+        <div class="why-item">
+            <span>🛡</span>
+            <h4>Service Warranty</h4>
+            <p>We stand by our work even after the job is done.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+    <h2>How it works</h2>
+
+    <div class="steps">
+        <div class="step">
+            <strong>1</strong>
+            <p>Search or select a service</p>
+        </div>
+        <div class="step">
+            <strong>2</strong>
+            <p>Choose instant or scheduled booking</p>
+        </div>
+        <div class="step">
+            <strong>3</strong>
+            <p>Relax while we handle the rest</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- SOCIAL PROOF -->
+<section class="social-proof">
+    <h2>Trusted by thousands of homes</h2>
+    <p>⭐ 4.8/5 average rating from 10,000+ customers</p>
+</section>
+
+
+</main>
+
+<script>
+    const searchInput = document.getElementById("serviceSearch");
+    const searchBtn = document.getElementById("searchBtn");
+
+    function searchService() {
+        const query = searchInput.value.trim();
+        if (!query) return;
+
+        fetch(`/search-service/?q=${encodeURIComponent(query)}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.found) {
+                    // redirect to EXISTING page
+                    window.location.href = `/book-now/?service=${data.service}`;
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(() => {
+                alert("Something went wrong. Please try again.");
+            });
+    }
+
+    searchBtn.addEventListener("click", searchService);
+
+    searchInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            searchService();
+        }
+    });
+</script>
+
+
+
+
 </body>
 </html>

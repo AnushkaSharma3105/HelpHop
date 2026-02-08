@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
 from .models import Profile
+from django.http import JsonResponse
 
 
 import random
@@ -172,3 +173,64 @@ def book_now(request):
 # schedule
 def schedule(request):
     return render(request, 'helphop/schedule.html')
+
+
+# home search bar
+SERVICE_KEYS = {
+    "home cleaning": "home_cleaning",
+    "cleaning": "home_cleaning",
+
+    "plumbing": "plumbing",
+    "plumber": "plumbing",
+
+    "electrical": "electrical",
+    "electrician": "electrical",
+
+    "painting": "painting",
+    "paint": "painting",
+
+    "laundry": "laundry",
+    "washing": "laundry",
+
+    "repair": "repairs",
+    "repairs": "repairs",
+    "handyman": "repairs",
+}
+
+
+def service_search(request):
+    query = request.GET.get("q", "").strip().lower()
+
+    if not query:
+        return JsonResponse({"error": "empty"}, status=400)
+
+    for keyword, service_key in SERVICE_KEYS.items():
+        if keyword in query:
+            return JsonResponse({
+                "found": True,
+                "service": service_key
+            })
+
+    return JsonResponse({
+        "found": False,
+        "message": "We do not provide this service yet."
+    })
+
+
+def home_cleaning_book(request):
+    return render(request, "home_cleaning/book_now.html")
+
+def plumbing_book(request):
+    return render(request, "plumbing/book_now.html")
+
+def electrical_book(request):
+    return render(request, "electrical/book_now.html")
+
+def painting_book(request):
+    return render(request, "painting/book_now.html")
+
+def laundry_book(request):
+    return render(request, "laundry/book_now.html")
+
+def repairs_book(request):
+    return render(request, "repairs/book_now.html")

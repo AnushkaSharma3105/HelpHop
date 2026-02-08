@@ -9,27 +9,7 @@
     <title>Contact Us | HELPHOP</title>
 <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
 <link rel="stylesheet" href="{% static 'helphop/css/contact.css' %}">
-<style>
-    img{
-        margin-left: 16px;
-    }
-    .nav-btn{
-        margin-right: 10px;
-    }
 
-    html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-}
-
-.customer-main{
-    margin-top: -50px;
-    margin-bottom: 60px;
-}
-</style>
 
 </head>
 
@@ -63,58 +43,49 @@
         {% endif %}
     </nav>
 
-    <main class="customer-main">
-    <div class="contact-wrapper">
-        <div class="contact-card">
+    <main class="contact-page">
 
-            <div class="contact-header">
-
-                <h1>Contact Us</h1>
-                <p>We're here to help you connect with the HELPHOP team.</p>
-            </div>
-
-
-            <div class="contact-section">
-                <h2>Support</h2>
-                <p>
-                    Reach us at
-                    <a href="mailto:support@helphop.com"> helphopsupport@gmail.com</a>
-                </p>
-                <p>Monday - Saturday, 9 AM - 7 PM</p>
-            </div>
-
-            <div class="contact-section">
-                <h2>Our Team</h2>
-
-                <div class="team-grid">
-                    <div class="team-card">
-                        <strong>Aashi Agarwal</strong>
-                        <span>Backend Developer</span>
-                    </div>
-                    <div class="team-card">
-                        <strong>Anushka Sharma</strong>
-                        <span>Backend Developer</span>
-                    </div>
-                    <div class="team-card">
-                        <strong>Vansh Gupta</strong>
-                        <span>Frontend Developer</span>
-                    </div>
-                    <div class="team-card">
-                        <strong>Ananya Verma</strong>
-                        <span>Frontend Developer</span>
-                    </div>
-                    <div class="team-card">
-                        <strong>Pratishtha Patwa</strong>
-                        <span>Frontend Developer</span>
-                    </div>
-                </div>
-            </div>
-
-            <a href="{% url 'customer_home' %}" class="contact-back">← Back to Home</a>
-
+    <!-- HERO -->
+    <section class="contact-hero">
+        <div class="contact-hero-text">
+            <h1>Get in touch</h1>
+            <p>
+                Got a question? Need help with a booking or service?
+                Our team is always happy to help.
+            </p>
         </div>
-    </div>
-    </main>
+
+        <div class="contact-hero-image">
+            <img src="{% static 'helphop/images/contact-support.jpg' %}" alt="Customer support team">
+        </div>
+    </section>
+
+    <!-- CONTACT CARDS -->
+    <section class="contact-cards">
+
+        <div class="contact-card">
+            <h3>Existing customers</h3>
+            <p>Help with bookings, rescheduling, or ongoing services.</p>
+            <a href="#">Contact support →</a>
+        </div>
+
+        <div class="contact-card">
+            <h3>New customers</h3>
+            <p>Not sure which service to book? We’ll guide you.</p>
+            <a href="#">Get started →</a>
+        </div>
+
+        <div class="contact-card">
+            <h3>Business enquiries</h3>
+            <p>Partner with HELPHOP or onboard as a professional.</p>
+            <a href="#">Reach out →</a>
+        </div>
+
+    </section>
+
+</main>
+
+
     
 </body>
 

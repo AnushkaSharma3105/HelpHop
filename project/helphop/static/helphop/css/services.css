@@ -1,0 +1,230 @@
+/* Force NO top space on html & body – very common cause of gap above sticky nav */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100%;
+}
+
+/* Make sure main starts right after nav */
+.customer-main {
+  padding: 32px 20px 60px;           /* much less top padding */
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Header – compact, strong but not oversized */
+.page-header {
+  text-align: center;
+  margin: 16px 0 40px;               /* reduced vertical space */
+}
+
+.page-badge {
+  font-size: 0.9rem;
+  padding: 5px 14px;
+  margin-bottom: 12px;
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+  border-radius: 999px;
+  border: 1px solid rgba(37,99,235,0.15);
+}
+
+.page-title {
+  font-size: clamp(2.1rem, 5vw, 3.2rem);  /* smaller title */
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 12px;
+  line-height: 1.1;
+}
+
+.page-title-accent {
+  color: #3b82f6;
+}
+
+.page-desc {
+  font-size: 1.05rem;
+  color: #4a5d78;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.intro-text{
+    color: #3b82f6;
+    max-width: 720px;               /* wider than before → feels less boxed */
+    margin: 14px auto 28px;         /* some breathing room top/bottom */
+    padding: 0 16px;                /* prevents touching screen edges on mobile */
+    line-height: 1.65;              /* more comfortable reading */
+    text-align: left;               /* ← key change: natural left alignment */
+    font-weight: 400;
+}
+
+/* Intro – keep but tighter */
+.intro-section {
+  max-width: 760px;
+  margin: -16px auto 40px;
+  font-size: 1rem;
+  color: #64748b;
+  text-align: center;
+}
+
+/* Services grid – compact & dense */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px 24px;                    /* tighter gaps */
+}
+
+.service-tile {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.45);
+  border-radius: 16px;
+  padding: 28px 24px 24px;           /* significantly less padding */
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.22s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+}
+
+.service-tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+}
+
+.service-tile-icon-wrap {
+  width: 64px;                        /* smaller icon container */
+  height: 64px;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;                /* less bottom margin */
+  font-size: 2.2rem;                  /* smaller emoji/icon */
+  box-shadow: 0 4px 10px rgba(59,130,246,0.1);
+}
+
+.service-tile h3 {
+  font-size: 1.28rem;                 /* smaller heading */
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 6px;
+  text-align: center;
+}
+
+.service-tile p {
+  font-size: 0.92rem;                 /* smaller description */
+  color: #64748b;
+  margin: 0;
+  text-align: center;
+  line-height: 1.45;
+}
+
+/* CTA – compact, less vertical space */
+.cta-bottom {
+  margin: 60px auto 48px;             /* reduced top/bottom */
+  max-width: 780px;
+  text-align: center;
+  padding: 44px 28px 52px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(18px);
+  border-radius: 24px;
+  border: 1px solid rgba(226,232,240,0.35);
+}
+
+.cta-bottom h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.cta-bottom p {
+  font-size: 1.02rem;
+  color: #475569;
+  margin: 0 auto 28px;
+}
+
+.cta-btn {
+  background: #3b82f6;
+  color: white;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 12px 44px;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s ease;
+}
+
+.cta-btn:hover {
+  background: #2563eb;
+  transform: translateY(-3px);
+}
+
+/* Extra safety for navbar flush top */
+.customer-nav {
+  margin: 0 !important;
+  top: 0 !important;
+}
+
+/* Mobile – keep dense */
+@media (max-width: 768px) {
+  .customer-main { padding-top: 24px; }
+  .page-header { margin: 12px 0 32px; }
+  .services-grid { gap: 16px 20px; }
+}
+
+.service-tile,
+.service-tile h3,
+.service-tile p {
+    text-decoration: none !important;
+}
+
+.service-tile:hover,
+.service-tile:hover h3,
+.service-tile:hover p {
+    text-decoration: none !important;
+}
+
+/* ===== Aesthetic Neutral Background (Landing / Login / Signup) ===== */
+.aesthetic-bg {
+    /* min-height: 100vh; */
+    position: relative;
+    background:
+        linear-gradient(
+            120deg,
+            #e7ecfb 0%,
+            #d2e4fa 40%,
+            #a4d0fc 70%,
+            #74b9fe 100%
+        );
+    /* overflow-x: hidden; 
+    z-index: 9999; */
+}
+
+/* subtle depth layer */
+.aesthetic-bg::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(37, 99, 235, 0.08),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(99, 102, 241, 0.06),
+            transparent 50%
+        );
+    z-index: -1;
+    /* pointer-events: none; */
+}
+
+/* keep content above */
+.aesthetic-bg > * {
+    position: relative;
+    z-index: 1;
+}
+

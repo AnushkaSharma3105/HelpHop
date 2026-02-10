@@ -1,11 +1,16 @@
 .modal-overlay {
-  position: fixed;
+  position: fixed !important;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.45);
+
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+
+  z-index: 999999;
 }
 
 .modal-card {
@@ -15,6 +20,8 @@
   padding: 20px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   animation: scaleIn 0.25s ease;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-header {
@@ -95,3 +102,7 @@
   transform: translateY(-1px);
   filter: brightness(0.95);
 }
+
+/* body.modal-open {
+  overflow: hidden;
+} */

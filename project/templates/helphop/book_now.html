@@ -99,8 +99,10 @@
             </div>
 
             <div class="billing-actions">
-                <button class="payment-btn" onclick="proceedToPayment()">
+                <button class="payment-btn">
+                    <a href="{% url 'Payment' %}" style="color: white; text-decoration: none;">
                     Proceed to Payment →
+                    </a>
                 </button>
             </div>
         </div>

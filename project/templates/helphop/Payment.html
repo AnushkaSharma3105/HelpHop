@@ -1,0 +1,259 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | HELPHOP</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/Payment.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
+</head>
+<body class="aesthetic-bg">
+    
+
+    <!-- Main Content -->
+    <div class="payment-container">
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <div class="progress-step completed">
+                <div class="step-circle">✓</div>
+                <div class="step-label">Service Selection</div>
+            </div>
+            <div class="progress-line completed"></div>
+            <div class="progress-step active">
+                <div class="step-circle">2</div>
+                <div class="step-label">Payment Details</div>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step">
+                <div class="step-circle">3</div>
+                <div class="step-label">Payment Complete</div>
+            </div>
+        </div>
+
+        <!-- Main Payment Section -->
+        <div class="payment-content">
+            <!-- Left Side - Payment Methods -->
+            <div class="payment-methods-section">
+                <div class="section-header">
+                    <h2>How would you like to pay?</h2>
+                </div>
+
+                <!-- Payment Method Selection -->
+                <div class="payment-method-list">
+                    <!-- UPI Payment -->
+                    <div class="payment-method-card" data-method="upi" onclick="selectPaymentMethod('upi')">
+                        <input type="radio" name="payment-method" id="upi" value="upi">
+                        <label for="upi" class="payment-method-label">
+                            <div class="method-info">
+                                <span class="method-name">UPI</span>
+                                <span class="method-description">Pay using UPI ID</span>
+                            </div>
+                            <div class="method-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <rect width="40" height="40" rx="8" fill="#5F259F"/>
+                                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="14" font-weight="bold">UPI</text>
+                                </svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Debit/Credit Card -->
+                    <div class="payment-method-card" data-method="card" onclick="selectPaymentMethod('card')">
+                        <input type="radio" name="payment-method" id="card" value="card">
+                        <label for="card" class="payment-method-label">
+                            <div class="method-info">
+                                <span class="method-name">Debit/Credit Card</span>
+                                <span class="method-description">Visa, Mastercard, RuPay</span>
+                            </div>
+                            <div class="method-icons-group">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="card-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="card-logo">
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Net Banking -->
+                    <div class="payment-method-card" data-method="netbanking" onclick="selectPaymentMethod('netbanking')">
+                        <input type="radio" name="payment-method" id="netbanking" value="netbanking">
+                        <label for="netbanking" class="payment-method-label">
+                            <div class="method-info">
+                                <span class="method-name">Net Banking</span>
+                                <span class="method-description">All Indian banks</span>
+                            </div>
+                            <div class="method-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <rect width="40" height="40" rx="8" fill="#4A90E2"/>
+                                    <path d="M20 12L10 18V28H30V18L20 12Z" fill="white"/>
+                                    <rect x="15" y="22" width="3" height="6" fill="#4A90E2"/>
+                                    <rect x="22" y="22" width="3" height="6" fill="#4A90E2"/>
+                                </svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Wallets -->
+                    <div class="payment-method-card" data-method="wallet" onclick="selectPaymentMethod('wallet')">
+                        <input type="radio" name="payment-method" id="wallet" value="wallet">
+                        <label for="wallet" class="payment-method-label">
+                            <div class="method-info">
+                                <span class="method-name">Wallets</span>
+                                <span class="method-description">Paytm, PhonePe, Google Pay</span>
+                            </div>
+                            <div class="method-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <rect width="40" height="40" rx="8" fill="#00BAF2"/>
+                                    <path d="M14 16H26V18H14V16ZM14 20H26V22H14V20ZM26 12H14C12.9 12 12 12.9 12 14V26C12 27.1 12.9 28 14 28H26C27.1 28 28 27.1 28 26V14C28 12.9 27.1 12 26 12Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Payment Forms (Hidden by default) -->
+                <!-- UPI Form -->
+                <div class="payment-form" id="upi-form" style="display: none;">
+                    <h3>Enter UPI ID</h3>
+                    <div class="form-group">
+                        <label for="upi-id">UPI ID</label>
+                        <input type="text" id="upi-id" placeholder="example@upi" class="form-input">
+                        <span class="form-hint">Example: yourname@paytm, yourname@googlepay</span>
+                    </div>
+                    <button class="verify-btn" onclick="verifyUPI()">Verify UPI ID</button>
+                </div>
+
+                <!-- Card Form -->
+                <div class="payment-form" id="card-form" style="display: none;">
+                    <h3>Enter Card Details</h3>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" class="form-input" maxlength="19">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-name">Name on Card</label>
+                        <input type="text" id="card-name" placeholder="John Doe" class="form-input">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-expiry">Expiry Date</label>
+                            <input type="text" id="card-expiry" placeholder="MM/YY" class="form-input" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-cvv">CVV</label>
+                            <input type="text" id="card-cvv" placeholder="123" class="form-input" maxlength="3">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Net Banking Form -->
+                <div class="payment-form" id="netbanking-form" style="display: none;">
+                    <h3>Select Your Bank</h3>
+                    <div class="bank-grid">
+                        <button class="bank-btn" onclick="selectBank('sbi')">
+                            <span>SBI</span>
+                        </button>
+                        <button class="bank-btn" onclick="selectBank('hdfc')">
+                            <span>HDFC</span>
+                        </button>
+                        <button class="bank-btn" onclick="selectBank('icici')">
+                            <span>ICICI</span>
+                        </button>
+                        <button class="bank-btn" onclick="selectBank('axis')">
+                            <span>Axis</span>
+                        </button>
+                        <button class="bank-btn" onclick="selectBank('kotak')">
+                            <span>Kotak</span>
+                        </button>
+                        <button class="bank-btn" onclick="selectBank('pnb')">
+                            <span>PNB</span>
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <label for="other-bank">Other Bank</label>
+                        <select id="other-bank" class="form-input">
+                            <option value="">Select a bank</option>
+                            <option value="bob">Bank of Baroda</option>
+                            <option value="canara">Canara Bank</option>
+                            <option value="union">Union Bank</option>
+                            <option value="idbi">IDBI Bank</option>
+                            <option value="yes">Yes Bank</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Wallet Form -->
+                <div class="payment-form" id="wallet-form" style="display: none;">
+                    <h3>Select Wallet</h3>
+                    <div class="wallet-grid">
+                        <button class="wallet-btn" onclick="selectWallet('paytm')">
+                            <div class="wallet-logo">💳</div>
+                            <span>Paytm</span>
+                        </button>
+                        <button class="wallet-btn" onclick="selectWallet('phonepe')">
+                            <div class="wallet-logo">📱</div>
+                            <span>PhonePe</span>
+                        </button>
+                        <button class="wallet-btn" onclick="selectWallet('googlepay')">
+                            <div class="wallet-logo">G</div>
+                            <span>Google Pay</span>
+                        </button>
+                        <button class="wallet-btn" onclick="selectWallet('amazonpay')">
+                            <div class="wallet-logo">🛒</div>
+                            <span>Amazon Pay</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Order Summary -->
+            <div class="order-summary-section">
+                <div class="order-summary-card">
+                    <h3>Order Summary</h3>
+                    
+                    <div class="order-items" id="orderItems">
+                        <!-- Services will be dynamically added here -->
+                        <div class="order-item">
+                            <span class="item-name">Home Cleaning</span>
+                            <span class="item-price">₹499</span>
+                        </div>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="summarySubtotal">₹499</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Tax (18% GST)</span>
+                        <span id="summaryTax">₹90</span>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="summaryTotal">₹589</span>
+                    </div>
+
+                    <button class="pay-now-btn" onclick="processPayment()">
+                        Pay Now →
+                    </button>
+
+                    <div class="secure-payment-badge">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 1L3 3V7C3 10.5 5.5 13.5 8 14.5C10.5 13.5 13 10.5 13 7V3L8 1Z" fill="#22c55e"/>
+                            <path d="M6.5 8L7.5 9L10 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Secure Payment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'helphop/js/Payment.js' %}"></script>
+</body>
+</html>

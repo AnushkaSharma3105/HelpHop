@@ -234,3 +234,6 @@ def laundry_book(request):
 
 def repairs_book(request):
     return render(request, "repairs/book_now.html")
+
+def payment(request):
+    return render(request, "helphop/Payment.html")

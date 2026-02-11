@@ -85,25 +85,7 @@
                 </div>
             </div>
 
-            <div class="selected-services-list" id="selectedServicesList">
-                <!-- Services will be dynamically added here -->
-                <!-- Example service card structure -->
-                <!-- <div class="service-card-compact" data-service-id="home-cleaning">
-                    <div class="service-icon">
-                        <span style="font-size: 1.5rem;">🧹</span>
-                    </div>
-                    <div class="service-info">
-                        <h3>Home Cleaning</h3>
-                        <p>Full home or room-wise cleaning</p>
-                    </div>
-                    <div class="service-price">₹499</div>
-                    <button class="remove-btn" onclick="removeService('home-cleaning')">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                </div> -->
-            </div>
+            
 
             <!-- Empty state -->
             <div class="empty-state" id="emptyState" style="display: none;">
@@ -146,8 +128,10 @@
             </div>
 
             <div class="billing-actions">
-                <button class="payment-btn" onclick="proceedToPayment()">
+                <button class="payment-btn">
+                    <a href="{% url 'Payment' %}" style="color: white; text-decoration: none;">
                     Proceed to Payment →
+                    </a>
                 </button>
             </div>
         </div>

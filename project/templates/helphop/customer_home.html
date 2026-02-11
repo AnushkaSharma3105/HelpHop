@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/customer_home.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/Payment.css' %}">
 </head>
 <body class="customer-home-page aesthetic-bg">
     <div class="page-bg">
@@ -21,12 +22,12 @@
             <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP" style="margin-left: 16px;">
         </a>
         <ul class="nav-links">
-            <li><a href="{% url 'customer_home' %}" class="nav-link active">Home</a></li>
-            <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
-            <li><a href="{% url 'customer_services' %}" class="nav-link">Services</a></li>
-            <li><a href="{% url 'customer_profile' %}" class="nav-link">Profile</a></li>
-            <li><a href="{% url 'customer_settings' %}" class="nav-link">Settings</a></li>
-            <li><a href="{% url 'customer_dashboard' %}" class="nav-link">Dashboard</a></li>
+            <li><a href="{% url 'customer_home' %}" class="nav-link active" style="text-decoration: none;">Home</a></li>
+            <li><a href="{% url 'contact' %}" class="nav-link" style="text-decoration: none;">Contact</a></li>
+            <li><a href="{% url 'customer_services' %}" class="nav-link" style="text-decoration: none;">Services</a></li>
+            <li><a href="{% url 'customer_profile' %}" class="nav-link" style="text-decoration: none;">Profile</a></li>
+            <li><a href="{% url 'customer_settings' %}" class="nav-link" style="text-decoration: none;">Settings</a></li>
+            <li><a href="{% url 'customer_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a></li>
         </ul>
         {% if request.user.is_authenticated %}
         <div class="nav-user">

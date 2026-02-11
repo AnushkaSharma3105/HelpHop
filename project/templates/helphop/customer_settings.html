@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,10 @@
     <link rel="stylesheet" href="{% static 'helphop/css/customer_pages.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
     <style>
-        
+
     </style>
 </head>
+
 <body class="customer-pages-page customer-settings-page aesthetic-bg">
     <div class="page-bg">
         <div class="page-bg-gradient"></div>
@@ -71,23 +73,15 @@
                 </label>
             </div>
         </section>
-
-        <section class="content-card">
-            <h2 class="content-card-title">Payment methods</h2>
-            <p class="content-card-desc">Manage saved cards and default payment.</p>
-            <div class="settings-placeholder">
-                <p>No payment methods added yet.</p>
-                <button type="button" class="btn-secondary">Add payment method</button>
-            </div>
-        </section>
-
         <section class="content-card">
             <h2 class="content-card-title">Preferences</h2>
             <div class="form-row">
                 <label class="form-label" for="pref-language">Language</label>
                 <select id="pref-language" class="form-input form-select">
-                    <option>English</option>
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
                 </select>
+
             </div>
             <div class="form-row">
                 <label class="form-label" for="pref-timezone">Timezone</label>
@@ -97,6 +91,6 @@
             </div>
         </section>
     </main>
-
 </body>
+
 </html>

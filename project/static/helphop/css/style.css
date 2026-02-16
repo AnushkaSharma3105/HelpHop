@@ -1,7 +1,6 @@
-/* Base Styles - Import and override as needed */
-/* This file captures essential base styles for the application */
+/* base styles */
 
-/* CSS Variables for modern look */
+/* variables initialized */
 :root {
     --accent: #2563eb;
     --accent-light: #60a5fa;
@@ -31,7 +30,7 @@ html, body {
     height: 100%;
 }
 
-/* Typography */
+/* typography */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
@@ -63,7 +62,7 @@ a:hover {
     color: #1d4ed8;
 }
 
-/* Buttons */
+/* button */
 button, .btn {
     padding: 12px 24px;
     border: none;
@@ -78,7 +77,7 @@ button:hover, .btn:hover {
     transform: translateY(-2px);
 }
 
-/* Form Elements */
+/* leements */
 input, textarea, select {
     font-family: inherit;
     font-size: 14px;
@@ -92,7 +91,7 @@ textarea {
     resize: vertical;
 }
 
-/* Generic Utility Classes */
+/* generic classes */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -131,7 +130,7 @@ textarea {
     display: grid;
 }
 
-/* Spacing helpers */
+/* spacers */
 .gap-1 { gap: 8px; }
 .gap-2 { gap: 16px; }
 .gap-3 { gap: 24px; }

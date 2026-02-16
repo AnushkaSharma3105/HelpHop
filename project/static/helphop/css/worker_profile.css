@@ -1,6 +1,6 @@
-/* Worker Profile Specific Styles */
+/* profile dedicated */
 
-/* Profile Hero Section */
+/* profile section */
 .profile-hero {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -75,7 +75,7 @@
     letter-spacing: 0.5px;
 }
 
-/* Profile Form Styles */
+/* form */
 .profile-form {
     margin-bottom: 0;
 }
@@ -151,7 +151,7 @@
     box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
 }
 
-/* Profile Sections */
+/* page ke sections */
 .profile-section {
     padding: 24px 0;
     border-bottom: 1px solid #e5e7eb;
@@ -174,7 +174,7 @@
     margin: 0 0 16px 0;
 }
 
-/* Info Grid */
+/* informations */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -203,7 +203,7 @@
     border-radius: 6px;
 }
 
-/* Services Grid */
+/* grid */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -241,7 +241,7 @@
     color: #333;
 }
 
-/* Certifications List */
+/* certificate */
 .certifications-list {
     display: grid;
     gap: 12px;
@@ -302,7 +302,7 @@
     color: #fff;
 }
 
-/* Documents List */
+/* document */
 .documents-list {
     display: grid;
     gap: 12px;
@@ -336,7 +336,7 @@
     color: #10b981;
 }
 
-/* About Textarea */
+/* about me */
 .about-textarea {
     width: 100%;
     min-height: 120px;
@@ -355,7 +355,7 @@
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* Profile Actions */
+/* actions */
 .profile-actions {
     display: flex;
     gap: 12px;
@@ -395,7 +395,7 @@
     background: #e0e0e0;
 }
 
-/* Responsive */
+/* responsie */
 @media (max-width: 768px) {
     .profile-header {
         grid-template-columns: 1fr;

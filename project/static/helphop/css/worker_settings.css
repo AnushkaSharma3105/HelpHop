@@ -1,6 +1,6 @@
-/* Worker Settings Specific Styles */
+/* settings dedicated */
 
-/* Settings List (similar to customer settings) */
+/* settings of workers */
 .settings-list {
     display: grid;
     gap: 0;
@@ -71,7 +71,7 @@
     left: 22px;
 }
 
-/* Form Row Styling */
+/* row styling use kri h */
 .form-row {
     margin-bottom: 20px;
     padding-bottom: 20px;
@@ -112,7 +112,7 @@
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* Days Grid for Day Selection */
+/* day selection */
 .days-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
@@ -141,7 +141,7 @@
     display: none;
 }
 
-/* Payment List */
+/* payment */
 .payment-list {
     display: grid;
     gap: 12px;
@@ -181,7 +181,7 @@
     color: #10b981;
 }
 
-/* Security Button */
+/* security seciton */
 .security-btn {
     width: 100%;
     padding: 12px 16px;
@@ -200,7 +200,7 @@
     color: #fff;
 }
 
-/* Danger Zone */
+/* delete account */
 .danger-zone {
     border-top: 2px solid #dc2626;
 }
@@ -246,7 +246,7 @@
     background: #b91c1c;
 }
 
-/* Old Settings Styles - keeping for backward compatibility */
+/* backend compatible ke liye rkhi hai */
 .settings-container {
     display: grid;
     gap: 24px;
@@ -362,7 +362,7 @@
     left: 24px;
 }
 
-/* Time Inputs */
+/* time  */
 .time-inputs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -396,7 +396,7 @@
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* Setting Input */
+/* setting ka input */
 .setting-input {
     padding: 10px 12px;
     border: 1px solid #e5e7eb;
@@ -418,7 +418,7 @@
     margin: 0;
 }
 
-/* Days Selector */
+/* days selection */
 .days-selector {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
@@ -459,7 +459,7 @@
     text-align: center;
 }
 
-/* Payment Methods */
+/* payement methods */
 .payment-methods {
     display: grid;
     gap: 12px;
@@ -518,7 +518,7 @@
     white-space: nowrap;
 }
 
-/* Buttons */
+/* buttons used on setting spage */
 .add-method-btn,
 .security-btn {
     padding: 12px 20px;
@@ -543,7 +543,7 @@
     width: auto;
 }
 
-/* Account Actions */
+/* actions on account */
 .account-actions {
     display: grid;
     gap: 16px;
@@ -592,7 +592,7 @@
     background: #fecaca;
 }
 
-/* Settings Actions */
+/* settings ke acton like notification */
 .settings-actions {
     display: flex;
     gap: 12px;
@@ -632,7 +632,7 @@
     background: #e0e0e0;
 }
 
-/* Responsive */
+/* responsive */
 @media (max-width: 768px) {
     .settings-card {
         padding: 20px;

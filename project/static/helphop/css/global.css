@@ -1,7 +1,7 @@
-/* Global Styles - Shared across all pages */
-/* This includes form styles, component styles, and common patterns */
+/* globally used */
+/* includes form styles, component styles, and common patterns */
 
-/* Root Variables */
+/* variables initialized for same layout */
 :root {
     --primary-color: #2563eb;
     --primary-light: #6366f1;
@@ -16,7 +16,7 @@
     --text-light: #94a3b8;
 }
 
-/* Form Labels */
+/* labels */
 .form-label {
     display: block;
     font-weight: 600;
@@ -25,7 +25,7 @@
     font-size: 14px;
 }
 
-/* Form Inputs */
+/* inputs */
 .form-input,
 .form-select,
 input[type="text"],
@@ -69,7 +69,7 @@ textarea:focus {
     min-height: 120px;
 }
 
-/* Submit Button */
+/* submit */
 .btn-submit,
 .btn-primary {
     padding: 12px 32px;
@@ -89,7 +89,7 @@ textarea:focus {
     box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
 }
 
-/* Content Card */
+/* cards */
 .content-card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -112,7 +112,7 @@ textarea:focus {
     margin-bottom: 24px;
 }
 
-/* Page Header */
+/* headerrs */
 .page-header {
     margin-bottom: 40px;
     text-align: left;
@@ -149,7 +149,7 @@ textarea:focus {
     color: var(--text-secondary);
 }
 
-/* Main Container */
+/* containers  */
 .worker-main,
 .customer-main {
     max-width: 1200px;
@@ -159,7 +159,7 @@ textarea:focus {
     z-index: 2;
 }
 
-/* Action Buttons */
+/* actionbuttons */
 .action-btn {
     padding: 8px 16px;
     background: var(--light-bg);
@@ -185,7 +185,7 @@ textarea:focus {
     background: #fecaca;
 }
 
-/* Badges and Status */
+/* status */
 .badge {
     display: inline-block;
     padding: 6px 12px;
@@ -214,7 +214,7 @@ textarea:focus {
     color: #0284c7;
 }
 
-/* Tables */
+/* tables */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -244,7 +244,7 @@ tbody tr:hover {
     background: #f8fafc;
 }
 
-/* Loading Spinner */
+/* loading */
 .spinner {
     border: 4px solid var(--light-bg);
     border-top: 4px solid var(--primary-color);
@@ -259,7 +259,7 @@ tbody tr:hover {
     100% { transform: rotate(360deg); }
 }
 
-/* Utility Classes */
+/* classes */
 .text-success { color: #10b981; }
 .text-warning { color: #f59e0b; }
 .text-danger { color: #dc2626; }

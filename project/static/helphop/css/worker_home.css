@@ -1,4 +1,4 @@
-/* Worker Home Page Specific Styles */
+/* home dedicated */
 
 .worker-home-page {
     background: linear-gradient(
@@ -108,7 +108,7 @@
     color: #333;
 }
 
-/* Quick Actions Section */
+/* quick actions (dashboard , profile , earning page) */
 .quick-actions {
     margin-bottom: 60px;
 }
@@ -176,7 +176,7 @@
     width: fit-content;
 }
 
-/* Recent Jobs Section */
+/* last job jo kri h recently */
 .recent-section {
     margin-bottom: 60px;
 }
@@ -333,7 +333,7 @@
     box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
 }
 
-/* Tips Section */
+/* tips section */
 .tips-section {
     margin-bottom: 40px;
 }
@@ -385,7 +385,7 @@
     line-height: 1.5;
 }
 
-/* Responsive Design */
+/* responsive */
 @media (max-width: 768px) {
     .worker-hero {
         grid-template-columns: 1fr;

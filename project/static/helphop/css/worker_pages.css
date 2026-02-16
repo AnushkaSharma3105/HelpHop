@@ -1,4 +1,4 @@
-/* Worker Pages Common Styles */
+/* worker pages common css */
 
 .worker-pages-page {
     background:
@@ -39,7 +39,7 @@
     z-index: 1;
 }
 
-/* Page Header */
+/* all page headers */
 .page-header {
     margin-bottom: 40px;
     color: #0f172a;
@@ -83,7 +83,7 @@
     margin: 0;
 }
 
-/* Customer Nav - Same styling as customer pages */
+/* worker nav bar */
 .customer-nav {
     display: flex;
     align-items: center;
@@ -187,7 +187,7 @@
     border-color: #60a5fa;
 }
 
-/* Content Cards */
+/* content */
 .content-card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -196,7 +196,7 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Stats Section */
+/* stats ke sections */
 .stats-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -225,7 +225,7 @@
     color: #2563eb;
 }
 
-/* Tabs */
+/* tabs */
 .jobs-toolbar,
 .earnings-toolbar {
     margin-bottom: 30px;
@@ -265,7 +265,7 @@
     color: #fff;
 }
 
-/* Jobs List */
+/* joblist */
 .jobs-list {
     display: grid;
     gap: 20px;
@@ -397,7 +397,7 @@
     font-size: 16px;
 }
 
-/* Filter Section */
+/* filtering */
 .filters-section {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -479,7 +479,7 @@
     background: #e5e7eb;
 }
 
-/* Jobs Grid */
+/* grid */
 .jobs-section {
     margin-bottom: 40px;
 }
@@ -647,7 +647,7 @@
     background: #e0e0e0;
 }
 
-/* Pagination */
+/* paging */
 .pagination {
     display: flex;
     justify-content: center;
@@ -703,7 +703,7 @@
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* Responsive */
+/* repsons */
 @media (max-width: 768px) {
     .worker-nav {
         flex-direction: column;

@@ -1,4 +1,4 @@
-/* Worker Jobs Specific Styles */
+/* job dedicated */
 
 .worker-jobs-page {
     background: linear-gradient(
@@ -11,7 +11,7 @@
     min-height: 100vh;
 }
 
-/* Jobs Grid */
+/* jobs */
 .jobs-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -63,7 +63,7 @@
     background: linear-gradient(90deg, #dc2626, #b91c1c);
 }
 
-/* Job Header */
+/* header */
 .job-header {
     display: flex;
     justify-content: space-between;
@@ -107,7 +107,7 @@
     color: #10b981;
 }
 
-/* Job Title */
+/* title */
 .job-title {
     font-size: 18px;
     font-weight: 700;
@@ -116,7 +116,7 @@
     line-height: 1.3;
 }
 
-/* Job Details */
+/* details */
 .job-details {
     display: flex;
     flex-direction: column;
@@ -144,7 +144,7 @@
     line-height: 1.4;
 }
 
-/* Job Pricing */
+/* procing */
 .job-pricing {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -171,7 +171,7 @@
     color: #2563eb;
 }
 
-/* Job Actions */
+/* actions */
 .job-actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -231,7 +231,7 @@
     color: #2563eb;
 }
 
-/* Jobs Grid Layout */
+/* layout */
 .jobs-section {
     margin-bottom: 40px;
 }
@@ -243,7 +243,7 @@
     font-size: 16px;
 }
 
-/* Filters */
+/* filtering */
 .filters-section {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -328,7 +328,7 @@
     color: #333;
 }
 
-/* Pagination */
+/* paging */
 .pagination {
     display: flex;
     justify-content: center;
@@ -391,7 +391,7 @@
     padding: 0 2px;
 }
 
-/* Responsive Design */
+/* repsonse */
 @media (max-width: 1024px) {
     .jobs-grid {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

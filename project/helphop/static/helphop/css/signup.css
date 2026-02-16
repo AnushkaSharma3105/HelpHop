@@ -1,80 +1,224 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* BACKGROUND */
 body{
-    background: url("../images/landing.png") center center / cover no-repeat;
-    background-color: #1e3a5f;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start; 
+    padding-top:80px;
+    background: url("../images/landing.png") center / cover no-repeat fixed;
+    position:relative;
 }
+
+/* DARK OVERLAY */
 body::before{
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(145deg, rgba(37, 99, 235, 0.45) 0%, rgba(30, 58, 95, 0.5) 40%, rgba(15, 23, 42, 0.55) 100%);
-    pointer-events: none;
-    z-index: 0;
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,0.65);
+    z-index:0;
 }
 
-body .wrapper h1{
-    color: #0f172a;
-}
-.user-type-options input:checked + label {
-    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
-}
-body .wrapper form{
-    background: rgba(255, 255, 255, 0.75); 
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    box-shadow: 
-        0 12px 48px rgba(15, 23, 42, 0.18),
-        inset 0 1px 0 rgba(255,255,255,0.8);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-}
-body .wrapper p,
-body .wrapper .form-actions{
-    color: #0f172a;
-}
-body .wrapper .form-actions a{
-    color: #1d4ed8;
-    font-weight: 700;
-}
-body .wrapper .form-actions a:hover{
-    color: #1e40af;
-}
-body .wrapper .back-home{
-    color: #334155;
-}
-body .wrapper .back-home:hover{
-    color: #1d4ed8;
-}
-body .wrapper .user-type-group > span{
-    color: #334155;
-}
-.wrapper .site-logo{
-    display: block;
-    margin-bottom: 1rem;
-    text-align: center;
-    text-decoration: none;
-}
-.wrapper .site-logo img{
-    height: 48px;
-    width: auto;
-    display: inline-block;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-}
-.user-type-options label:hover {
-    background: linear-gradient(
-        135deg,
-        rgba(37, 99, 235, 0.12),
-        rgba(37, 99, 235, 0.2)
-    );
-    color: var(--accent);
-    border-color: var(--accent);
-}
-.user-type-options label {
-    transition: 
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.15s ease;
-}
-.user-type-options label:hover {
-    transform: translateY(-1px);
+.back-home{
+    display:block;
+    text-align:center;
+    margin-top:25px;
+    color:#cbd5e1;
+    text-decoration:none;
+    font-size:14px;
 }
 
+.back-home:hover{
+    color:white;
+}
+
+
+.site-logo{
+    position:fixed;
+    top:25px;
+    left:40px;
+    z-index:10;
+}
+
+.site-logo img{
+    height:60px;
+    width:auto;
+    display:block;
+}
+
+
+/* CENTER WRAPPER */
+.wrapper{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:420px;
+    padding:20px;
+}
+
+/* FORM CARD */
+.wrapper form{
+    width:100%;
+    padding:35px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.92);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.35);
+
+    backdrop-filter:blur(10px);
+
+    animation:fadeUp 0.4s ease;
+}
+
+/* TITLE */
+.wrapper h1{
+    text-align:center;
+    margin-bottom:8px;
+    font-size:28px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+/* SUBTEXT */
+.wrapper p{
+    text-align:center;
+    margin-bottom:20px;
+    color:#475569;
+    font-size:14px;
+}
+
+/* INPUT GROUP */
+.wrapper input{
+    width:100%;
+    padding:12px 14px;
+    margin-bottom:14px;
+
+    border-radius:8px;
+    border:1px solid #cbd5e1;
+
+    font-size:14px;
+
+    transition:all 0.2s ease;
+}
+
+/* INPUT FOCUS */
+.wrapper input:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,0.15);
+}
+
+/* RADIO GROUP */
+.user-type-group{
+    margin-bottom:16px;
+    font-size:14px;
+    color:#334155;
+}
+
+/* RADIO LABEL */
+.user-type-options{
+    display:flex;
+    gap:15px;
+    margin-top:6px;
+}
+
+/* HIDE DEFAULT RADIO */
+.user-type-options input{
+    display:none;
+}
+
+/* CUSTOM RADIO */
+.user-type-options label{
+    padding:8px 14px;
+    border-radius:8px;
+    border:1px solid #cbd5e1;
+    cursor:pointer;
+    transition:all 0.2s ease;
+}
+
+/* HOVER */
+.user-type-options label:hover{
+    border-color:#2563eb;
+    background:#eff6ff;
+}
+
+/* SELECTED */
+.user-type-options input:checked + label{
+    background:#2563eb;
+    color:white;
+    border-color:#2563eb;
+}
+
+/* BUTTON */
+.wrapper button{
+    width:100%;
+    padding:12px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#2563eb;
+    color:white;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all 0.2s ease;
+}
+
+/* BUTTON HOVER */
+.wrapper button:hover{
+    background:#1d4ed8;
+    transform:translateY(-1px);
+}
+
+/* LOGIN TEXT */
+.form-actions{
+    text-align:center;
+    margin-top:14px;
+    font-size:14px;
+}
+
+.form-actions a{
+    color:#2563eb;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.form-actions a:hover{
+    text-decoration:underline;
+}
+
+/* LOGO */
+.site-logo{
+    text-align:center;
+    margin-bottom:18px;
+}
+
+.site-logo img{
+    height:48px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

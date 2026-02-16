@@ -1,14 +1,21 @@
+/* BACKGROUND */
 body{
-    background: url("../images/landing.png") center center / cover no-repeat;
-    background-color: #1e3a5f;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start; 
+    padding-top:80px;
+    background: url("../images/landing.png") center / cover no-repeat fixed;
+    position:relative;
 }
+
+/* DARK OVERLAY */
 body::before{
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(145deg, rgba(37, 99, 235, 0.45) 0%, rgba(30, 58, 95, 0.5) 40%, rgba(15, 23, 42, 0.55) 100%);
-    pointer-events: none;
-    z-index: 0;
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,0.65);
+    z-index:0;
 }
 
 body .wrapper h1{
@@ -71,4 +78,163 @@ body .wrapper .user-type-group > span{
 }
 .user-type-options label:hover {
     transform: translateY(-1px);
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.wrapper form {
+    width: 100%;
+    max-width: 370px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 2rem 2rem;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.97);
+    box-shadow: 0 8px 32px rgba(15,23,42,0.18), 0 1.5px 0 rgba(255,255,255,0.9);
+    border: 1px solid rgba(15,23,42,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: stretch;
+}
+
+.wrapper h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.01em;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #f1f5f9;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e2e8f0;
+}
+.input-group label {
+    margin-right: 0.5rem;
+    color: #64748b;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+.input-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 1rem;
+    flex: 1;
+    padding: 0.5rem 0;
+    color: #1e293b;
+}
+.input-group input::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+button[type="submit"] {
+    background: linear-gradient(135deg, #2563eb, #60a5fa);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    padding: 0.8em 2em;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.18);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #60a5fa, #2563eb);
+    box-shadow: 0 8px 28px rgba(37,99,235,0.25);
+    transform: translateY(-2px);
+}
+
+.form-actions {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #475569;
+}
+.form-actions a {
+    color: #2563eb;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 0.2em;
+}
+.form-actions a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.back-home {
+    margin-top: 1.5rem;
+    display: inline-block;
+    background: rgba(30,58,95,0.12);
+    color: #1e293b;
+    border-radius: 100px;
+    padding: 0.5em 2em;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #cbd5e1;
+    transition: background 0.2s, color 0.2s;
+}
+.back-home:hover {
+    background: #2563eb;
+    color: #fff;
+}
+
+.user-type-group {
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+    margin-bottom: 0.5em;
+    font-size: 1.05em;
+    color: #334155;
+    justify-content: flex-start;
+}
+.user-type-group label {
+    margin: 0 0.5em 0 0;
+    font-weight: 500;
+    cursor: pointer;
+}
+.user-type-group input[type="radio"] {
+    margin-right: 0.3em;
+}
+
+@media (max-width: 600px) {
+    .wrapper form {
+        padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+        max-width: 95vw;
+    }
+    .wrapper h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
+.site-logo{
+    position:fixed;
+    top:25px;
+    left:25px;
+    z-index:10;
+}
+
+.site-logo img{
+    height:10px;
+    width:auto;
+    display:block;
 }

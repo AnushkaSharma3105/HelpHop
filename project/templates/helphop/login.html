@@ -17,7 +17,7 @@ html{
     text-align: center;
 }
 
-body{
+/* body{
     justify-content: center;
     display: flex;
 }
@@ -25,7 +25,7 @@ body{
     .site-logo img{
             margin-top: -260px;
             display: inline-block;
-        }
+        } */
 
     .back-home{
             border: 1px solid rgba(240, 248, 255, 0.284);
@@ -58,7 +58,7 @@ body{
   <div class="wrapper">
 
     <a href="{% url 'landing' %}" class="site-logo">
-      <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP" style="height: 60px; margin-left: -1245px; position: relative; top: -102px;">
+      <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP" style="height: 60px; margin-bottom: 1.5rem; margin-left: 0; position: static;">
     </a>
 
 
@@ -76,7 +76,7 @@ body{
 
       <div class="input-group">
         <label for="password-input">
-          <img src="{% static 'helphop/images/lock.png' %}" alt="lock">
+          <img src="{% static 'helphop/images/lock.png' %}" alt="lock" style="height: 1.2em;">
         </label>
         <input type="password" name="password" id="password-input" placeholder="Password" required>
       </div>

@@ -1,0 +1,675 @@
+/* Worker Settings Specific Styles */
+
+/* Settings List (similar to customer settings) */
+.settings-list {
+    display: grid;
+    gap: 0;
+    margin-bottom: 24px;
+}
+
+.settings-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.settings-toggle:last-child {
+    border-bottom: none;
+}
+
+.settings-toggle:hover {
+    background: #f8fafc;
+}
+
+.settings-toggle-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.settings-switch-wrap {
+    position: relative;
+    display: inline-flex;
+    margin-left: 16px;
+}
+
+.settings-checkbox {
+    display: none;
+}
+
+.settings-switch {
+    position: relative;
+    width: 48px;
+    height: 28px;
+    background: #cbd5e1;
+    border-radius: 14px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.settings-switch::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border-radius: 12px;
+    top: 2px;
+    left: 2px;
+    transition: all 0.3s ease;
+}
+
+.settings-checkbox:checked ~ .settings-switch {
+    background: linear-gradient(135deg, #2563eb, #6366f1);
+}
+
+.settings-checkbox:checked ~ .settings-switch::before {
+    left: 22px;
+}
+
+/* Form Row Styling */
+.form-row {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.form-row:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.form-select {
+    background: #fff;
+    cursor: pointer;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Days Grid for Day Selection */
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+}
+
+.day-checkbox {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #64748b;
+    transition: all 0.2s ease;
+}
+
+.day-checkbox:has(input:checked) {
+    border-color: #2563eb;
+    background: #f0f6ff;
+    color: #2563eb;
+}
+
+.day-checkbox input {
+    display: none;
+}
+
+/* Payment List */
+.payment-list {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.payment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.payment-item.verified {
+    border-color: #10b981;
+    background: #f0fdf4;
+}
+
+.payment-name {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.payment-desc {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+.verified-badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: #10b981;
+}
+
+/* Security Button */
+.security-btn {
+    width: 100%;
+    padding: 12px 16px;
+    background: #f0f6ff;
+    color: #2563eb;
+    border: 1.5px solid #2563eb;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 0;
+}
+
+.security-btn:hover {
+    background: #2563eb;
+    color: #fff;
+}
+
+/* Danger Zone */
+.danger-zone {
+    border-top: 2px solid #dc2626;
+}
+
+.danger-actions {
+    display: grid;
+    gap: 12px;
+}
+
+.danger-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: #fef2f2;
+    border: 1px solid #feca5e;
+    border-radius: 8px;
+}
+
+.danger-title {
+    font-weight: 600;
+    color: #dc2626;
+}
+
+.danger-desc {
+    font-size: 13px;
+    color: #991b1b;
+    margin-top: 2px;
+}
+
+.danger-btn {
+    padding: 8px 16px;
+    background: #dc2626;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.danger-btn:hover {
+    background: #b91c1c;
+}
+
+/* Old Settings Styles - keeping for backward compatibility */
+.settings-container {
+    display: grid;
+    gap: 24px;
+}
+
+.settings-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.settings-card.danger-zone {
+    border-top: 4px solid #dc2626;
+}
+
+.settings-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.settings-desc {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 24px 0;
+}
+
+.settings-group {
+    margin-bottom: 24px;
+    display: grid;
+    gap: 12px;
+}
+
+.settings-group:last-child {
+    margin-bottom: 0;
+}
+
+.setting-label {
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.toggle-setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-setting:hover {
+    background: #f0f0f0;
+}
+
+.toggle-label {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label-text {
+    font-weight: 600;
+    color: #333;
+}
+
+.label-desc {
+    font-size: 13px;
+    color: #666;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-slider {
+    position: relative;
+    width: 50px;
+    height: 28px;
+    background: #cbd5e1;
+    border-radius: 14px;
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-slider::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: all 0.3s ease;
+}
+
+.toggle-input:checked ~ .toggle-slider {
+    background: linear-gradient(135deg, #2563eb, #6366f1);
+}
+
+.toggle-input:checked ~ .toggle-slider::before {
+    left: 24px;
+}
+
+/* Time Inputs */
+.time-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.time-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.time-field label {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+}
+
+.time-field input {
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.time-field input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Setting Input */
+.setting-input {
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.setting-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input-hint {
+    font-size: 12px;
+    color: #999;
+    margin: 0;
+}
+
+/* Days Selector */
+.days-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
+}
+
+.day-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.day-check input {
+    display: none;
+}
+
+.day-check input:checked ~ span,
+.day-check:hover {
+    border-color: #2563eb;
+    background: #f0f6ff;
+    color: #2563eb;
+}
+
+.day-check input:checked ~ span {
+    background: linear-gradient(135deg, #2563eb, #6366f1);
+    color: #fff;
+    border-color: transparent;
+}
+
+.day-check span {
+    flex: 1;
+    text-align: center;
+}
+
+/* Payment Methods */
+.payment-methods {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.payment-method {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.payment-method:hover {
+    border-color: #2563eb;
+    background: #f0f6ff;
+}
+
+.payment-method.verified {
+    border-left: 4px solid #10b981;
+}
+
+.method-icon {
+    font-size: 32px;
+}
+
+.method-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.method-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.method-account {
+    font-size: 13px;
+    color: #666;
+}
+
+.method-status {
+    display: inline-block;
+    background: #d1fae5;
+    color: #10b981;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Buttons */
+.add-method-btn,
+.security-btn {
+    padding: 12px 20px;
+    background: #f0f6ff;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: left;
+}
+
+.add-method-btn:hover,
+.security-btn:hover {
+    background: #2563eb;
+    color: #fff;
+}
+
+.security-btn {
+    width: auto;
+}
+
+/* Account Actions */
+.account-actions {
+    display: grid;
+    gap: 16px;
+}
+
+.action-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.action-info h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 4px 0;
+}
+
+.action-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.action-btn.danger {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.action-btn.danger:hover {
+    background: #fecaca;
+}
+
+/* Settings Actions */
+.settings-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.save-btn {
+    padding: 12px 32px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.save-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+}
+
+.reset-btn {
+    padding: 12px 32px;
+    background: #f0f0f0;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .settings-card {
+        padding: 20px;
+    }
+
+    .time-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .days-selector {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    }
+
+    .payment-method {
+        grid-template-columns: 1fr;
+    }
+
+    .action-item {
+        grid-template-columns: 1fr;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+
+    .settings-actions {
+        flex-direction: column;
+    }
+
+    .save-btn,
+    .reset-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-title {
+        font-size: 18px;
+    }
+}

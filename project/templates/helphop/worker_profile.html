@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | HELPHOP Worker</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_pages.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_profile.css' %}">
+</head>
+<body class="worker-pages-page worker-profile-page aesthetic-bg">
+    <div class="page-bg">
+        <div class="page-bg-gradient"></div>
+        <div class="page-bg-dots"></div>
+    </div>
+
+    <nav class="customer-nav">
+        <a href="{% url 'worker_home' %}" class="nav-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'worker_home' %}" class="nav-link" style="text-decoration: none;">Home</a></li>
+            <li><a href="{% url 'worker_jobs' %}" class="nav-link" style="text-decoration: none;">Jobs</a></li>
+            <li><a href="{% url 'worker_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a></li>
+            <li><a href="{% url 'worker_earnings' %}" class="nav-link" style="text-decoration: none;">Earnings</a></li>
+            <li><a href="{% url 'worker_profile' %}" class="nav-link active" style="text-decoration: none;">Profile</a></li>
+            <li><a href="{% url 'worker_settings' %}" class="nav-link" style="text-decoration: none;">Settings</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <div class="nav-user">
+            <span class="nav-user-name">Hi, {{ request.user.first_name }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <main class="worker-main">
+        <header class="page-header">
+            <span class="page-badge">Professional Profile</span>
+            <h1 class="page-title">Your <span class="page-title-accent">profile</span></h1>
+            <p class="page-desc">Manage your information, skills, and professional credentials.</p>
+        </header>
+
+        <!-- PROFILE HERO -->
+        <section class="profile-hero">
+            <div class="profile-avatar">
+                <div class="avatar-initials">{{ user_initials }}</div>
+            </div>
+            <div class="profile-hero-text">
+                <h2 class="profile-hero-name">{{ user_full_name }}</h2>
+                <p class="profile-hero-email">{{ user_email }}</p>
+                <div class="profile-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-badge">⭐ 4.9</span>
+                        <span class="stat-name">Rating</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-badge">98%</span>
+                        <span class="stat-name">Completion</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-badge">156</span>
+                        <span class="stat-name">Jobs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERSONAL INFORMATION -->
+        <section class="content-card">
+            <h2 class="content-card-title">Personal information</h2>
+            <p class="content-card-desc">Update your details below. These are used for bookings and account verification.</p>
+            <form class="profile-form" id="profile-form">
+                {% csrf_token %}
+                <div class="profile-form-grid">
+                    <div class="profile-field">
+                        <label class="form-label" for="p-name">Full name</label>
+                        <input type="text" id="p-name" name="full_name" class="form-input profile-form-input" placeholder="Enter your full name" value="{{ user_full_name }}" maxlength="100">
+                    </div>
+                    <div class="profile-field">
+                        <label class="form-label" for="p-email">Email</label>
+                        <input type="email" id="p-email" name="email" class="form-input profile-form-input" placeholder="Enter your email" value="{{ user_email }}">
+                    </div>
+                    <div class="profile-field">
+                        <label class="form-label" for="p-phone">Phone</label>
+                        <input type="tel" id="p-phone" name="phone" class="form-input profile-form-input" placeholder="Enter your phone number" value="{{ user_phone|default:'' }}">
+                    </div>
+                    <div class="profile-field">
+                        <label class="form-label" for="p-location">Location</label>
+                        <input type="text" id="p-location" name="location" class="form-input profile-form-input" placeholder="City, State" value="Delhi, India">
+                    </div>
+                </div>
+                <div class="profile-field profile-field-full">
+                    <label class="form-label" for="p-bio">Professional Bio</label>
+                    <textarea id="p-bio" name="bio" class="form-input form-textarea profile-form-input" placeholder="Tell customers about your experience and expertise..." rows="3">Experienced professional with 10+ years of expertise. Fast, reliable, and professional service guaranteed.</textarea>
+                </div>
+            </form>
+        </section>
+
+        <!-- SERVICES & SKILLS -->
+        <section class="content-card">
+            <h2 class="content-card-title">Services & Skills</h2>
+            <p class="content-card-desc">Select the services you can provide to customers</p>
+            <div class="services-grid">
+                <label class="service-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkbox-label">Home Cleaning</span>
+                </label>
+                <label class="service-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkbox-label">Plumbing</span>
+                </label>
+                <label class="service-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkbox-label">Electrical Work</span>
+                </label>
+                <label class="service-checkbox">
+                    <input type="checkbox">
+                    <span class="checkbox-label">Painting</span>
+                </label>
+                <label class="service-checkbox">
+                    <input type="checkbox">
+                    <span class="checkbox-label">Laundry Services</span>
+                </label>
+                <label class="service-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkbox-label">General Repairs</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section class="content-card">
+            <h2 class="content-card-title">Certifications & Qualifications</h2>
+            <p class="content-card-desc">Add your professional certifications to build customer trust</p>
+            <div class="certifications-list">
+                <div class="certification-item">
+                    <div>
+                        <div class="cert-name">Plumbing Certification - NSDC</div>
+                        <div class="cert-date">Valid till Dec 2026</div>
+                    </div>
+                    <button class="remove-btn">Remove</button>
+                </div>
+                <div class="certification-item">
+                    <div>
+                        <div class="cert-name">Electrical Wiring Safety Course</div>
+                        <div class="cert-date">Valid till Mar 2027</div>
+                    </div>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+            <button class="add-btn">+ Add Certification</button>
+        </section>
+
+        <!-- DOCUMENTS -->
+        <section class="content-card">
+            <h2 class="content-card-title">Verification Documents</h2>
+            <p class="content-card-desc">Your identity and verification documents</p>
+            <div class="documents-list">
+                <div class="document-item">
+                    <span class="doc-label">Aadhar Card</span>
+                    <span class="doc-status verified">✓ Verified</span>
+                </div>
+                <div class="document-item">
+                    <span class="doc-label">PAN Card</span>
+                    <span class="doc-status verified">✓ Verified</span>
+                </div>
+                <div class="document-item">
+                    <span class="doc-label">Bank Account Details</span>
+                    <span class="doc-status verified">✓ Verified</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="profile-form-actions">
+            <button type="submit" class="btn-submit">Save Profile</button>
+        </div>
+    </main>
+
+    <script src="{% static 'helphop/js/worker_profile.js' %}" defer></script>
+</body>
+</html>

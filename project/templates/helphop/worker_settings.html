@@ -1,0 +1,209 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | HELPHOP Worker</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_pages.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_settings.css' %}">
+</head>
+<body class="worker-pages-page worker-settings-page aesthetic-bg">
+    <div class="page-bg">
+        <div class="page-bg-gradient"></div>
+        <div class="page-bg-dots"></div>
+    </div>
+
+    <nav class="customer-nav">
+        <a href="{% url 'worker_home' %}" class="nav-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'worker_home' %}" class="nav-link" style="text-decoration: none;">Home</a></li>
+            <li><a href="{% url 'worker_jobs' %}" class="nav-link" style="text-decoration: none;">Jobs</a></li>
+            <li><a href="{% url 'worker_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a></li>
+            <li><a href="{% url 'worker_earnings' %}" class="nav-link" style="text-decoration: none;">Earnings</a></li>
+            <li><a href="{% url 'worker_profile' %}" class="nav-link" style="text-decoration: none;">Profile</a></li>
+            <li><a href="{% url 'worker_settings' %}" class="nav-link active" style="text-decoration: none;">Settings</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <div class="nav-user">
+            <span class="nav-user-name">Hi, {{ request.user.first_name }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <main class="worker-main">
+        <header class="page-header">
+            <span class="page-badge">Preferences</span>
+            <h1 class="page-title">Settings &amp; <span class="page-title-accent">preferences</span></h1>
+            <p class="page-desc">Manage your availability, notifications, and account preferences.</p>
+        </header>
+
+        <!-- AVAILABILITY SETTINGS -->
+        <section class="content-card">
+            <h2 class="content-card-title">Work Availability</h2>
+            <p class="content-card-desc">Control when you're available to accept jobs</p>
+            
+            <div class="settings-list">
+                <label class="settings-toggle" for="accept-jobs">
+                    <span class="settings-toggle-label">Currently accepting jobs</span>
+                    <span class="settings-switch-wrap">
+                        <input type="checkbox" id="accept-jobs" class="settings-checkbox" checked>
+                        <span class="settings-switch" aria-hidden="true"></span>
+                    </span>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label class="form-label" for="work-from">Working hours from</label>
+                <input type="time" id="work-from" class="form-input form-select" value="09:00">
+            </div>
+
+            <div class="form-row">
+                <label class="form-label" for="work-to">Working hours to</label>
+                <input type="time" id="work-to" class="form-input form-select" value="18:00">
+            </div>
+
+            <div class="form-row">
+                <label class="form-label" for="service-radius">Service radius (km)</label>
+                <input type="number" id="service-radius" class="form-input form-select" value="15" min="1" max="50">
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">Preferred working days</label>
+                <div class="days-grid">
+                    <label class="day-checkbox"><input type="checkbox" checked> <span>Mon</span></label>
+                    <label class="day-checkbox"><input type="checkbox" checked> <span>Tue</span></label>
+                    <label class="day-checkbox"><input type="checkbox" checked> <span>Wed</span></label>
+                    <label class="day-checkbox"><input type="checkbox" checked> <span>Thu</span></label>
+                    <label class="day-checkbox"><input type="checkbox" checked> <span>Fri</span></label>
+                    <label class="day-checkbox"><input type="checkbox"> <span>Sat</span></label>
+                    <label class="day-checkbox"><input type="checkbox"> <span>Sun</span></label>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOTIFICATIONS -->
+        <section class="content-card">
+            <h2 class="content-card-title">Notifications</h2>
+            <p class="content-card-desc">Choose how you'd like to be notified</p>
+            
+            <div class="settings-list">
+                <label class="settings-toggle" for="notif-email">
+                    <span class="settings-toggle-label">Email notifications</span>
+                    <span class="settings-switch-wrap">
+                        <input type="checkbox" id="notif-email" class="settings-checkbox" checked>
+                        <span class="settings-switch" aria-hidden="true"></span>
+                    </span>
+                </label>
+                <label class="settings-toggle" for="notif-sms">
+                    <span class="settings-toggle-label">SMS notifications</span>
+                    <span class="settings-switch-wrap">
+                        <input type="checkbox" id="notif-sms" class="settings-checkbox" checked>
+                        <span class="settings-switch" aria-hidden="true"></span>
+                    </span>
+                </label>
+                <label class="settings-toggle" for="notif-push">
+                    <span class="settings-toggle-label">Push notifications</span>
+                    <span class="settings-switch-wrap">
+                        <input type="checkbox" id="notif-push" class="settings-checkbox" checked>
+                        <span class="settings-switch" aria-hidden="true"></span>
+                    </span>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">Quiet hours from</label>
+                <input type="time" class="form-input form-select" value="22:00">
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">Quiet hours to</label>
+                <input type="time" class="form-input form-select" value="08:00">
+            </div>
+        </section>
+
+        <!-- PAYMENT METHODS -->
+        <section class="content-card">
+            <h2 class="content-card-title">Payment Methods</h2>
+            <p class="content-card-desc">Manage where your earnings are deposited</p>
+            
+            <div class="payment-list">
+                <div class="payment-item verified">
+                    <div>
+                        <div class="payment-name">🏦 ICICI Bank</div>
+                        <div class="payment-desc">Account ending in 2847</div>
+                    </div>
+                    <span class="verified-badge">✓ Primary</span>
+                </div>
+            </div>
+            <button class="add-method-btn">+ Add Payment Method</button>
+        </section>
+
+        <!-- PRIVACY & SECURITY -->
+        <section class="content-card">
+            <h2 class="content-card-title">Privacy & Security</h2>
+            <p class="content-card-desc">Keep your account safe and secure</p>
+            
+            <div class="settings-list">
+                <label class="settings-toggle" for="profile-visible">
+                    <span class="settings-toggle-label">Profile visibility</span>
+                    <span class="settings-switch-wrap">
+                        <input type="checkbox" id="profile-visible" class="settings-checkbox" checked>
+                        <span class="settings-switch" aria-hidden="true"></span>
+                    </span>
+                </label>
+                <label class="settings-toggle" for="data-collection">
+                    <span class="settings-toggle-label">Data collection for analytics</span>
+                    <span class="settings-switch-wrap">
+                        <input type="checkbox" id="data-collection" class="settings-checkbox" checked>
+                        <span class="settings-switch" aria-hidden="true"></span>
+                    </span>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <button class="security-btn">Change Password</button>
+            </div>
+
+            <div class="form-row">
+                <button class="security-btn">Enable Two-Factor Authentication</button>
+            </div>
+        </section>
+
+        <!-- DANGER ZONE -->
+        <section class="content-card danger-zone">
+            <h2 class="content-card-title">Danger Zone</h2>
+            <p class="content-card-desc">These actions cannot be undone</p>
+            
+            <div class="danger-actions">
+                <div class="danger-action">
+                    <div>
+                        <div class="danger-title">Deactivate Account</div>
+                        <div class="danger-desc">Temporarily disable your account</div>
+                    </div>
+                    <button class="danger-btn">Deactivate</button>
+                </div>
+
+                <div class="danger-action">
+                    <div>
+                        <div class="danger-title">Delete Account</div>
+                        <div class="danger-desc">Permanently delete your account and all data</div>
+                    </div>
+                    <button class="danger-btn">Delete</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="form-row">
+            <button class="btn-submit">Save Changes</button>
+        </div>
+    </main>
+
+    <script src="{% static 'helphop/js/worker_settings.js' %}" defer></script>
+</body>
+</html>

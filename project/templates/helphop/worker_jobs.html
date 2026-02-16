@@ -1,0 +1,384 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Jobs | HELPHOP Worker</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_pages.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_jobs.css' %}">
+</head>
+<body class="worker-pages-page worker-jobs-page aesthetic-bg">
+    <div class="page-bg">
+        <div class="page-bg-gradient"></div>
+        <div class="page-bg-dots"></div>
+    </div>
+
+    <nav class="customer-nav">
+        <a href="{% url 'worker_home' %}" class="nav-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'worker_home' %}" class="nav-link" style="text-decoration: none;">Home</a></li>
+            <li><a href="{% url 'worker_jobs' %}" class="nav-link active" style="text-decoration: none;">Jobs</a></li>
+            <li><a href="{% url 'worker_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a></li>
+            <li><a href="{% url 'worker_earnings' %}" class="nav-link" style="text-decoration: none;">Earnings</a></li>
+            <li><a href="{% url 'worker_profile' %}" class="nav-link" style="text-decoration: none;">Profile</a></li>
+            <li><a href="{% url 'worker_settings' %}" class="nav-link" style="text-decoration: none;">Settings</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <div class="nav-user">
+            <span class="nav-user-name">Hi, {{ request.user.first_name }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <main class="worker-main">
+        <header class="page-header">
+            <span class="page-badge">Opportunities</span>
+            <h1 class="page-title">Available <span class="page-title-accent">Jobs</span></h1>
+            <p class="page-desc">Browse and accept new job requests that match your skills.</p>
+        </header>
+
+        <!-- FILTERS & SEARCH -->
+        <section class="filters-section">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search jobs by location, service, or customer name...">
+                <button class="search-btn">🔍</button>
+            </div>
+
+            <div class="filters">
+                <select class="filter-select">
+                    <option value="">All Services</option>
+                    <option value="cleaning">Home Cleaning</option>
+                    <option value="plumbing">Plumbing</option>
+                    <option value="electrical">Electrical</option>
+                    <option value="painting">Painting</option>
+                    <option value="repairs">General Repairs</option>
+                </select>
+
+                <select class="filter-select">
+                    <option value="">All Locations</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="noida">Noida</option>
+                    <option value="gurgaon">Gurgaon</option>
+                    <option value="faridabad">Faridabad</option>
+                </select>
+
+                <select class="filter-select">
+                    <option value="">All Times</option>
+                    <option value="today">Today</option>
+                    <option value="tomorrow">Tomorrow</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+
+                <select class="filter-select">
+                    <option value="">All Price Range</option>
+                    <option value="0-500">₹0 - ₹500</option>
+                    <option value="500-1000">₹500 - ₹1,000</option>
+                    <option value="1000-2000">₹1,000 - ₹2,000</option>
+                    <option value="2000">₹2,000+</option>
+                </select>
+
+                <button class="filter-reset">Clear Filters</button>
+            </div>
+        </section>
+
+        <!-- JOBS DISPLAY -->
+        <section class="jobs-section">
+            <div class="jobs-count">Showing 12 available jobs</div>
+
+            <div class="jobs-grid">
+                <!-- JOB 1 -->
+                <div class="available-job-card high-priority">
+                    <div class="job-header">
+                        <span class="job-service-badge">Home Cleaning</span>
+                        <span class="priority-badge high">🔴 High Priority</span>
+                    </div>
+                    
+                    <h3 class="job-title">3 BHK Full House Cleaning</h3>
+                    
+                    <div class="job-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span class="detail-text">Sector 45, Noida • 2.5 km away</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span class="detail-text">16 Feb 2025, 10:00 AM - 1:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👤</span>
+                            <span class="detail-text">Customer: Sarah Johnson (⭐ 4.9)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📝</span>
+                            <span class="detail-text">Full apartment cleaning including kitchen, bathrooms, and bedrooms</span>
+                        </div>
+                    </div>
+
+                    <div class="job-pricing">
+                        <div class="price-item">
+                            <span class="price-label">Payment</span>
+                            <span class="price-value">₹ 2,500</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-label">Estimated Duration</span>
+                            <span class="price-value">3 hours</span>
+                        </div>
+                    </div>
+
+                    <div class="job-actions">
+                        <button class="accept-btn accept-job">Accept Job</button>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </div>
+
+                <!-- JOB 2 -->
+                <div class="available-job-card">
+                    <div class="job-header">
+                        <span class="job-service-badge">Plumbing</span>
+                        <span class="priority-badge normal">Normal</span>
+                    </div>
+                    
+                    <h3 class="job-title">Water Leak Repair - Kitchen</h3>
+                    
+                    <div class="job-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span class="detail-text">DLF Phase 3, Gurgaon • 8 km away</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span class="detail-text">16 Feb 2025, 2:00 PM - 3:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👤</span>
+                            <span class="detail-text">Customer: Michael Chen (⭐ 4.7)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📝</span>
+                            <span class="detail-text">Fix water leak under sink. Quick 30-minute job</span>
+                        </div>
+                    </div>
+
+                    <div class="job-pricing">
+                        <div class="price-item">
+                            <span class="price-label">Payment</span>
+                            <span class="price-value">₹ 1,200</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-label">Estimated Duration</span>
+                            <span class="price-value">1 hour</span>
+                        </div>
+                    </div>
+
+                    <div class="job-actions">
+                        <button class="accept-btn accept-job">Accept Job</button>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </div>
+
+                <!-- JOB 3 -->
+                <div class="available-job-card">
+                    <div class="job-header">
+                        <span class="job-service-badge">Electrical</span>
+                        <span class="priority-badge normal">Normal</span>
+                    </div>
+                    
+                    <h3 class="job-title">Ceiling Light Installation</h3>
+                    
+                    <div class="job-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span class="detail-text">Khan Market, Delhi • 4 km away</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span class="detail-text">17 Feb 2025, 9:00 AM - 11:00 AM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👤</span>
+                            <span class="detail-text">Customer: Emily Watson (⭐ 4.8)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📝</span>
+                            <span class="detail-text">Install 5 ceiling lights in bedroom</span>
+                        </div>
+                    </div>
+
+                    <div class="job-pricing">
+                        <div class="price-item">
+                            <span class="price-label">Payment</span>
+                            <span class="price-value">₹ 1,800</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-label">Estimated Duration</span>
+                            <span class="price-value">2 hours</span>
+                        </div>
+                    </div>
+
+                    <div class="job-actions">
+                        <button class="accept-btn accept-job">Accept Job</button>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </div>
+
+                <!-- JOB 4 -->
+                <div class="available-job-card">
+                    <div class="job-header">
+                        <span class="job-service-badge">Painting</span>
+                        <span class="priority-badge normal">Normal</span>
+                    </div>
+                    
+                    <h3 class="job-title">Room Painting - 2 Rooms</h3>
+                    
+                    <div class="job-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span class="detail-text">Golf Links, Delhi • 6 km away</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span class="detail-text">18 Feb 2025, 10:00 AM - 4:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👤</span>
+                            <span class="detail-text">Customer: Robert Smith (⭐ 4.6)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📝</span>
+                            <span class="detail-text">Paint 2 rooms with interior paint. Color: Off-white</span>
+                        </div>
+                    </div>
+
+                    <div class="job-pricing">
+                        <div class="price-item">
+                            <span class="price-label">Payment</span>
+                            <span class="price-value">₹ 3,500</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-label">Estimated Duration</span>
+                            <span class="price-value">6 hours</span>
+                        </div>
+                    </div>
+
+                    <div class="job-actions">
+                        <button class="accept-btn accept-job">Accept Job</button>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </div>
+
+                <!-- JOB 5 -->
+                <div class="available-job-card">
+                    <div class="job-header">
+                        <span class="job-service-badge">General Repairs</span>
+                        <span class="priority-badge normal">Normal</span>
+                    </div>
+                    
+                    <h3 class="job-title">Door Lock Repair</h3>
+                    
+                    <div class="job-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span class="detail-text">Mayur Vihar, Delhi • 3 km away</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span class="detail-text">16 Feb 2025, 4:00 PM - 5:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👤</span>
+                            <span class="detail-text">Customer: Lisa Anderson (⭐ 4.9)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📝</span>
+                            <span class="detail-text">Repair broken front door lock mechanism</span>
+                        </div>
+                    </div>
+
+                    <div class="job-pricing">
+                        <div class="price-item">
+                            <span class="price-label">Payment</span>
+                            <span class="price-value">₹ 800</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-label">Estimated Duration</span>
+                            <span class="price-value">1 hour</span>
+                        </div>
+                    </div>
+
+                    <div class="job-actions">
+                        <button class="accept-btn accept-job">Accept Job</button>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </div>
+
+                <!-- JOB 6 -->
+                <div class="available-job-card">
+                    <div class="job-header">
+                        <span class="job-service-badge">Home Cleaning</span>
+                        <span class="priority-badge low">Low Priority</span>
+                    </div>
+                    
+                    <h3 class="job-title">Office Space Cleaning</h3>
+                    
+                    <div class="job-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span class="detail-text">Connaught Place, Delhi • 9 km away</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span class="detail-text">19 Feb 2025, 6:00 PM - 8:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👤</span>
+                            <span class="detail-text">Customer: David Wilson (⭐ 4.5)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📝</span>
+                            <span class="detail-text">Clean 500 sq ft office space - dusting and mopping</span>
+                        </div>
+                    </div>
+
+                    <div class="job-pricing">
+                        <div class="price-item">
+                            <span class="price-label">Payment</span>
+                            <span class="price-value">₹ 1,500</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-label">Estimated Duration</span>
+                            <span class="price-value">2 hours</span>
+                        </div>
+                    </div>
+
+                    <div class="job-actions">
+                        <button class="accept-btn accept-job">Accept Job</button>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGINATION -->
+        <div class="pagination">
+            <button class="pagination-btn prev-btn" disabled>← Previous</button>
+            <div class="pagination-numbers">
+                <button class="page-num active">1</button>
+                <button class="page-num">2</button>
+                <button class="page-num">3</button>
+                <span class="pagination-dots">...</span>
+                <button class="page-num">8</button>
+            </div>
+            <button class="pagination-btn next-btn">Next →</button>
+        </div>
+    </main>
+
+    <script src="{% static 'helphop/js/worker_jobs.js' %}" defer></script>
+</body>
+</html>

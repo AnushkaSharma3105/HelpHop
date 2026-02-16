@@ -96,7 +96,13 @@ def login_view(request):
             )
             if user:
                 login(request, user)
-                return redirect("customer_home")
+                # Redirect based on user type
+                if user.user_type == "worker":
+                    return redirect("worker_home")
+                elif user.user_type == "customer":
+                    return redirect("customer_home")
+                else:
+                    return redirect("landing")
             else:
                 messages.error(request, "Invalid credentials or unverified account")
     else:
@@ -237,3 +243,67 @@ def repairs_book(request):
 
 def payment(request):
     return render(request, "helphop/Payment.html")
+
+# WORKER VIEWS
+
+def worker_home(request):
+    """Worker dashboard home page"""
+    if request.user.is_authenticated and request.user.user_type == "worker":
+        user = request.user
+        full_name = (user.get_full_name() or user.username or '').strip() or 'Your name'
+        context = {
+            'user_full_name': full_name,
+            'user_email': user.email,
+        }
+        return render(request, 'helphop/worker_home.html', context)
+    return redirect('login')
+
+
+def worker_dashboard(request):
+    """Worker jobs and earnings dashboard"""
+    if request.user.is_authenticated and request.user.user_type == "worker":
+        return render(request, 'helphop/worker_dashboard.html')
+    return redirect('login')
+
+
+def worker_profile(request):
+    """Worker profile management"""
+    if request.user.is_authenticated and request.user.user_type == "worker":
+        user = request.user
+        full_name = (user.get_full_name() or user.username or '').strip() or 'Your name'
+        parts = full_name.split()
+        initials = (parts[0][0] + parts[-1][0]).upper() if len(parts) >= 2 else full_name[:2].upper()
+        try:
+            profile = user.profile
+            phone = profile.phone_number
+        except Profile.DoesNotExist:
+            phone = ''
+        context = {
+            'user_full_name': full_name,
+            'user_email': user.email,
+            'user_phone': phone,
+            'user_initials': initials,
+        }
+        return render(request, 'helphop/worker_profile.html', context)
+    return redirect('login')
+
+
+def worker_settings(request):
+    """Worker settings and preferences"""
+    if request.user.is_authenticated and request.user.user_type == "worker":
+        return render(request, 'helphop/worker_settings.html')
+    return redirect('login')
+
+
+def worker_jobs(request):
+    """Available jobs for workers"""
+    if request.user.is_authenticated and request.user.user_type == "worker":
+        return render(request, 'helphop/worker_jobs.html')
+    return redirect('login')
+
+
+def worker_earnings(request):
+    """Worker earnings and payments"""
+    if request.user.is_authenticated and request.user.user_type == "worker":
+        return render(request, 'helphop/worker_earnings.html')
+    return redirect('login')

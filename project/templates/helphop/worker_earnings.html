@@ -1,0 +1,336 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings | HELPHOP Worker</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_pages.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_earnings.css' %}">
+</head>
+<body class="worker-pages-page worker-earnings-page aesthetic-bg">
+    <div class="page-bg">
+        <div class="page-bg-gradient"></div>
+        <div class="page-bg-dots"></div>
+    </div>
+
+    <nav class="customer-nav">
+        <a href="{% url 'worker_home' %}" class="nav-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'worker_home' %}" class="nav-link" style="text-decoration: none;">Home</a></li>
+            <li><a href="{% url 'worker_jobs' %}" class="nav-link" style="text-decoration: none;">Jobs</a></li>
+            <li><a href="{% url 'worker_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a></li>
+            <li><a href="{% url 'worker_earnings' %}" class="nav-link active" style="text-decoration: none;">Earnings</a></li>
+            <li><a href="{% url 'worker_profile' %}" class="nav-link" style="text-decoration: none;">Profile</a></li>
+            <li><a href="{% url 'worker_settings' %}" class="nav-link" style="text-decoration: none;">Settings</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <div class="nav-user">
+            <span class="nav-user-name">Hi, {{ request.user.first_name }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <main class="worker-main">
+        <header class="page-header">
+            <span class="page-badge">Financial</span>
+            <h1 class="page-title">Earnings &amp; <span class="page-title-accent">Payments</span></h1>
+            <p class="page-desc">Track your earnings and manage withdrawals.</p>
+        </header>
+
+        <!-- EARNINGS OVERVIEW CARDS -->
+        <section class="earnings-overview">
+            <div class="earnings-card primary">
+                <div class="card-label">Total Earnings</div>
+                <div class="card-value">₹ 45,850</div>
+                <div class="card-desc">All time earnings</div>
+            </div>
+
+            <div class="earnings-card">
+                <div class="card-label">This Month</div>
+                <div class="card-value">₹ 8,500</div>
+                <div class="card-desc">February 2026</div>
+            </div>
+
+            <div class="earnings-card">
+                <div class="card-label">This Week</div>
+                <div class="card-value">₹ 2,800</div>
+                <div class="card-desc">10 Feb - 16 Feb</div>
+            </div>
+
+            <div class="earnings-card pending">
+                <div class="card-label">Available Balance</div>
+                <div class="card-value">₹ 2,500</div>
+                <div class="card-desc">Ready to withdraw</div>
+            </div>
+        </section>
+
+        <!-- EARNINGS TABS & ACTIONS -->
+        <section class="content-card">
+            <div class="earnings-toolbar">
+                <div class="earnings-tabs">
+                    <button type="button" class="earnings-tab active" data-tab="transactions">Transactions</button>
+                    <button type="button" class="earnings-tab" data-tab="withdrawals">Withdrawals</button>
+                    <button type="button" class="earnings-tab" data-tab="invoices">Invoices</button>
+                </div>
+                <div class="earnings-actions">
+                    <input type="month" class="month-picker" value="2026-02">
+                    <button class="withdraw-btn">Request Withdrawal</button>
+                </div>
+            </div>
+
+            <!-- TRANSACTIONS TAB -->
+            <div class="tab-content active" id="transactions">
+                <table class="transactions-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Job / Service</th>
+                            <th>Customer</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="transaction-row">
+                            <td>16 Feb</td>
+                            <td>
+                                <div class="tx-job-name">Home Cleaning - 2 BHK</div>
+                                <div class="tx-job-id">#WJ001</div>
+                            </td>
+                            <td>Sarah Johnson</td>
+                            <td class="amount">₹ 800</td>
+                            <td><span class="status completed">✓ Completed</span></td>
+                        </tr>
+                        <tr class="transaction-row">
+                            <td>15 Feb</td>
+                            <td>
+                                <div class="tx-job-name">Plumbing – Leak Repair</div>
+                                <div class="tx-job-id">#WJ002</div>
+                            </td>
+                            <td>Michael Chen</td>
+                            <td class="amount">₹ 1,200</td>
+                            <td><span class="status completed">✓ Completed</span></td>
+                        </tr>
+                        <tr class="transaction-row">
+                            <td>14 Feb</td>
+                            <td>
+                                <div class="tx-job-name">Electrical – Bulb Installation</div>
+                                <div class="tx-job-id">#WJ003</div>
+                            </td>
+                            <td>Emily Watson</td>
+                            <td class="amount">₹ 800</td>
+                            <td><span class="status completed">✓ Completed</span></td>
+                        </tr>
+                        <tr class="transaction-row">
+                            <td>13 Feb</td>
+                            <td>
+                                <div class="tx-job-name">Painting – Room Walls</div>
+                                <div class="tx-job-id">#WJ004</div>
+                            </td>
+                            <td>Robert Smith</td>
+                            <td class="amount">₹ 1,500</td>
+                            <td><span class="status completed">✓ Completed</span></td>
+                        </tr>
+                        <tr class="transaction-row">
+                            <td>12 Feb</td>
+                            <td>
+                                <div class="tx-job-name">General Repairs – Door Lock</div>
+                                <div class="tx-job-id">#WJ005</div>
+                            </td>
+                            <td>Lisa Anderson</td>
+                            <td class="amount">₹ 600</td>
+                            <td><span class="status completed">✓ Completed</span></td>
+                        </tr>
+                        <tr class="transaction-row">
+                            <td>11 Feb</td>
+                            <td>
+                                <div class="tx-job-name">Home Cleaning - 1 BHK</div>
+                                <div class="tx-job-id">#WJ006</div>
+                            </td>
+                            <td>James Mitchell</td>
+                            <td class="amount">₹ 500</td>
+                            <td><span class="status completed">✓ Completed</span></td>
+                        </tr>
+                        <tr class="transaction-row">
+                            <td>10 Feb</td>
+                            <td>
+                                <div class="tx-job-name">Electrical – Switch Replacement</div>
+                                <div class="tx-job-id">#WJ007</div>
+                            </td>
+                            <td>Amanda Brown</td>
+                            <td class="amount">₹ 400</td>
+                            <td><span class="status completed">✓ Completed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- WITHDRAWALS TAB -->
+            <div class="tab-content" id="withdrawals">
+                <div class="withdrawal-request">
+                    <h3>Request Withdrawal</h3>
+                    <form class="withdrawal-form">
+                        <div class="form-group">
+                            <label>Amount to Withdraw</label>
+                            <div class="input-with-max">
+                                <input type="number" placeholder="Enter amount" min="0" max="2500" required>
+                                <button type="button" class="max-btn">Max</button>
+                            </div>
+                            <p class="form-hint">Available balance: ₹ 2,500</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Payment Method</label>
+                            <select required>
+                                <option value="">Select payment method</option>
+                                <option value="bank">Bank Transfer (ICICI Bank - 2847)</option>
+                                <option value="upi">UPI - 7061923456</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Request Withdrawal</button>
+                    </form>
+                </div>
+
+                <div class="withdrawal-history">
+                    <h3>Withdrawal History</h3>
+                    <table class="withdrawals-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Method</th>
+                                <th>Status</th>
+                                <th>Reference</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10 Feb 2026</td>
+                                <td>₹ 5,000</td>
+                                <td>Bank Transfer</td>
+                                <td><span class="status completed">✓ Completed</span></td>
+                                <td>#WD001</td>
+                            </tr>
+                            <tr>
+                                <td>26 Jan 2026</td>
+                                <td>₹ 3,000</td>
+                                <td>Bank Transfer</td>
+                                <td><span class="status completed">✓ Completed</span></td>
+                                <td>#WD002</td>
+                            </tr>
+                            <tr>
+                                <td>15 Jan 2026</td>
+                                <td>₹ 4,500</td>
+                                <td>UPI</td>
+                                <td><span class="status completed">✓ Completed</span></td>
+                                <td>#WD003</td>
+                            </tr>
+                            <tr>
+                                <td>05 Jan 2026</td>
+                                <td>₹ 2,500</td>
+                                <td>Bank Transfer</td>
+                                <td><span class="status completed">✓ Completed</span></td>
+                                <td>#WD004</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- INVOICES TAB -->
+            <div class="tab-content" id="invoices">
+                <div class="invoices-list">
+                    <div class="invoice-item">
+                        <div class="invoice-info">
+                            <h4>February 2026 Invoice</h4>
+                            <p class="invoice-date">Generated: 1 Feb 2026</p>
+                        </div>
+                        <div>
+                            <p class="invoice-amount">₹ 8,500</p>
+                            <div class="invoice-actions">
+                                <button class="action-btn download-btn">📥 Download</button>
+                                <button class="action-btn view-btn">👁️ View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="invoice-item">
+                        <div class="invoice-info">
+                            <h4>January 2026 Invoice</h4>
+                            <p class="invoice-date">Generated: 1 Jan 2026</p>
+                        </div>
+                        <div>
+                            <p class="invoice-amount">₹ 10,350</p>
+                            <div class="invoice-actions">
+                                <button class="action-btn download-btn">📥 Download</button>
+                                <button class="action-btn view-btn">👁️ View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="invoice-item">
+                        <div class="invoice-info">
+                            <h4>December 2025 Invoice</h4>
+                            <p class="invoice-date">Generated: 1 Dec 2025</p>
+                        </div>
+                        <div>
+                            <p class="invoice-amount">₹ 9,200</p>
+                            <div class="invoice-actions">
+                                <button class="action-btn download-btn">📥 Download</button>
+                                <button class="action-btn view-btn">👁️ View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="invoice-item">
+                        <div class="invoice-info">
+                            <h4>November 2025 Invoice</h4>
+                            <p class="invoice-date">Generated: 1 Nov 2025</p>
+                        </div>
+                        <div>
+                            <p class="invoice-amount">₹ 7,800</p>
+                            <div class="invoice-actions">
+                                <button class="action-btn download-btn">📥 Download</button>
+                                <button class="action-btn view-btn">👁️ View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERFORMANCE INSIGHTS -->
+        <section class="content-card">
+            <h2 class="content-card-title">Your Performance</h2>
+            <p class="content-card-desc">Track your earning trends and job performance</p>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-label">Average per Job</div>
+                    <div class="insight-value">₹ 1,214</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-label">Jobs this Month</div>
+                    <div class="insight-value">7</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-label">Monthly Growth</div>
+                    <div class="insight-value">📈 +12%</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-label">Top Service</div>
+                    <div class="insight-value">Plumbing</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{% static 'helphop/js/worker_earnings.js' %}" defer></script>
+</body>
+</html>

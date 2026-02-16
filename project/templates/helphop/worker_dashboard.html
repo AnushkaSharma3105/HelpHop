@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | HELPHOP Worker</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_pages.css' %}">
+</head>
+<body class="worker-pages-page worker-dashboard-page aesthetic-bg">
+    <div class="page-bg">
+        <div class="page-bg-gradient"></div>
+        <div class="page-bg-dots"></div>
+    </div>
+
+    <nav class="customer-nav">
+        <a href="{% url 'worker_home' %}" class="nav-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'worker_home' %}" class="nav-link" style="text-decoration: none;">Home</a></li>
+            <li><a href="{% url 'worker_jobs' %}" class="nav-link" style="text-decoration: none;">Jobs</a></li>
+            <li><a href="{% url 'worker_dashboard' %}" class="nav-link active" style="text-decoration: none;">Dashboard</a></li>
+            <li><a href="{% url 'worker_earnings' %}" class="nav-link" style="text-decoration: none;">Earnings</a></li>
+            <li><a href="{% url 'worker_profile' %}" class="nav-link" style="text-decoration: none;">Profile</a></li>
+            <li><a href="{% url 'worker_settings' %}" class="nav-link" style="text-decoration: none;">Settings</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <div class="nav-user">
+            <span class="nav-user-name">Hi, {{ request.user.first_name }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <main class="worker-main">
+        <header class="page-header">
+            <span class="page-badge">Dashboard</span>
+            <h1 class="page-title">My <span class="page-title-accent">jobs</span></h1>
+            <p class="page-desc">View and manage your active and completed jobs.</p>
+        </header>
+
+        <!-- STATS SECTION -->
+        <section class="stats-section">
+            <div class="stat-item">
+                <div class="stat-label">Active Jobs</div>
+                <div class="stat-number">2</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">This Week</div>
+                <div class="stat-number">8</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">This Month</div>
+                <div class="stat-number">32</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Completion Rate</div>
+                <div class="stat-number">98%</div>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <div class="jobs-toolbar">
+                <div class="jobs-tabs">
+                    <button type="button" class="jobs-tab active" data-filter="all">All</button>
+                    <button type="button" class="jobs-tab" data-filter="active">Active</button>
+                    <button type="button" class="jobs-tab" data-filter="completed">Completed</button>
+                    <button type="button" class="jobs-tab" data-filter="cancelled">Cancelled</button>
+                </div>
+            </div>
+
+            <div class="jobs-list">
+                <!-- ACTIVE JOB -->
+                <div class="job-card" data-job-status="active">
+                    <div class="job-main">
+                        <span class="job-badge job-badge-active">🔵 Active</span>
+                        <h3 class="job-service">Plumbing – Leak Repair</h3>
+                        <p class="job-date">16 Feb 2025, 2:00 PM</p>
+                        <p class="job-address">📍 DLF Phase 3, Gurgaon</p>
+                        <p class="job-customer">Customer: Michael Chen</p>
+                        <p class="job-description">Fix water leak under sink</p>
+                    </div>
+                    <div class="job-meta">
+                        <span class="job-id">#WJ001</span>
+                        <span class="job-amount">₹ 1,200</span>
+                    </div>
+                    <div class="job-actions">
+                        <button class="action-btn complete-btn">Mark Complete</button>
+                        <button class="action-btn update-btn">Update Status</button>
+                    </div>
+                </div>
+
+                <!-- ACTIVE JOB -->
+                <div class="job-card" data-job-status="active">
+                    <div class="job-main">
+                        <span class="job-badge job-badge-active">🔵 Active</span>
+                        <h3 class="job-service">Home Cleaning – 3 BHK</h3>
+                        <p class="job-date">15 Feb 2025, 10:00 AM</p>
+                        <p class="job-address">📍 Sector 45, Noida</p>
+                        <p class="job-customer">Customer: Sarah Johnson</p>
+                        <p class="job-description">Full apartment cleaning including kitchen and bathrooms</p>
+                    </div>
+                    <div class="job-meta">
+                        <span class="job-id">#WJ002</span>
+                        <span class="job-amount">₹ 2,000</span>
+                    </div>
+                    <div class="job-actions">
+                        <button class="action-btn complete-btn">Mark Complete</button>
+                        <button class="action-btn update-btn">Update Status</button>
+                    </div>
+                </div>
+
+                <!-- COMPLETED JOB -->
+                <div class="job-card" data-job-status="completed">
+                    <div class="job-main">
+                        <span class="job-badge job-badge-completed">✓ Completed</span>
+                        <h3 class="job-service">Electrical – Bulb Installation</h3>
+                        <p class="job-date">14 Feb 2025, 6:00 PM</p>
+                        <p class="job-address">📍 Khan Market, Delhi</p>
+                        <p class="job-customer">Customer: Emily Watson</p>
+                        <p class="job-description">Install 5 ceiling lights in bedroom</p>
+                    </div>
+                    <div class="job-meta">
+                        <span class="job-id">#WJ003</span>
+                        <span class="job-amount">₹ 800</span>
+                        <span class="job-rating">⭐ 5.0</span>
+                    </div>
+                </div>
+
+                <!-- COMPLETED JOB -->
+                <div class="job-card" data-job-status="completed">
+                    <div class="job-main">
+                        <span class="job-badge job-badge-completed">✓ Completed</span>
+                        <h3 class="job-service">Painting – Room 1</h3>
+                        <p class="job-date">13 Feb 2025, 9:00 AM</p>
+                        <p class="job-address">📍 Golf Links, Delhi</p>
+                        <p class="job-customer">Customer: Robert Smith</p>
+                        <p class="job-description">Paint living room walls</p>
+                    </div>
+                    <div class="job-meta">
+                        <span class="job-id">#WJ004</span>
+                        <span class="job-amount">₹ 1,500</span>
+                        <span class="job-rating">⭐ 4.8</span>
+                    </div>
+                </div>
+
+                <!-- COMPLETED JOB -->
+                <div class="job-card" data-job-status="completed">
+                    <div class="job-main">
+                        <span class="job-badge job-badge-completed">✓ Completed</span>
+                        <h3 class="job-service">Repairs – Door Lock Fix</h3>
+                        <p class="job-date">12 Feb 2025, 3:00 PM</p>
+                        <p class="job-address">📍 Mayur Vihar, Delhi</p>
+                        <p class="job-customer">Customer: Lisa Anderson</p>
+                        <p class="job-description">Repair broken front door lock</p>
+                    </div>
+                    <div class="job-meta">
+                        <span class="job-id">#WJ005</span>
+                        <span class="job-amount">₹ 600</span>
+                        <span class="job-rating">⭐ 4.9</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="jobs-empty-msg jobs-empty-filter" id="jobs-empty-filter" style="display: none;">No jobs in this category.</p>
+            <p class="jobs-empty-msg" id="jobs-empty-end">No more jobs to show.</p>
+        </section>
+    </main>
+
+    <script src="{% static 'helphop/js/worker_dashboard.js' %}" defer></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | HELPHOP Worker</title>
+    <link rel="stylesheet" href="{% static 'helphop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_home.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_pages.css' %}">
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_home.css' %}"
+</head>
+<body class="worker-home-page aesthetic-bg">
+    <div class="page-bg">
+        <div class="page-bg-gradient"></div>
+        <div class="page-bg-dots"></div>
+    </div>
+
+    <nav class="customer-nav">
+        <a href="{% url 'worker_home' %}" class="nav-logo">
+            <img src="{% static 'helphop/images/logo.svg' %}" alt="HELPHOP" style="margin-left: 16px;">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'worker_home' %}" class="nav-link active" style="text-decoration: none;">Home</a></li>
+            <li><a href="{% url 'worker_jobs' %}" class="nav-link" style="text-decoration: none;">Jobs</a></li>
+            <li><a href="{% url 'worker_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a></li>
+            <li><a href="{% url 'worker_earnings' %}" class="nav-link" style="text-decoration: none;">Earnings</a></li>
+            <li><a href="{% url 'worker_profile' %}" class="nav-link" style="text-decoration: none;">Profile</a></li>
+            <li><a href="{% url 'worker_settings' %}" class="nav-link" style="text-decoration: none;">Settings</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <div class="nav-user">
+            <span class="nav-user-name">Hi, {{ request.user.first_name }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn nav-btn-outline">Logout</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <main class="worker-main">
+        <!-- HERO/WELCOME SECTION -->
+        <section class="hero-layout worker-hero">
+            <div class="hero-text">
+                <h1>
+                    Welcome back,<br>
+                    <span>{{ user_full_name }}</span>
+                </h1>
+                <p>
+                    You're making great progress this month. 
+                    Keep accepting jobs and growing your earnings.
+                </p>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <p class="stat-label">Jobs This Month</p>
+                        <p class="stat-value">12</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-content">
+                        <p class="stat-label">Your Rating</p>
+                        <p class="stat-value">4.9/5</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-content">
+                        <p class="stat-label">Earnings This Month</p>
+                        <p class="stat-value">₹ 8,500</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <p class="stat-label">Completion Rate</p>
+                        <p class="stat-value">98%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK ACTIONS -->
+        <section class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="actions-grid">
+                <a href="{% url 'worker_jobs' %}" class="action-card">
+                    <div class="action-icon">🔍</div>
+                    <h3>Available Jobs</h3>
+                    <p>Browse and accept new jobs in your area</p>
+                    <span class="action-badge">5 New</span>
+                </a>
+
+                <a href="{% url 'worker_dashboard' %}" class="action-card">
+                    <div class="action-icon">📋</div>
+                    <h3>My Jobs</h3>
+                    <p>View your ongoing and completed jobs</p>
+                    <span class="action-badge">2 Active</span>
+                </a>
+
+                <a href="{% url 'worker_earnings' %}" class="action-card">
+                    <div class="action-icon">💵</div>
+                    <h3>Earnings</h3>
+                    <p>Check your earnings and payment history</p>
+                    <span class="action-badge">₹ 2,500 Pending</span>
+                </a>
+
+                <a href="{% url 'worker_profile' %}" class="action-card">
+                    <div class="action-icon">👤</div>
+                    <h3>Profile</h3>
+                    <p>Update your skills and service categories</p>
+                    <span class="action-badge">Complete</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- RECENT JOBS -->
+        <section class="recent-section">
+            <div class="section-header">
+                <h2>Recent Activity</h2>
+                <a href="{% url 'worker_dashboard' %}" class="view-all">View All →</a>
+            </div>
+
+            <div class="jobs-list">
+                <div class="job-card job-completed">
+                    <div class="job-status completed">✓ Completed</div>
+                    <h3>Home Cleaning - 2 BHK</h3>
+                    <p class="job-meta">📍 Sector 45, Noida • 14 Feb 2025, 10:00 AM</p>
+                    <p class="job-customer">Customer: Sarah Johnson</p>
+                    <div class="job-footer">
+                        <span class="job-amount">₹ 800</span>
+                        <span class="job-rating">⭐ 5.0</span>
+                    </div>
+                </div>
+
+                <div class="job-card job-active">
+                    <div class="job-status active">🔵 In Progress</div>
+                    <h3>Plumbing - Leak Repair</h3>
+                    <p class="job-meta">📍 DLF Phase 3, Gurgaon • Today, 2:00 PM</p>
+                    <p class="job-customer">Customer: Michael Chen</p>
+                    <div class="job-footer">
+                        <span class="job-amount">₹ 1,200</span>
+                        <a href="#" class="action-link">Update Status</a>
+                    </div>
+                </div>
+
+                <div class="job-card job-pending">
+                    <div class="job-status pending">⏳ Pending Acceptance</div>
+                    <h3>Electrical Wiring - New Installation</h3>
+                    <p class="job-meta">📍 Khan Market, Delhi • 16 Feb 2025, 11:00 AM</p>
+                    <p class="job-customer">Customer: Emily Watson</p>
+                    <div class="job-footer">
+                        <span class="job-amount">₹ 3,500</span>
+                        <a href="{% url 'worker_jobs' %}" class="action-link accept-btn">Accept Job</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIPS & RESOURCES -->
+        <section class="tips-section">
+            <h2>Tips to Earn More</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <span class="tip-icon">🎯</span>
+                    <h4>Complete Jobs Quickly</h4>
+                    <p>Faster completion = more job opportunities and bonuses</p>
+                </div>
+
+                <div class="tip-card">
+                    <span class="tip-icon">⭐</span>
+                    <h4>Maintain High Ratings</h4>
+                    <p>Keep your rating above 4.5 to get premium jobs</p>
+                </div>
+
+                <div class="tip-card">
+                    <span class="tip-icon">📱</span>
+                    <h4>Stay Available</h4>
+                    <p>The more hours you're active, the more jobs you'll get</p>
+                </div>
+
+                <div class="tip-card">
+                    <span class="tip-icon">💪</span>
+                    <h4>Add More Skills</h4>
+                    <p>Expand your services to unlock new job categories</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="{% static 'helphop/js/worker_home.js' %}" defer></script>
+</body>
+</html>

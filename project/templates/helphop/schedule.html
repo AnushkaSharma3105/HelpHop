@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,10 @@
     <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/card.css' %}">
 </head>
+
 <body class="aesthetic-bg">
     <a href="{% url 'customer_services' %}" class="back-home" style="color: white; ">
-      ← 
+        ←
     </a>
 
 
@@ -69,7 +71,7 @@
                             </button>
                         </div>
                     </div>
-                    
+
                     <button class="add-more-btn" onclick="openServiceModal()">
                         <span>+</span> Add More Services
                     </button>
@@ -85,7 +87,7 @@
                 </div>
             </div>
 
-            
+
 
             <!-- Empty state -->
             <div class="empty-state" id="emptyState" style="display: none;">
@@ -98,13 +100,13 @@
             <div class="billing-header">
                 <h2>Billing Summary</h2>
             </div>
-            
+
             <div class="billing-details">
                 <div class="billing-items" id="billingItems"></div>
 
-                    <span id="subtotal">₹0</span>
-                    <span id="tax">₹0</span>
-                    <span id="total">₹0</span>
+                <span id="subtotal">₹0</span>
+                <span id="tax">₹0</span>
+                <span id="total">₹0</span>
 
 
                 <div class="billing-divider"></div>
@@ -130,7 +132,7 @@
             <div class="billing-actions">
                 <button class="payment-btn">
                     <a href="{% url 'Payment' %}" style="color: white; text-decoration: none;">
-                    Proceed to Payment →
+                        Proceed to Payment →
                     </a>
                 </button>
             </div>
@@ -144,7 +146,7 @@
                 <h2>Add Services</h2>
                 <button class="modal-close" onclick="closeServiceModal()">×</button>
             </div>
-            
+
             <div class="modal-body">
                 <div class="service-grid" id="availableServices">
                     <!-- Available services will be shown here -->
@@ -195,4 +197,5 @@
     <script src="{% static 'helphop/js/schedule.js' %}"></script>
 
 </body>
+
 </html>

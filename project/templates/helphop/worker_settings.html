@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'helphop/css/worker_pages.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/worker_settings.css' %}">
 </head>
+
 <body class="worker-pages-page worker-settings-page aesthetic-bg">
     <div class="page-bg">
         <div class="page-bg-gradient"></div>
@@ -23,10 +25,12 @@
         <ul class="nav-links">
             <li><a href="{% url 'worker_home' %}" class="nav-link" style="text-decoration: none;">Home</a></li>
             <li><a href="{% url 'worker_jobs' %}" class="nav-link" style="text-decoration: none;">Jobs</a></li>
-            <li><a href="{% url 'worker_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a></li>
+            <li><a href="{% url 'worker_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a>
+            </li>
             <li><a href="{% url 'worker_earnings' %}" class="nav-link" style="text-decoration: none;">Earnings</a></li>
             <li><a href="{% url 'worker_profile' %}" class="nav-link" style="text-decoration: none;">Profile</a></li>
-            <li><a href="{% url 'worker_settings' %}" class="nav-link active" style="text-decoration: none;">Settings</a></li>
+            <li><a href="{% url 'worker_settings' %}" class="nav-link active"
+                    style="text-decoration: none;">Settings</a></li>
         </ul>
         {% if request.user.is_authenticated %}
         <div class="nav-user">
@@ -47,7 +51,7 @@
         <section class="content-card">
             <h2 class="content-card-title">Work Availability</h2>
             <p class="content-card-desc">Control when you're available to accept jobs</p>
-            
+
             <div class="settings-list">
                 <label class="settings-toggle" for="accept-jobs">
                     <span class="settings-toggle-label">Currently accepting jobs</span>
@@ -91,7 +95,7 @@
         <section class="content-card">
             <h2 class="content-card-title">Notifications</h2>
             <p class="content-card-desc">Choose how you'd like to be notified</p>
-            
+
             <div class="settings-list">
                 <label class="settings-toggle" for="notif-email">
                     <span class="settings-toggle-label">Email notifications</span>
@@ -131,7 +135,7 @@
         <section class="content-card">
             <h2 class="content-card-title">Payment Methods</h2>
             <p class="content-card-desc">Manage where your earnings are deposited</p>
-            
+
             <div class="payment-list">
                 <div class="payment-item verified">
                     <div>
@@ -148,7 +152,7 @@
         <section class="content-card">
             <h2 class="content-card-title">Privacy & Security</h2>
             <p class="content-card-desc">Keep your account safe and secure</p>
-            
+
             <div class="settings-list">
                 <label class="settings-toggle" for="profile-visible">
                     <span class="settings-toggle-label">Profile visibility</span>
@@ -179,7 +183,7 @@
         <section class="content-card danger-zone">
             <h2 class="content-card-title">Delete Account</h2>
             <p class="content-card-desc">These actions cannot be undone</p>
-            
+
             <div class="danger-actions">
                 <div class="danger-action">
                     <div>
@@ -206,4 +210,5 @@
 
     <script src="{% static 'helphop/js/worker_settings.js' %}" defer></script>
 </body>
+
 </html>

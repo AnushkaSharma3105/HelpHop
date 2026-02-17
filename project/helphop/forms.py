@@ -4,40 +4,6 @@ from django.core.exceptions import ValidationError
 import re
 
 
-# class RegisterForm(forms.ModelForm):
-#     password = forms.CharField(widget=forms.PasswordInput)
-#     password_confirm = forms.CharField(widget=forms.PasswordInput)
-
-#     class Meta:
-#         model = User
-#         fields = [
-#             "first_name",
-#             "last_name",
-#             "email",
-#             "phone",
-#             "user_type",
-#             "password",
-#             "password_confirm",
-#         ]
-
-#     def clean_email(self):
-#         email = self.cleaned_data.get("email")
-#         if User.objects.filter(email=email).exists():
-#             raise forms.ValidationError("This mail id is already registered")
-#         return email
-
-#     def clean(self):
-#         cleaned_data = super().clean()
-#         password = cleaned_data.get("password")
-#         password_confirm = cleaned_data.get("password_confirm")
-
-#         if password and password_confirm and password != password_confirm:
-#             raise forms.ValidationError("Passwords do not match")
-
-#         return cleaned_data
-
-
-
 class RegisterForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     password_confirm = forms.CharField(widget=forms.PasswordInput)
@@ -54,25 +20,25 @@ class RegisterForm(forms.ModelForm):
             "password_confirm",
         ]
 
-    # ✅ First Name Validation (letters only)
+    # First Name Validation (letters only)
     def clean_first_name(self):
         first_name = self.cleaned_data.get("first_name")
         if not first_name.isalpha():
             raise ValidationError("First name should contain letters only.")
         return first_name
 
-    # ✅ Last Name Validation (letters only)
+    # Last Name Validation (letters only)
     def clean_last_name(self):
         last_name = self.cleaned_data.get("last_name")
         if not last_name.isalpha():
             raise ValidationError("Last name should contain letters only.")
         return last_name
 
-    # ✅ Email validation (uniqueness + valid format)
+    # Email validation (uniqueness + valid format)
     def clean_email(self):
         email = self.cleaned_data.get("email")
 
-        # Basic format check (Django also validates email format automatically)
+        # Basic format check 
         if not re.match(r"^[\w\.-]+@[\w\.-]+\.\w+$", email):
             raise ValidationError("Enter a valid email address.")
 
@@ -81,7 +47,7 @@ class RegisterForm(forms.ModelForm):
 
         return email
 
-    # ✅ Full Form Validation
+    #  Full Form Validation
     def clean(self):
         cleaned_data = super().clean()
         password = cleaned_data.get("password")

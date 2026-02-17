@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateUI();
 });
 
-// ================= UI UPDATES =================
+//  UI UPDATES 
 
 function updateUI() {
     updateServicesList();
@@ -121,7 +121,7 @@ function updateEmptyState() {
         selectedServices.length ? 'none' : 'block';
 }
 
-// ================= SERVICE ACTIONS =================
+//  SERVICE ACTIONS 
 
 function addServiceFromModal(id) {
     const service = allServices.find(s => s.id === id);
@@ -140,7 +140,7 @@ function removeService(id) {
     updateUI();
 }
 
-// ================= MODAL =================
+//  MODAL 
 
 function openServiceModal() {
     const modal = document.getElementById('serviceModal');
@@ -165,7 +165,7 @@ function closeServiceModal() {
     document.getElementById('serviceModal').classList.remove('active');
 }
 
-// ================= SCHEDULE =================
+// SCHEDULE 
 
 function updateTimePreviews() {
     const now = new Date();

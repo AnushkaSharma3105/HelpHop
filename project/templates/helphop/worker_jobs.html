@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'helphop/css/worker_pages.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/worker_jobs.css' %}">
 </head>
+
 <body class="worker-pages-page worker-jobs-page aesthetic-bg">
     <div class="page-bg">
         <div class="page-bg-gradient"></div>
@@ -23,7 +25,8 @@
         <ul class="nav-links">
             <li><a href="{% url 'worker_home' %}" class="nav-link" style="text-decoration: none;">Home</a></li>
             <li><a href="{% url 'worker_jobs' %}" class="nav-link active" style="text-decoration: none;">Jobs</a></li>
-            <li><a href="{% url 'worker_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a></li>
+            <li><a href="{% url 'worker_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a>
+            </li>
             <li><a href="{% url 'worker_earnings' %}" class="nav-link" style="text-decoration: none;">Earnings</a></li>
             <li><a href="{% url 'worker_profile' %}" class="nav-link" style="text-decoration: none;">Profile</a></li>
             <li><a href="{% url 'worker_settings' %}" class="nav-link" style="text-decoration: none;">Settings</a></li>
@@ -46,7 +49,8 @@
         <!-- search box and filter lgane ke liye -->
         <section class="filters-section">
             <div class="search-bar">
-                <input type="text" class="search-input" placeholder="Search jobs by location, service, or customer name...">
+                <input type="text" class="search-input"
+                    placeholder="Search jobs by location, service, or customer name...">
                 <button class="search-btn">🔍</button>
             </div>
 
@@ -100,9 +104,9 @@
                         <span class="job-service-badge">Home Cleaning</span>
                         <span class="priority-badge high">🔴 High Priority</span>
                     </div>
-                    
+
                     <h3 class="job-title">3 BHK Full House Cleaning</h3>
-                    
+
                     <div class="job-details">
                         <div class="detail-item">
                             <span class="detail-icon">📍</span>
@@ -118,10 +122,11 @@
                         </div>
                         <div class="detail-item">
                             <span class="detail-icon">📝</span>
-                            <span class="detail-text">Full apartment cleaning including kitchen, bathrooms, and bedrooms</span>
+                            <span class="detail-text">Full apartment cleaning including kitchen, bathrooms, and
+                                bedrooms</span>
                         </div>
                     </div>
-                    
+
                     <div class="job-pricing">
                         <div class="price-item">
                             <span class="price-label">Payment</span>
@@ -145,9 +150,9 @@
                         <span class="job-service-badge">Plumbing</span>
                         <span class="priority-badge normal">Normal</span>
                     </div>
-                    
+
                     <h3 class="job-title">Water Leak Repair - Kitchen</h3>
-                    
+
                     <div class="job-details">
                         <div class="detail-item">
                             <span class="detail-icon">📍</span>
@@ -184,15 +189,15 @@
                     </div>
                 </div>
 
-                
+
                 <div class="available-job-card">
                     <div class="job-header">
                         <span class="job-service-badge">Electrical</span>
                         <span class="priority-badge normal">Normal</span>
                     </div>
-                    
+
                     <h3 class="job-title">Ceiling Light Installation</h3>
-                    
+
                     <div class="job-details">
                         <div class="detail-item">
                             <span class="detail-icon">📍</span>
@@ -234,9 +239,9 @@
                         <span class="job-service-badge">Painting</span>
                         <span class="priority-badge normal">Normal</span>
                     </div>
-                    
+
                     <h3 class="job-title">Room Painting - 2 Rooms</h3>
-                    
+
                     <div class="job-details">
                         <div class="detail-item">
                             <span class="detail-icon">📍</span>
@@ -278,9 +283,9 @@
                         <span class="job-service-badge">General Repairs</span>
                         <span class="priority-badge normal">Normal</span>
                     </div>
-                    
+
                     <h3 class="job-title">Door Lock Repair</h3>
-                    
+
                     <div class="job-details">
                         <div class="detail-item">
                             <span class="detail-icon">📍</span>
@@ -322,9 +327,9 @@
                         <span class="job-service-badge">Home Cleaning</span>
                         <span class="priority-badge low">Low Priority</span>
                     </div>
-                    
+
                     <h3 class="job-title">Office Space Cleaning</h3>
-                    
+
                     <div class="job-details">
                         <div class="detail-item">
                             <span class="detail-icon">📍</span>
@@ -379,4 +384,5 @@
 
     <script src="{% static 'helphop/js/worker_jobs.js' %}" defer></script>
 </body>
+
 </html>

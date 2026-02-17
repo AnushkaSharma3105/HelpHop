@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +11,12 @@
     <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/card.css' %}">
 
-    
+
 </head>
+
 <body class="aesthetic-bg">
     <a href="{% url 'customer_services' %}" class="back-home" style="color: white; ">
-      ← 
+        ←
     </a>
 
     <!-- Main Content -->
@@ -41,7 +43,7 @@
                 <div class="service-card-compact" data-service-id="home-cleaning">
                     <div class="service-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L3 9v13h6v-7h6v7h6V9l-9-7z" fill="currentColor"/>
+                            <path d="M12 2L3 9v13h6v-7h6v7h6V9l-9-7z" fill="currentColor" />
                         </svg>
                     </div>
                     <div class="service-info">
@@ -51,7 +53,8 @@
                     <div class="service-price">₹499</div>
                     <button class="remove-btn" onclick="removeService('home-cleaning')">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
                         </svg>
                     </button>
                 </div>
@@ -68,7 +71,7 @@
             <div class="billing-header">
                 <h2>Billing Summary</h2>
             </div>
-            
+
             <div class="billing-details">
                 <div class="billing-items" id="billingItems">
                     <!-- Billing items will be dynamically added here -->
@@ -101,7 +104,7 @@
             <div class="billing-actions">
                 <button class="payment-btn">
                     <a href="{% url 'Payment' %}" style="color: white; text-decoration: none;">
-                    Proceed to Payment →
+                        Proceed to Payment →
                     </a>
                 </button>
             </div>
@@ -115,12 +118,13 @@
                 <h2>Add Services</h2>
                 <button class="modal-close" onclick="closeServiceModal()">×</button>
             </div>
-            
+
             <div class="modal-body">
                 <div class="service-grid" id="availableServices">
                     <!-- Available services will be shown here -->
                     <!-- Example: -->
-                    <div class="service-modal-card" onclick="addService('plumbing', 'Plumbing', 'Fixes, installations, maintenance', 599)">
+                    <div class="service-modal-card"
+                        onclick="addService('plumbing', 'Plumbing', 'Fixes, installations, maintenance', 599)">
                         <div class="service-modal-icon">🔧</div>
                         <h3>Plumbing</h3>
                         <p>Fixes, installations, maintenance</p>
@@ -128,7 +132,8 @@
                         <button class="service-add-btn">Add Service</button>
                     </div>
 
-                    <div class="service-modal-card" onclick="addService('electrical', 'Electrical', 'Wiring, fittings, safety checks', 699)">
+                    <div class="service-modal-card"
+                        onclick="addService('electrical', 'Electrical', 'Wiring, fittings, safety checks', 699)">
                         <div class="service-modal-icon">💡</div>
                         <h3>Electrical</h3>
                         <p>Wiring, fittings, safety checks</p>
@@ -136,7 +141,8 @@
                         <button class="service-add-btn">Add Service</button>
                     </div>
 
-                    <div class="service-modal-card" onclick="addService('painting', 'Painting', 'Interior and exterior painting', 899)">
+                    <div class="service-modal-card"
+                        onclick="addService('painting', 'Painting', 'Interior and exterior painting', 899)">
                         <div class="service-modal-icon">🎨</div>
                         <h3>Painting</h3>
                         <p>Interior and exterior painting</p>
@@ -144,7 +150,8 @@
                         <button class="service-add-btn">Add Service</button>
                     </div>
 
-                    <div class="service-modal-card" onclick="addService('laundry', 'Laundry', 'Wash, iron, and fold', 399)">
+                    <div class="service-modal-card"
+                        onclick="addService('laundry', 'Laundry', 'Wash, iron, and fold', 399)">
                         <div class="service-modal-icon">🧺</div>
                         <h3>Laundry</h3>
                         <p>Wash, iron, and fold</p>
@@ -152,7 +159,8 @@
                         <button class="service-add-btn">Add Service</button>
                     </div>
 
-                    <div class="service-modal-card" onclick="addService('repairs', 'Repairs', 'General repairs and handyman', 549)">
+                    <div class="service-modal-card"
+                        onclick="addService('repairs', 'Repairs', 'General repairs and handyman', 549)">
                         <div class="service-modal-icon">🔨</div>
                         <h3>Repairs</h3>
                         <p>General repairs and handyman</p>
@@ -164,9 +172,10 @@
         </div>
     </div>
 
-    
+
 
     <script src="{% static 'helphop/js/booking.js' %}"></script>
 
 </body>
+
 </html>

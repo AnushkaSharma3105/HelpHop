@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +11,9 @@
     <link rel="stylesheet" href="{% static 'helphop/css/worker_home.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/worker_pages.css' %}">
-    <link rel="stylesheet" href="{% static 'helphop/css/worker_home.css' %}"
+    <link rel="stylesheet" href="{% static 'helphop/css/worker_home.css' %}">
 </head>
+
 <body class="worker-home-page aesthetic-bg">
     <div class="page-bg">
         <div class="page-bg-gradient"></div>
@@ -25,7 +27,8 @@
         <ul class="nav-links">
             <li><a href="{% url 'worker_home' %}" class="nav-link active" style="text-decoration: none;">Home</a></li>
             <li><a href="{% url 'worker_jobs' %}" class="nav-link" style="text-decoration: none;">Jobs</a></li>
-            <li><a href="{% url 'worker_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a></li>
+            <li><a href="{% url 'worker_dashboard' %}" class="nav-link" style="text-decoration: none;">Dashboard</a>
+            </li>
             <li><a href="{% url 'worker_earnings' %}" class="nav-link" style="text-decoration: none;">Earnings</a></li>
             <li><a href="{% url 'worker_profile' %}" class="nav-link" style="text-decoration: none;">Profile</a></li>
             <li><a href="{% url 'worker_settings' %}" class="nav-link" style="text-decoration: none;">Settings</a></li>
@@ -47,7 +50,7 @@
                     <span>{{ user_full_name }}</span>
                 </h1>
                 <p>
-                    You're making great progress this month. 
+                    You're making great progress this month.
                     Keep accepting jobs and growing your earnings.
                 </p>
             </div>
@@ -195,4 +198,5 @@
 
     <script src="{% static 'helphop/js/worker_home.js' %}" defer></script>
 </body>
+
 </html>

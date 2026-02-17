@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,9 @@
     <link rel="stylesheet" href="{% static 'helphop/css/Payment.css' %}">
     <link rel="stylesheet" href="{% static 'helphop/css/global.css' %}">
 </head>
+
 <body class="aesthetic-bg">
-    
+
 
     <!-- Main Content -->
     <div class="payment-container">
@@ -52,8 +54,9 @@
                             </div>
                             <div class="method-icon">
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <rect width="40" height="40" rx="8" fill="#5F259F"/>
-                                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="14" font-weight="bold">UPI</text>
+                                    <rect width="40" height="40" rx="8" fill="#5F259F" />
+                                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white"
+                                        font-size="14" font-weight="bold">UPI</text>
                                 </svg>
                             </div>
                         </label>
@@ -68,14 +71,17 @@
                                 <span class="method-description">Visa, Mastercard, RuPay</span>
                             </div>
                             <div class="method-icons-group">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="card-logo">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="card-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa"
+                                    class="card-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                                    alt="Mastercard" class="card-logo">
                             </div>
                         </label>
                     </div>
 
                     <!-- Net Banking -->
-                    <div class="payment-method-card" data-method="netbanking" onclick="selectPaymentMethod('netbanking')">
+                    <div class="payment-method-card" data-method="netbanking"
+                        onclick="selectPaymentMethod('netbanking')">
                         <input type="radio" name="payment-method" id="netbanking" value="netbanking">
                         <label for="netbanking" class="payment-method-label">
                             <div class="method-info">
@@ -84,10 +90,10 @@
                             </div>
                             <div class="method-icon">
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <rect width="40" height="40" rx="8" fill="#4A90E2"/>
-                                    <path d="M20 12L10 18V28H30V18L20 12Z" fill="white"/>
-                                    <rect x="15" y="22" width="3" height="6" fill="#4A90E2"/>
-                                    <rect x="22" y="22" width="3" height="6" fill="#4A90E2"/>
+                                    <rect width="40" height="40" rx="8" fill="#4A90E2" />
+                                    <path d="M20 12L10 18V28H30V18L20 12Z" fill="white" />
+                                    <rect x="15" y="22" width="3" height="6" fill="#4A90E2" />
+                                    <rect x="22" y="22" width="3" height="6" fill="#4A90E2" />
                                 </svg>
                             </div>
                         </label>
@@ -103,15 +109,17 @@
                             </div>
                             <div class="method-icon">
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <rect width="40" height="40" rx="8" fill="#00BAF2"/>
-                                    <path d="M14 16H26V18H14V16ZM14 20H26V22H14V20ZM26 12H14C12.9 12 12 12.9 12 14V26C12 27.1 12.9 28 14 28H26C27.1 28 28 27.1 28 26V14C28 12.9 27.1 12 26 12Z" fill="white"/>
+                                    <rect width="40" height="40" rx="8" fill="#00BAF2" />
+                                    <path
+                                        d="M14 16H26V18H14V16ZM14 20H26V22H14V20ZM26 12H14C12.9 12 12 12.9 12 14V26C12 27.1 12.9 28 14 28H26C27.1 28 28 27.1 28 26V14C28 12.9 27.1 12 26 12Z"
+                                        fill="white" />
                                 </svg>
                             </div>
                         </label>
                     </div>
                 </div>
 
-                <!-- Payment Forms (Hidden by default) -->
+                <!-- Payment Forms -->
                 <!-- UPI Form -->
                 <div class="payment-form" id="upi-form" style="display: none;">
                     <h3>Enter UPI ID</h3>
@@ -128,7 +136,8 @@
                     <h3>Enter Card Details</h3>
                     <div class="form-group">
                         <label for="card-number">Card Number</label>
-                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" class="form-input" maxlength="19">
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" class="form-input"
+                            maxlength="19">
                     </div>
                     <div class="form-group">
                         <label for="card-name">Name on Card</label>
@@ -210,7 +219,7 @@
             <div class="order-summary-section">
                 <div class="order-summary-card">
                     <h3>Order Summary</h3>
-                    
+
                     <div class="order-items" id="orderItems">
                         <!-- Services will be dynamically added here -->
                         <div class="order-item">
@@ -244,8 +253,9 @@
 
                     <div class="secure-payment-badge">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M8 1L3 3V7C3 10.5 5.5 13.5 8 14.5C10.5 13.5 13 10.5 13 7V3L8 1Z" fill="#22c55e"/>
-                            <path d="M6.5 8L7.5 9L10 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 1L3 3V7C3 10.5 5.5 13.5 8 14.5C10.5 13.5 13 10.5 13 7V3L8 1Z" fill="#22c55e" />
+                            <path d="M6.5 8L7.5 9L10 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                         <span>Secure Payment</span>
                     </div>
@@ -256,4 +266,5 @@
 
     <script src="{% static 'helphop/js/Payment.js' %}"></script>
 </body>
+
 </html>

@@ -59,8 +59,7 @@ function loadOrderData() {
             orderData.isScheduled = scheduledParam === 'true';
             
             // Calculate subtotal and tax from total
-            // Total = Subtotal + Tax, where Tax = Subtotal * 0.18
-            // So: Total = Subtotal * 1.18
+            
             orderData.subtotal = Math.round(orderData.total / 1.18);
             orderData.tax = orderData.total - orderData.subtotal;
         } catch (e) {
@@ -329,11 +328,6 @@ function processPayment() {
     payButton.disabled = true;
     payButton.textContent = 'Processing...';
     
-    // In production, this would:
-    // 1. Send payment details to backend
-    // 2. Integrate with payment gateway (Razorpay, PayU, etc.)
-    // 3. Handle payment callback
-    // 4. Redirect to success/failure page
     
     // Simulate payment processing
     setTimeout(() => {
@@ -353,9 +347,7 @@ function processPayment() {
         message += `\n\nYou will receive a confirmation email shortly.`;
         
         alert(message);
-        
-        // In production, redirect to success page
-        // window.location.href = '/payment-success?order_id=12345';
+   
         
         // Reset button
         payButton.disabled = false;

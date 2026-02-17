@@ -1,6 +1,6 @@
-/* ===== Aesthetic Neutral Background (Landing / Login / Signup) ===== */
+
 .aesthetic-bg {
-    /* min-height: 100vh; */
+   
     position: relative;
     background:
         linear-gradient(
@@ -9,12 +9,10 @@
             #d2e4fa 40%,
             #a4d0fc 70%,
             #74b9fe 100%
-        );
-    /* overflow-x: hidden; 
-    z-index: 9999; */
+        );    
 }
 
-/* subtle depth layer */
+
 .aesthetic-bg::before {
     content: "";
     position: fixed;
@@ -31,39 +29,27 @@
             transparent 50%
         );
     z-index: -1;
-    /* pointer-events: none; */
+    
 }
 
-/* keep content above */
+
 .aesthetic-bg > * {
     position: relative;
     z-index: 1;
 }
 
 
-/* global */
-
 /* NAVBAR */
 
-
-/* ===============================
-   GLOBAL NAVBAR – HELPHOP
-================================ */
-
-
-/* =============================================
-   Customer Navbar Styling
-   Matches the dark blue modern look from screenshot
-============================================= */
 
 .customer-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #0a2540;          /* deep navy / dark blue from screenshot */
+  background-color: #0a2540;          
   color: white;
   padding: 0 32px;
-  height: 67px;                       /* typical modern nav height */
+  height: 67px;                       
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -78,22 +64,22 @@
 }
 
 .nav-logo img {
-  height: 36px;                      /* adjust based on your actual logo */
+  height: 36px;                     
   width: auto;
 }
 
-/* Navigation links container */
+
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;                         /* spacing between links */
+  gap: 32px;                         
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .nav-link {
-  color: #e2e8f0;                    /* light gray-white for good contrast */
+  color: #e2e8f0;                    
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
@@ -111,7 +97,6 @@
   font-weight: 600;
 }
 
-/* Underline effect for active & hover (common in modern designs) */
 .nav-link.active::after,
 .nav-link:hover::after {
   content: '';
@@ -120,11 +105,11 @@
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #3b82f6;         /* blue accent - or change to your brand color */
+  background-color: #3b82f6;         
   border-radius: 2px;
 }
 
-/* Right side - user info + logout */
+
 .nav-user {
   display: flex;
   align-items: center;
@@ -152,7 +137,7 @@
 
 .nav-btn-outline {
   background-color: transparent;
-  border: 1.5px solid #60a5fa;      /* light blue border */
+  border: 1.5px solid #60a5fa;     
   color: #60a5fa;
 }
 

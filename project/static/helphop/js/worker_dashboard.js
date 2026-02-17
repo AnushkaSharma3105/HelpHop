@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const jobCard = this.closest('.job-card');
             const jobService = jobCard.querySelector('.job-service').textContent;
             
-            if (confirm(`Mark "${jobService}" as complete?`)) {
+             
                 // Update badge
                 const badge = jobCard.querySelector('.job-badge');
                 badge.textContent = '✓ Completed';
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Add rating prompt
                 setTimeout(() => {
-                    const rating = prompt('Rate this customer (1-5 stars):', '5');
+                    
                     if (rating) {
                         const ratingSpan = document.createElement('span');
                         ratingSpan.className = 'job-rating';
@@ -64,8 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         jobCard.querySelector('.job-meta').appendChild(ratingSpan);
                     }
                 }, 300);
-            }
-        });
+            });
     });
     
     // Handle update status button

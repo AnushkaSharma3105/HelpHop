@@ -1,13 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Verification | HELPHOP</title>
 
     <style>
-        /* ===== PAGE BACKGROUND ===== */
+        /* PAGE BACKGROUND  */
         body {
             min-height: 100vh;
             margin: 0;
@@ -18,7 +19,7 @@
             justify-content: center;
         }
 
-        /* ===== CARD ===== */
+        /*CARD */
         .verify-card {
             background: #ffffff;
             width: 100%;
@@ -41,7 +42,7 @@
             font-size: 15px;
         }
 
-        /* ===== MESSAGES ===== */
+        /* MESSAGES  */
         .messages p {
             background: #eef2ff;
             color: #1e3a8a;
@@ -51,7 +52,7 @@
             font-size: 14px;
         }
 
-        /* ===== FORM ===== */
+        /*  FORM */
         form {
             margin-top: 16px;
             text-align: left;
@@ -79,7 +80,7 @@
             box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
         }
 
-        /* ===== BUTTON ===== */
+        /*  BUTTON  */
         button {
             width: 100%;
             padding: 12px;
@@ -109,7 +110,7 @@
         {% if messages %}
         <div class="messages">
             {% for message in messages %}
-                <p>{{ message }}</p>
+            <p>{{ message }}</p>
             {% endfor %}
         </div>
         {% endif %}
@@ -125,4 +126,5 @@
     </div>
 
 </body>
+
 </html>

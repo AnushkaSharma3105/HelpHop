@@ -13,7 +13,7 @@ class UserManager(BaseUserManager):
         email = self.normalize_email(email)
         user = self.model(email=email)
         user.set_password(password)
-        user.is_active = False  # IMPORTANT: inactive until OTP verified
+        user.is_active = False 
         user.save(using=self._db)
         return user
 

@@ -217,37 +217,3 @@ function addService(serviceId, serviceName, serviceDescription, servicePrice) {
         closeServiceModal();
     }
 }
-
-// Proceed to payment
-// function proceedToPayment() {
-//     if (selectedServices.length === 0) {
-//         alert('Please add at least one service to proceed with payment.');
-//         return;
-//     }
-    
-//     // Calculate total
-//     const subtotal = selectedServices.reduce((sum, service) => sum + service.price, 0);
-//     const tax = Math.round(subtotal * 0.18);
-//     const total = subtotal + tax;
-    
-//     // In a real application, this would redirect to a payment gateway
-//     alert(`Proceeding to payment for ₹${total}\n\nServices:\n${selectedServices.map(s => `- ${s.name}: ₹${s.price}`).join('\n')}\n\nSubtotal: ₹${subtotal}\nTax (18% GST): ₹${tax}\nTotal: ₹${total}`);
-    
-//     // You can redirect to payment page or integrate payment gateway here
-//     // window.location.href = '/payment?amount=' + total;
-// }
-
-// // Close modal when clicking outside
-// document.addEventListener('click', function(event) {
-//     const modal = document.getElementById('serviceModal');
-//     if (event.target === modal) {
-//         closeServiceModal();
-//     }
-// });
-
-// // Close modal on Escape key
-// document.addEventListener('keydown', function(event) {
-//     if (event.key === 'Escape') {
-//         closeServiceModal();
-//     }
-// });

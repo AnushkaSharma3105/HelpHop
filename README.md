@@ -76,3 +76,38 @@ Uses Django’s authentication system
 Passwords are securely hashed
 Role-based redirection handled in login view
 Worker and Customer dashboards protected using login_required
+
+How to Run the Project:-
+Follow these steps to run HelpHop locally on your system.
+
+1. Clone the Repository
+git clone https://github.com/yourusername/helphop.git
+cd helphop
+
+2. Create a Virtual Environment
+python -m venv venv
+Activate it:
+
+Windows:
+venv\Scripts\activate
+
+Mac/Linux:
+source venv/bin/activate
+
+4. Install Required Dependencies
+   pip install -r requirements.txt
+
+5. Apply Database Migrations
+   python manage.py makemigrations
+   python manage.py migrate
+
+6. Create Superuser (Optional – For Admin Panel)
+   python manage.py createsuperuser
+
+7. Run the Development Server
+   python manage.py runserver
+
+8. Open in browser:
+   http://127.0.0.1:8000/
+
+

@@ -100,6 +100,7 @@ source venv/bin/activate
 
 ### 5. Apply Database Migrations
    python manage.py makemigrations
+   
    python manage.py migrate
 
 ### 6. Create Superuser (Optional – For Admin Panel)

@@ -82,7 +82,7 @@ Worker and Customer dashboards protected using login_required
 Follow these steps to run HelpHop locally on your system.
 
 ### 1. Clone the Repository
-git clone https://github.com/yourusername/helphop.git
+git clone https://github.com/AnushkaSharma3105/helphop.git
 cd helphop
 
 ### 2. Create a Virtual Environment

@@ -119,7 +119,7 @@ git clone https://github.com/AnushkaSharma3105/helphop.git
 cd helphop
 
 ### 2. Create a Virtual Environment
-python -m venv venv
+python -m venv venv, 
 Activate it:
 
 Windows:
